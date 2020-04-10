@@ -10,12 +10,29 @@
  Maschine 4 - Nasswickelmaschine
 
 """
+# importing tkinter module
+from tkinter import *
+
+# creating Tk() variable
+# required by Tkinter classes
+master = Tk()
 
 " TO DO: Deklaration der Parameter "
 
 # Maschine 1
 
-
+abfallProzentsatz = DoubleVar()
+recyclingAbsolut = IntVar()
+recyclingRelativ = DoubleVar()
+verbrauchEnergie = IntVar()
+verbrauchMaterial = IntVar()
+kostenEffizienz = DoubleVar()
+kostenAufwand = IntVar()
+zeitAufwand = DoubleVar()
+flexibilität = IntVar()
+zeitEffizienz = IntVar()
+innovativität = IntVar()
+flächenVerbrauch = DoubleVar()
 
 # Maschine 2
 
