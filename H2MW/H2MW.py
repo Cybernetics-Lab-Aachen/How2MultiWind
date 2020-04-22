@@ -155,7 +155,7 @@ for i in range(2):
     flächenVerbrauch_norm.append(DoubleVar())
 
 
-print(norm_wert(abfallProzentsatz[0].get(), abfallProzentsatz, 10, 90, 0))              #Ausgabe Block
+print(norm_wert(abfallProzentsatz[0].get(), abfallProzentsatz, 10, 90, 0))              #Ausgabe-Block
 print(norm_wert(recyclingAbsolut[0].get(), recyclingAbsolut, 0, 1440, 1))
 print(norm_wert(recyclingRelativ[0].get(), recyclingRelativ, 51.2, 53.5, 1))
 print(norm_wert(verbrauchEnergie[0].get(), verbrauchEnergie, 2524, 3051, 0))
