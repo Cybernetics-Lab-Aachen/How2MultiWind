@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d1a1e64c-1c61-4211-9191-9523212fab40" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/H2MW.py" beforeDir="false" afterPath="$PROJECT_DIR$/H2MW.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +29,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager">
     <configuration name="H2MW" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -73,6 +73,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="2279" y="174" key="#H2MW" timestamp="1587719432285">
+      <screen x="1600" y="40" width="1920" height="1040" />
+    </state>
+    <state x="2279" y="174" key="#H2MW/0.40.1600.860/1600.40.1920.1040@1600.40.1920.1040" timestamp="1587719432285" />
     <state width="1449" height="27" key="GridCell.Tab.0.bottom" timestamp="1587667696182">
       <screen x="66" y="0" width="1470" height="864" />
     </state>
@@ -89,10 +93,15 @@
       <screen x="66" y="0" width="1470" height="864" />
     </state>
     <state width="1449" height="27" key="GridCell.Tab.0.right/66.0.1470.864@66.0.1470.864" timestamp="1587667696181" />
-    <state x="521" y="255" key="com.intellij.ide.util.TipDialog" timestamp="1587667752462">
-      <screen x="66" y="0" width="1470" height="864" />
+    <state x="2061" y="202" key="SettingsEditor" timestamp="1588171400246">
+      <screen x="1600" y="40" width="1920" height="1040" />
+    </state>
+    <state x="2061" y="202" key="SettingsEditor/0.40.1600.860/1600.40.1920.1040@1600.40.1920.1040" timestamp="1588171400246" />
+    <state x="2194" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1588171269005">
+      <screen x="1600" y="40" width="1920" height="1040" />
     </state>
     <state x="495" y="294" key="com.intellij.ide.util.TipDialog/0.40.1600.860/1600.40.1920.1040@0.40.1600.860" timestamp="1586515918194" />
+    <state x="2194" y="347" key="com.intellij.ide.util.TipDialog/0.40.1600.860/1600.40.1920.1040@1600.40.1920.1040" timestamp="1588171269005" />
     <state x="521" y="255" key="com.intellij.ide.util.TipDialog/66.0.1470.864@66.0.1470.864" timestamp="1587667752462" />
   </component>
 </project>
