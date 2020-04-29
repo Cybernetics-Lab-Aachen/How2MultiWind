@@ -237,18 +237,18 @@ for i in range(4):
     flächenVerbrauch_zg.append(DoubleVar())
 
 for i in range (4):
-    abfallProzentsatz_zg[i].set((abfallProzentsatz_norm[i] % 0.5) * 4)
-    recyclingAbsolut_zg[i].set((recyclingAbsolut_norm[i] % 0.5) * 4)
-    recyclingRelativ_zg[i].set((recyclingRelativ_norm[i] % 0.5) * 4)
-    verbrauchEnergie_zg[i].set((verbrauchEnergie_norm[i] % 0.5) * 4)
-    verbrauchMaterial_zg[i].set((verbrauchMaterial_norm[i] % 0.5) * 4)
-    kostenEffizienz_zg[i].set((kostenEffizienz_norm[i] % 0.5) * 4)
-    kostenAufwand_zg[i].set((kostenAufwand_norm[i] % 0.5) * 5)
-    zeitAufwand_zg[i].set((zeitAufwand_norm[i] % 0.5) * 4)
-    flexibilität_zg[i].set((flexibilität_norm[i] % 0.5) * 4)
-    zeitEffizienz_zg[i].set((zeitEffizienz_norm[i] % 0.5) * 4)
-    innovativität_zg[i].set((innovativität_norm[i] % 0.5) * 4)
-    flächenVerbrauch_zg[i].set((flächenVerbrauch_norm[i] % 0.5) * 4)
+    abfallProzentsatz_zg[i].set((abfallProzentsatz_norm[i].get() % 0.5) * 4)
+    recyclingAbsolut_zg[i].set((recyclingAbsolut_norm[i].get() % 0.5) * 4)
+    recyclingRelativ_zg[i].set((recyclingRelativ_norm[i].get() % 0.5) * 4)
+    verbrauchEnergie_zg[i].set((verbrauchEnergie_norm[i].get() % 0.5) * 4)
+    verbrauchMaterial_zg[i].set((verbrauchMaterial_norm[i].get() % 0.5) * 4)
+    kostenEffizienz_zg[i].set((kostenEffizienz_norm[i].get() % 0.5) * 4)
+    kostenAufwand_zg[i].set((kostenAufwand_norm[i].get() % 0.5) * 5)
+    zeitAufwand_zg[i].set((zeitAufwand_norm[i].get() % 0.5) * 4)
+    flexibilität_zg[i].set((flexibilität_norm[i].get() % 0.5) * 4)
+    zeitEffizienz_zg[i].set((zeitEffizienz_norm[i].get() % 0.5) * 4)
+    innovativität_zg[i].set((innovativität_norm[i].get() % 0.5) * 4)
+    flächenVerbrauch_zg[i].set((flächenVerbrauch_norm[i].get() % 0.5) * 4)
 
 sozial_oekologisch = []
 for i in range(4):
