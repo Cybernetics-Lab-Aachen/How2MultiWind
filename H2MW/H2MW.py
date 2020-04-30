@@ -15,7 +15,8 @@ from tkinter import *
 
 # creating Tk() variable
 # required by Tkinter classes
-master = Tk()
+root = Tk()
+root.title("MyApp")
 
 " TO DO: Deklaration/Initialisierung der Parameter "
 
@@ -69,8 +70,8 @@ kostenAufwand[0].set(40)
 zeitAufwand[0].set(3.5)
 flexibilität[0].set(5)
 zeitEffizienz[0].set(3)
-innovativität[0].set(4)
-flächenVerbrauch[0].set(25.5)
+innovativität[0].set(7)
+flächenVerbrauch[0].set(29.5)
 
 # Maschine 1
 
@@ -237,18 +238,19 @@ for i in range(4):
     flächenVerbrauch_zg.append(DoubleVar())
 
 for i in range (4):
-    abfallProzentsatz_zg[i].set((abfallProzentsatz_norm[i].get() % 0.5) * 4)
-    recyclingAbsolut_zg[i].set((recyclingAbsolut_norm[i].get() % 0.5) * 4)
-    recyclingRelativ_zg[i].set((recyclingRelativ_norm[i].get() % 0.5) * 4)
-    verbrauchEnergie_zg[i].set((verbrauchEnergie_norm[i].get() % 0.5) * 4)
-    verbrauchMaterial_zg[i].set((verbrauchMaterial_norm[i].get() % 0.5) * 4)
-    kostenEffizienz_zg[i].set((kostenEffizienz_norm[i].get() % 0.5) * 4)
+    abfallProzentsatz_zg[i].set((abfallProzentsatz_norm[i].get() % 0.5) * 2)
+    recyclingAbsolut_zg[i].set((recyclingAbsolut_norm[i].get() % 0.5) * 2)
+    recyclingRelativ_zg[i].set((recyclingRelativ_norm[i].get() % 0.5) * 2)
+    verbrauchEnergie_zg[i].set((verbrauchEnergie_norm[i].get() % 0.5) * 2)
+    verbrauchMaterial_zg[i].set((verbrauchMaterial_norm[i].get() % 0.5) * 2)
+    kostenEffizienz_zg[i].set((kostenEffizienz_norm[i].get() % 0.5) * 2)
     kostenAufwand_zg[i].set((kostenAufwand_norm[i].get() % 0.5) * 5)
-    zeitAufwand_zg[i].set((zeitAufwand_norm[i].get() % 0.5) * 4)
-    flexibilität_zg[i].set((flexibilität_norm[i].get() % 0.5) * 4)
-    zeitEffizienz_zg[i].set((zeitEffizienz_norm[i].get() % 0.5) * 4)
-    innovativität_zg[i].set((innovativität_norm[i].get() % 0.5) * 4)
-    flächenVerbrauch_zg[i].set((flächenVerbrauch_norm[i].get() % 0.5) * 4)
+    zeitAufwand_zg[i].set((zeitAufwand_norm[i].get() % 0.5) * 2)
+    flexibilität_zg[i].set((flexibilität_norm[i].get() % 0.5) * 2)
+    zeitEffizienz_zg[i].set((zeitEffizienz_norm[i].get() % 0.5) * 2)
+    innovativität_zg[i].set((innovativität_norm[i].get() % 0.5) * 2)
+    flächenVerbrauch_zg[i].set((flächenVerbrauch_norm[i].get() % 0.5) * 2)
+
 
 sozial_oekologisch = []
 for i in range(4):
@@ -275,15 +277,26 @@ def dimension_rechnen(*argv):
     for arg in argv:
         var = var * (arg * arg + (1 - arg) * (1 - arg))
     return var
-for i in rang(4):
-    sozial_oekologisch[i].set(dimension_rechnen())
-    oekologisch[i].set(dimension_rechnen(abfallProzentsatz[i], recyclingAbsolut[i], recyclingRelativ[i])
-    oekologisch_oekonomisch[i].set(dimension_rechnen(verbrauchEnergie[i], verbrauchMaterial[i], kostenEffizienz[i], kostenAufwand[i]))
-    oekonomisch[i].set(dimension_rechnen(zeitAufwand[i], flexibilität[i], zeitEffizienz[i]))
-    sozial_oekologisch[i].set(dimension_rechnen())
-    sozial_oekologisch_oekonomisch[i].set(dimension_rechnen(innovativität[i], flächenVerbrauch[i]))
 
-print(sozial_oekologisch_oekonomisch)
+for i in range(4):
+    print("----------------------------------------------------------------")
+    #print(dimension_rechnen())
+    print("oekologisch: ", dimension_rechnen(abfallProzentsatz_zg[i].get(), recyclingAbsolut_zg[i].get(), recyclingRelativ_zg[i].get()))
+    print("oekologisch_oekonomisch :", dimension_rechnen(verbrauchEnergie_zg[i].get(), verbrauchMaterial_zg[i].get(), kostenEffizienz_zg[i].get(), kostenAufwand_zg[i].get()))
+    print("oekonomisch :", dimension_rechnen(zeitAufwand_zg[i].get(), flexibilität_zg[i].get(), zeitEffizienz_zg[i].get()))
+    #print(dimension_rechnen())
+    print("sozial_oekologisch_oekonomisch :", dimension_rechnen(innovativität_zg[i].get(), flächenVerbrauch_zg[i].get()))
+
+for i in range(4):
+    #sozial_oekologisch[i].set(dimension_rechnen())
+    oekologisch[i].set(dimension_rechnen(abfallProzentsatz_zg[i].get(), recyclingAbsolut_zg[i].get(), recyclingRelativ_zg[i].get()))
+    oekologisch_oekonomisch[i].set(dimension_rechnen(verbrauchEnergie_zg[i].get(), verbrauchMaterial_zg[i].get(), kostenEffizienz_zg[i].get(), kostenAufwand_zg[i].get()))
+    oekonomisch[i].set(dimension_rechnen(zeitAufwand_zg[i].get(), flexibilität_zg[i].get(), zeitEffizienz_zg[i].get()))
+    #sozial_oekologisch[i].set(dimension_rechnen())
+    sozial_oekologisch_oekonomisch[i].set(dimension_rechnen(innovativität_zg[i].get(), flächenVerbrauch_zg[i].get()))
+
+
+
 # Maschine 0
 
 
@@ -308,3 +321,6 @@ print(sozial_oekologisch_oekonomisch)
 
 
 # Maschine 3
+
+
+root.mainloop()
