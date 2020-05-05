@@ -4,10 +4,10 @@
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
  Index:
- Maschine 1 - Flechtmaschine
- Maschine 2 - Multifilamentwickelmaschine 90
- Maschine 3 - Mulftifilamentwickelmaschine 48
- Maschine 4 - Nasswickelmaschine
+ Maschine 0 - Flechtmaschine
+ Maschine 1 - Multifilamentwickelmaschine 90
+ Maschine 2 - Mulftifilamentwickelmaschine 48
+ Maschine 3 - Nasswickelmaschine
 
 """
 # importing tkinter module
@@ -17,194 +17,303 @@ from tkinter import *
 # required by Tkinter classes
 master = Tk()
 
-" TO DO: Deklaration der Parameter "
+" TO DO: Deklaration/Initialisierung der Parameter "
+
+abfallProzentsatz = []  # Deklaration der Werte Listen
+for i in range(4):
+    abfallProzentsatz.append(IntVar())
+recyclingAbsolut = []
+for i in range(4):
+    recyclingAbsolut.append(IntVar())
+recyclingRelativ = []
+for i in range(4):
+    recyclingRelativ.append(DoubleVar())
+verbrauchEnergie = []
+for i in range(4):
+    verbrauchEnergie.append(IntVar())
+verbrauchMaterial = []
+for i in range(4):
+    verbrauchMaterial.append(IntVar())
+kostenEffizienz = []
+for i in range(4):
+    kostenEffizienz.append(DoubleVar())
+kostenAufwand = []
+for i in range(4):
+    kostenAufwand.append(IntVar())
+zeitAufwand = []
+for i in range(4):
+    zeitAufwand.append(DoubleVar())
+flexibilität = []
+for i in range(4):
+    flexibilität.append(IntVar())
+zeitEffizienz = []
+for i in range(4):
+    zeitEffizienz.append(IntVar())
+innovativität = []
+for i in range(4):
+    innovativität.append(IntVar())
+flächenVerbrauch = []
+for i in range(4):
+    flächenVerbrauch.append(DoubleVar())
+
+# Maschine 0
+
+
+abfallProzentsatz[0].set(64)
+recyclingAbsolut[0].set(1440)
+recyclingRelativ[0].set(51.2)
+verbrauchEnergie[0].set(2524)
+verbrauchMaterial[0].set(1375)
+kostenEffizienz[0].set(0.91)
+kostenAufwand[0].set(40)
+zeitAufwand[0].set(3.5)
+flexibilität[0].set(5)
+zeitEffizienz[0].set(3)
+innovativität[0].set(4)
+flächenVerbrauch[0].set(25.5)
 
 # Maschine 1
 
-abfallProzentsatz = DoubleVar()
-recyclingAbsolut = IntVar()
-recyclingRelativ = DoubleVar()
-verbrauchEnergie = IntVar()
-verbrauchMaterial = IntVar()
-kostenEffizienz = DoubleVar()
-kostenAufwand = IntVar()
-zeitAufwand = DoubleVar()
-flexibilität = IntVar()
-zeitEffizienz = IntVar()
-innovativität = IntVar()
-flächenVerbrauch = DoubleVar()
+
+abfallProzentsatz[1].set(90)
+recyclingAbsolut[1].set(1440)
+recyclingRelativ[1].set(53.5)
+verbrauchEnergie[1].set(3051)
+verbrauchMaterial[1].set(1250)
+kostenEffizienz[1].set(2.56)
+kostenAufwand[1].set(60)
+zeitAufwand[1].set(1)
+flexibilität[1].set(6)
+zeitEffizienz[1].set(7)
+innovativität[1].set(7)
+flächenVerbrauch[1].set(55.5)
 
 # Maschine 2
 
 
+abfallProzentsatz[2].set(48)
+recyclingAbsolut[2].set(1440)
+recyclingRelativ[2].set(52.3)
+verbrauchEnergie[2].set(3051)
+verbrauchMaterial[2].set(1312)
+kostenEffizienz[2].set(1.37)
+kostenAufwand[2].set(60)
+zeitAufwand[2].set(1.5)
+flexibilität[2].set(5)
+zeitEffizienz[2].set(6)
+innovativität[2].set(6)
+flächenVerbrauch[2].set(36.5)
 
 # Maschine 3
-#Parameter wurden an dieser Stelle deklariert.
-
-abfallProzentsatz_M3 = DoubleVar()
-recyclingAbsolut_M3 = IntVar()
-recyclingRelativ_M3 = DoubleVar()
-verbrauchEnergie_M3 = IntVar()
-verbrauchMaterial_M3 = IntVar()
-kostenEffizienz_M3 = DoubleVar()
-kostenAufwand_M3 = IntVar()
-zeitAufwand_M3 = DoubleVar()
-flexibilität_M3 = IntVar()
-zeitEffizienz_M3 = IntVar()
-innovativität_M3 = IntVar()
-flächenVerbrauch_M3 = DoubleVar()
-
-abfallProzentsatz_M3.set(48)
-recyclingAbsolut_M3.set(1440)
-recyclingRelativ_M3.set(52.3)
-verbrauchEnergie_M3.set(3051)
-verbrauchMaterial_M3.set(1312)
-kostenEffizienz_M3.set(1.37)
-kostenAufwand_M3.set(60)
-zeitAufwand_M3.set(1.5)
-flexibilität_M3.set(5)
-zeitEffizienz_M3.set(6)
-innovativität_M3.set(6)
-flächenVerbrauch_M3.set(36.5)
-
-# Maschine 4
 
 
-abfallProzentsatz_M4 = DoubleVar()
-recyclingAbsolut_M4 = IntVar()
-recyclingRelativ_M4 = DoubleVar()
-verbrauchEnergie_M4 = IntVar()
-verbrauchMaterial_M4 = IntVar()
-kostenEffizienz_M4 = DoubleVar()
-kostenAufwand_M4 = IntVar()
-zeitAufwand_M4 = DoubleVar()
-flexibilität_M4 = IntVar()
-zeitEffizienz_M4 = IntVar()
-innovativität_M4 = IntVar()
-flächenVerbrauch_M4 = DoubleVar()
-
-
-abfallProzentsatz_M4.set(10)
-recyclingAbsolut_M4.set(1440)
-recyclingRelativ_M4.set(51.8)
-# verbrauchEnergie_M4 = ... noch keine Angaben zu diesem BasisIndikator
-verbrauchMaterial_M4.set(1337)
-kostenEffizienz_M4.set(0.28)
-kostenAufwand_M4.set(40)
-zeitAufwand_M4.set(2.5)
-flexibilität_M4.set(7)
-zeitEffizienz_M4.set(5)
-innovativität_M4.set(5)
-# flächenVerbrauch_M4 = ... noch keine Angaben zu diesem Basisindikator
+abfallProzentsatz[3].set(10)
+recyclingAbsolut[3].set(1440)
+recyclingRelativ[3].set(51.8)
+verbrauchEnergie[3].set(2524)
+verbrauchMaterial[3].set(1337)
+kostenEffizienz[3].set(0.28)
+kostenAufwand[3].set(40)
+zeitAufwand[3].set(2.5)
+flexibilität[3].set(7)
+zeitEffizienz[3].set(5)
+innovativität[3].set(5)
+flächenVerbrauch[3].set(25.5)
 
 " TO DO: Checks für Gültigkeit der Werte im Verhältnis zu den erlaubten Grenzen "
 
 
-def norm_wert( wert, min, max):
- if wert <= min:
-  return 1
-  print("Der Wert ist größer als das erlaubte Maximum!")
- elif wert >= max:
-  return 0
-  print("Der Wert ist kleiner als das erlaubte Minimum!")
- else:
-  return max - wert / max - min
-# Maschine 1
+def norm_wert(wert, wertList, min, max, mode: bool):  # normierte Wert Funktion
+    if wert < min:
+        print("Der von Ihnen gewählte Wert ist kleiner als das Minimum")
+    elif wert > max:
+        print("Der von Ihnen gewählte Wert ist größer als das Maximum")
+    for x in range(4):
+        if wertList[x].get() < min:
+            if wertList[x].get() < 0:
+                min = 0
+            else:
+                min = wertList[x].get()
+        elif wertList[x].get() > max:
+            max = wertList[x].get()
+    if mode == 0:
+        return (max - wert) / (max - min)
+    else:
+        return ((wert - min) / (max - min))
 
+
+abfallProzentsatz_norm = []
+for i in range(4):
+    abfallProzentsatz_norm.append(DoubleVar())
+recyclingAbsolut_norm = []
+for i in range(4):
+    recyclingAbsolut_norm.append(DoubleVar())
+recyclingRelativ_norm = []  # Deklaration der normierten Werte
+for i in range(4):
+    recyclingRelativ_norm.append(DoubleVar())
+verbrauchEnergie_norm = []
+for i in range(4):
+    verbrauchEnergie_norm.append(DoubleVar())
+verbrauchMaterial_norm = []
+for i in range(4):
+    verbrauchMaterial_norm.append(DoubleVar())
+kostenEffizienz_norm = []
+for i in range(4):
+    kostenEffizienz_norm.append(DoubleVar())
+kostenAufwand_norm = []
+for i in range(4):
+    kostenAufwand_norm.append(DoubleVar())
+zeitAufwand_norm = []
+for i in range(4):
+    zeitAufwand_norm.append(DoubleVar())
+flexibilität_norm = []
+for i in range(4):
+    flexibilität_norm.append(DoubleVar())
+zeitEffizienz_norm = []
+for i in range(4):
+    zeitEffizienz_norm.append(DoubleVar())
+innovativität_norm = []
+for i in range(4):
+    innovativität_norm.append(DoubleVar())
+flächenVerbrauch_norm = []
+for i in range(4):
+    flächenVerbrauch_norm.append(DoubleVar())
+
+# Maschine 0-3
+
+
+
+" TO DO: Ausrechnung der Nachhaltigkeitswerte "
+
+for i in range(4):
+    abfallProzentsatz_norm[i].set(norm_wert(abfallProzentsatz[i].get(), abfallProzentsatz, 10, 90, 0))
+    recyclingAbsolut_norm[i].set(norm_wert(recyclingAbsolut[i].get(), recyclingAbsolut, 0, 1440, 1))
+    recyclingRelativ_norm[i].set(norm_wert(recyclingRelativ[i].get(), recyclingRelativ, 51.2, 53.5, 1))
+    verbrauchEnergie_norm[i].set(norm_wert(verbrauchEnergie[i].get(), verbrauchEnergie, 2524, 3051, 0))
+    verbrauchMaterial_norm[i].set(norm_wert(verbrauchMaterial[i].get(), verbrauchMaterial, 1250, 1375, 1))
+    kostenEffizienz_norm[i].set(norm_wert(kostenEffizienz[i].get(), kostenEffizienz, 0.28, 2.56, 0))
+    kostenAufwand_norm[i].set(norm_wert(kostenAufwand[i].get(), kostenAufwand, 40, 60, 0))
+    zeitAufwand_norm[i].set(norm_wert(zeitAufwand[i].get(), zeitAufwand, 1, 3.5, 0))
+    flexibilität_norm[i].set(norm_wert(flexibilität[i].get(), flexibilität, 0, 8, 1))
+    zeitEffizienz_norm[i].set(norm_wert(zeitEffizienz[i].get(), zeitEffizienz, 0, 8, 1))
+    innovativität_norm[i].set(norm_wert(innovativität[i].get(), innovativität, 0, 8, 1))
+    flächenVerbrauch_norm[i].set(norm_wert(flächenVerbrauch[i].get(), flächenVerbrauch, 25.5, 55.5, 0))
+
+abfallProzentsatz_zg = []   # Deklaration der ZG Werte
+for i in range(4):
+    abfallProzentsatz_zg.append(DoubleVar())
+recyclingAbsolut_zg = []
+for i in range(4):
+    recyclingAbsolut_zg.append(DoubleVar())
+recyclingRelativ_zg = []
+for i in range(4):
+    recyclingRelativ_zg.append(DoubleVar())
+verbrauchEnergie_zg = []
+for i in range(4):
+    verbrauchEnergie_zg.append(DoubleVar())
+verbrauchMaterial_zg = []
+for i in range(4):
+    verbrauchMaterial_zg.append(DoubleVar())
+kostenEffizienz_zg = []
+for i in range(4):
+    kostenEffizienz_zg.append(DoubleVar())
+kostenAufwand_zg = []
+for i in range(4):
+    kostenAufwand_zg.append(DoubleVar())
+zeitAufwand_zg = []
+for i in range(4):
+    zeitAufwand_zg.append(DoubleVar())
+flexibilität_zg = []
+for i in range(4):
+    flexibilität_zg.append(DoubleVar())
+zeitEffizienz_zg = []
+for i in range(4):
+    zeitEffizienz_zg.append(DoubleVar())
+innovativität_zg = []
+for i in range(4):
+    innovativität_zg.append(DoubleVar())
+flächenVerbrauch_zg = []
+for i in range(4):
+    flächenVerbrauch_zg.append(DoubleVar())
+
+for i in range (4):
+    abfallProzentsatz_zg[i].set((abfallProzentsatz_norm[i].get() % 0.5) * 4)
+    recyclingAbsolut_zg[i].set((recyclingAbsolut_norm[i].get() % 0.5) * 4)
+    recyclingRelativ_zg[i].set((recyclingRelativ_norm[i].get() % 0.5) * 4)
+    verbrauchEnergie_zg[i].set((verbrauchEnergie_norm[i].get() % 0.5) * 4)
+    verbrauchMaterial_zg[i].set((verbrauchMaterial_norm[i].get() % 0.5) * 4)
+    kostenEffizienz_zg[i].set((kostenEffizienz_norm[i].get() % 0.5) * 4)
+    kostenAufwand_zg[i].set((kostenAufwand_norm[i].get() % 0.5) * 5)
+    zeitAufwand_zg[i].set((zeitAufwand_norm[i].get() % 0.5) * 4)
+    flexibilität_zg[i].set((flexibilität_norm[i].get() % 0.5) * 4)
+    zeitEffizienz_zg[i].set((zeitEffizienz_norm[i].get() % 0.5) * 4)
+    innovativität_zg[i].set((innovativität_norm[i].get() % 0.5) * 4)
+    flächenVerbrauch_zg[i].set((flächenVerbrauch_norm[i].get() % 0.5) * 4)
+
+sozial_oekologisch = []
+for i in range(4):
+    sozial_oekologisch.append(DoubleVar())
+oekologisch = []
+for i in range(4):
+    oekologisch.append(DoubleVar())
+oekologisch_oekonomisch = []
+for i in range(4):
+    oekologisch_oekonomisch.append(DoubleVar())
+oekonomisch = []
+for i in range(4):
+    oekonomisch.append(DoubleVar())
+sozial_oekonomisch = []
+for i in range(4):
+    sozial_oekonomisch.append(DoubleVar())
+sozial_oekologisch_oekonomisch = []
+for i in range(4):
+    sozial_oekologisch_oekonomisch.append(DoubleVar())
+
+
+def dimension_rechnen(*argv):
+    var = 1
+    for arg in argv:
+        var = var * (arg * arg + (1 - arg) * (1 - arg))
+    return var
+for i in range(4):
+    sozial_oekologisch[i].set(dimension_rechnen())
+    oekologisch[i].set(dimension_rechnen(abfallProzentsatz_zg[i], recyclingAbsolut_zg[i], recyclingRelativ_zg[i]))
+    oekologisch_oekonomisch[i].set(dimension_rechnen(verbrauchEnergie_zg[i], verbrauchMaterial_zg[i], kostenEffizienz_zg[i], kostenAufwand_zg[i]))
+    oekonomisch[i].set(dimension_rechnen(zeitAufwand_zg[i], flexibilität_zg[i], zeitEffizienz_zg[i]))
+    sozial_oekologisch[i].set(dimension_rechnen())
+    sozial_oekologisch_oekonomisch[i].set(dimension_rechnen(innovativität_zg[i], flächenVerbrauch_zg[i]))
+from tkinter import *
+
+top = Tk()
+
+my_Button = Button(top, text="Werte der Indikatoren", padx=30, pady=30)
+my_Button.pack()
+e = Entry(top)
+e.place(x=50,y=50)
+
+top.mainloop()
+
+# Maschine 0
+
+
+# Maschine 1
 
 
 # Maschine 2
 
 
-
 # Maschine 3
-
- abfallProzentsatz_M3_norm = DoubleVar()
- recyclingAbsolut_M3_norm = DoubleVar()
- recyclingRelativ_M3_norm = DoubleVar()
- verbrauchEnergie_M3_norm = DoubleVar()
- verbrauchMaterial_M3_norm = DoubleVar()
- kostenEffizienz_M3_norm = DoubleVar()
- kostenAufwand_M3_norm = DoubleVar()
- zeitAufwand_M3_norm = DoubleVar()
- flexibilität_M3_norm = DoubleVar()
- zeitEffizienz_M3_norm = DoubleVar()
- innovativität_M3_norm = DoubleVar()
- flächenVerbrauch_M3_norm = DoubleVar()
-
- abfallProzentsatz_M3_norm = norm_wert(abfallProzentsatz_M3.get(), 10, 90)
- recyclingAbsolut_M3_norm = norm_wert(recyclingAbsolut_M3.get(), 0, 1440)
- recyclingRelativ_M3_norm = norm_wert(recyclingRelativ_M3.get(), 51.2, 53.5)
- verbrauchEnergie_M3_norm = norm_wert(verbrauchEnergie_M3.get(), 2524, 3051)
- verbrauchMaterial_M3_norm = norm_wert(verbrauchMaterial_M3.get(), 1250, 1375)
- kostenEffizienz_M3_norm = norm_wert(kostenEffizienz_M3.get(), 0.28, 2.56)
- kostenAufwand_M3_norm = norm_wert(kostenAufwand_M3.get(), 40, 60)
- zeitAufwand_M3_norm = norm_wert(zeitAufwand_M3.get(), 1, 3.5)
- flexibilität_M3_norm = norm_wert(flexibilität_M3.get(), 0, 8)
- zeitEffizienz_M3_norm = norm_wert(zeitEffizienz_M3.get(), 0, 8)
- innovativität_M3_norm = norm_wert(innovativität_M3.get(), 0, 8)
- flächenVerbrauch_M3_norm = norm_wert(flächenVerbrauch_M3.get(), 25.5, 55.5)
-
-# Maschine 4
- abfallProzentsatz_M4_norm = DoubleVar()
- recyclingAbsolut_M4_norm = DoubleVar()
- recyclingRelativ_M4_norm = DoubleVar()
- verbrauchEnergie_M4_norm = DoubleVar()
- verbrauchMaterial_M4_norm = DoubleVar()
- kostenEffizienz_M4_norm = DoubleVar()
- kostenAufwand_M4_norm = DoubleVar()
- zeitAufwand_M4_norm = DoubleVar()
- flexibilität_M4_norm = DoubleVar()
- zeitEffizienz_M4_norm = DoubleVar()
- innovativität_M4_norm = DoubleVar()
- flächenVerbrauch_M4_norm = DoubleVar()
-
- abfallProzentsatz_M4_norm = norm_wert(abfallProzentsatz_M4.get(), 10, 90)
- recyclingAbsolut_M4_norm = norm_wert(recyclingAbsolut_M4.get(), 0, 1440)
- recyclingRelativ_M4_norm = norm_wert(recyclingRelativ_M4.get(), 51.2, 53.5)
- verbrauchEnergie_M4_norm = norm_wert(verbrauchEnergie_M4.get(), 2524, 3051)
- verbrauchMaterial_M4_norm = norm_wert(verbrauchMaterial_M4.get(), 1250, 1375)
- kostenEffizienz_M4_norm = norm_wert(kostenEffizienz_M4.get(), 0.28, 2.56)
- kostenAufwand_M4_norm = norm_wert(kostenAufwand_M4.get(), 40, 60)
- zeitAufwand_M4_norm = norm_wert(zeitAufwand_M4.get(), 1, 3.5)
- flexibilität_M4_norm = norm_wert(flexibilität_M4.get(), 0, 8)
- zeitEffizienz_M4_norm = norm_wert(zeitEffizienz_M4.get(), 0, 8)
- innovativität_M4_norm = norm_wert(innovativität_M4.get(), 0, 8)
- flächenVerbrauch_M4_norm = norm_wert(flächenVerbrauch_M4.get(), 25.5, 55.5)
-
-
- " TO DO: Ausrechnung der Nachhaltigkeitswerte "
-
-# Maschine 1
-
-
-
-# Maschine 2
-
-
-
-# Maschine 3
-
-
-
-# Maschine 4
-
 
 
 " Ausgabe der Nachhaltigkeitswerte"
 
-# Maschine 1
+# Maschine 0
 
+
+# Maschine 1
 
 
 # Maschine 2
 
 
-
 # Maschine 3
-
-
-
-# Maschine 4
-
-
