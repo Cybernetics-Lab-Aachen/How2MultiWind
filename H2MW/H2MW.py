@@ -269,7 +269,7 @@ sozial_oekologisch_oekonomisch = []
 for i in range(4):
     sozial_oekologisch_oekonomisch.append(DoubleVar())
 
-
+'''
 def dimension_rechnen(*argv):
     var = 1
     for arg in argv:
@@ -282,16 +282,161 @@ for i in range(4):
     oekonomisch[i].set(dimension_rechnen(zeitAufwand_zg[i], flexibilität_zg[i], zeitEffizienz_zg[i]))
     sozial_oekologisch[i].set(dimension_rechnen())
     sozial_oekologisch_oekonomisch[i].set(dimension_rechnen(innovativität_zg[i], flächenVerbrauch_zg[i]))
-from tkinter import *
+    '''
 
-top = Tk()
 
-my_Button = Button(top, text="Werte der Indikatoren", padx=30, pady=30)
-my_Button.pack()
-e = Entry(top)
-e.place(x=50,y=50)
 
-top.mainloop()
+
+master = Tk()
+
+frame1 = Frame(master)
+
+bopaul_1_1 = Label(frame1, text = "Sozial-Ökologisch")
+
+label_1_1 = Label(frame1, text = "Anteil giftige Emissionen/Abfälle")
+label_1_2 = Label(frame1, text = "Einsatz giftiger/kritischer Materialien")
+
+
+
+entry_1_1 = Entry(frame1)
+entry_1_2 = Entry(frame1)
+
+
+
+
+bopaul_1_1.grid(row = 0, column = 1)
+
+label_1_1.grid(row = 1, column = 0)
+label_1_2.grid(row = 2, column = 0)
+
+
+
+entry_1_1.grid(row = 1, column = 1)
+entry_1_2.grid(row = 2, column = 1)
+
+
+frame1.grid(row = 0, column = 0)
+
+
+frame2 = Frame(master)
+
+button_2_1 = Label(frame2, text = "Ökologisch")
+
+label_2_1 = Label (frame2, text = "Abfall")
+label_2_2 = Label (frame2, text = "Abfallszenarien")
+label_2_3 = Label (frame2, text = "Anteil verwendetes Recyclingmaterial(Asolut)")
+label_2_4 = Label (frame2, text = "Anteil verwendetes Recyclingmaterial(Relativ)")
+
+entry_2_1 = Entry(frame2)
+entry_2_2 = Entry(frame2)
+entry_2_3 = Entry(frame2)
+entry_2_4 = Entry(frame2)
+
+button_2_1.grid(row = 0, column = 1)
+
+label_2_1.grid(row = 1, column = 0)
+label_2_2.grid(row = 2, column = 0)
+label_2_3.grid(row = 3, column = 0)
+label_2_4.grid(row = 4, column = 0)
+
+entry_2_1.grid(row = 1, column = 1)
+entry_2_2.grid(row = 2, column = 1)
+entry_2_3.grid(row = 3, column = 1)
+entry_2_4.grid(row = 4, column = 1)
+
+frame2.grid(row = 0, column = 1)
+
+
+frame3 = Frame(master)
+
+button_3_1 = Label(frame3, text = "Ökologisch-Ökonomisch")
+
+label_3_1 = Label (frame3, text = "Energieverbrauch")
+label_3_2 = Label (frame3, text = "Materialverbrauch")
+label_3_3 = Label (frame3, text = "Kosteneffizient")
+label_3_4 = Label (frame3, text = "Kostenaufwand")
+
+entry_3_1 = Entry(frame3)
+entry_3_2 = Entry(frame3)
+entry_3_3 = Entry(frame3)
+entry_3_4 = Entry(frame3)
+
+button_3_1.grid(row = 0, column = 1)
+
+label_3_1.grid(row = 1, column = 0)
+label_3_2.grid(row = 2, column = 0)
+label_3_3.grid(row = 3, column = 0)
+label_3_4.grid(row = 4, column = 0)
+
+entry_3_1.grid(row = 1, column = 1)
+entry_3_2.grid(row = 2, column = 1)
+entry_3_3.grid(row = 3, column = 1)
+entry_3_4.grid(row = 4, column = 1)
+
+frame3.grid(row = 0, column = 2)
+
+frame4 = Frame(master)
+
+button_4_1 = Label(frame4, text = "Ökonomisch")
+
+label_4_1 = Label (frame4, text = "Zeitlicher Aufwand")
+label_4_2 = Label (frame4, text = "Flexibilität")
+label_4_3 = Label (frame4, text = "Zeitliche Effizienz")
+
+entry_4_1 = Entry(frame4)
+entry_4_2 = Entry(frame4)
+entry_4_3 = Entry(frame4)
+
+button_4_1.grid(row = 0, column = 1)
+
+label_4_1.grid(row = 1, column = 0)
+label_4_2.grid(row = 2, column = 0)
+label_4_3.grid(row = 3, column = 0)
+
+entry_4_1.grid(row = 1, column = 1)
+entry_4_2.grid(row = 2, column = 1)
+entry_4_3.grid(row = 3, column = 1)
+
+frame4.grid(row = 1, column = 0)
+
+frame5 = Frame(master)
+
+
+button_5_1 = Label(frame5, text = "Sozial-Ökonomisch")
+
+label_5_1 = Label (frame5, text = "Produktqualität")
+
+entry_5_1 = Entry(frame5)
+
+button_5_1.grid(row = 0, column = 1)
+
+label_5_1.grid(row = 1, column = 0)
+
+entry_5_1.grid(row = 1, column = 1)
+
+frame5.grid(row = 1, column = 1)
+
+
+frame6 = Frame(master)
+button_6_1 = Label(frame6, text = "Sozial-Ökologisch-Ökonomisch")
+
+label_6_1 = Label (frame4, text = "Innovativität")
+label_6_2 = Label (frame4, text = "Flächenverbrauch")
+
+entry_6_1 = Entry(frame6)
+entry_6_2 = Entry(frame6)
+
+button_6_1.grid(row = 0, column = 1)
+
+label_6_1.grid(row = 1, column = 0)
+label_6_2.grid(row = 2, column = 0)
+
+entry_6_1.grid(row = 1, column = 1)
+entry_6_2.grid(row = 2, column = 1)
+
+frame6.grid(row = 1, column = 2)
+
+master.mainloop()
 
 # Maschine 0
 
