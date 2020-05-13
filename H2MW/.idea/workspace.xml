@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1a1e64c-1c61-4211-9191-9523212fab40" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Machine Ausgabe.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/H2MW.py" beforeDir="false" afterPath="$PROJECT_DIR$/H2MW.py" afterDir="false" />
     </list>
@@ -32,7 +33,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.Ausgabe">
+  <component name="RunManager" selected="Python.Machine Ausgabe">
     <configuration name="Ausgabe" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="H2MW" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -75,8 +76,30 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Machine Ausgabe" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="H2MW" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Machine Ausgabe.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Machine Ausgabe" />
         <item itemvalue="Python.Ausgabe" />
         <item itemvalue="Python.H2MW" />
       </list>
@@ -100,22 +123,30 @@
       <screen x="0" y="40" width="1600" height="860" />
     </state>
     <state x="519" y="84" key="#H2MW/0.40.1600.860/1600.40.1920.1040@0.40.1600.860" timestamp="1587628588840" />
-    <state width="1579" height="222" key="GridCell.Tab.0.bottom" timestamp="1588929125626">
+    <state x="580" y="225" key="FileChooserDialogImpl" timestamp="1589289520734">
       <screen x="0" y="40" width="1600" height="860" />
     </state>
-    <state width="1579" height="222" key="GridCell.Tab.0.bottom/0.40.1600.860/1600.40.1920.1040@0.40.1600.860" timestamp="1588929125626" />
-    <state width="1579" height="222" key="GridCell.Tab.0.center" timestamp="1588929125626">
-      <screen x="0" y="40" width="1600" height="860" />
+    <state x="580" y="225" key="FileChooserDialogImpl/0.40.1600.860/1600.40.1920.1040@0.40.1600.860" timestamp="1589289520734" />
+    <state width="1899" height="222" key="GridCell.Tab.0.bottom" timestamp="1589368985400">
+      <screen x="1600" y="40" width="1920" height="1040" />
     </state>
-    <state width="1579" height="222" key="GridCell.Tab.0.center/0.40.1600.860/1600.40.1920.1040@0.40.1600.860" timestamp="1588929125626" />
-    <state width="1579" height="222" key="GridCell.Tab.0.left" timestamp="1588929125626">
-      <screen x="0" y="40" width="1600" height="860" />
+    <state width="1579" height="222" key="GridCell.Tab.0.bottom/0.40.1600.860/1600.40.1920.1040@0.40.1600.860" timestamp="1589294016502" />
+    <state width="1899" height="222" key="GridCell.Tab.0.bottom/0.40.1600.860/1600.40.1920.1040@1600.40.1920.1040" timestamp="1589368985400" />
+    <state width="1899" height="222" key="GridCell.Tab.0.center" timestamp="1589368985400">
+      <screen x="1600" y="40" width="1920" height="1040" />
     </state>
-    <state width="1579" height="222" key="GridCell.Tab.0.left/0.40.1600.860/1600.40.1920.1040@0.40.1600.860" timestamp="1588929125626" />
-    <state width="1579" height="222" key="GridCell.Tab.0.right" timestamp="1588929125626">
-      <screen x="0" y="40" width="1600" height="860" />
+    <state width="1579" height="222" key="GridCell.Tab.0.center/0.40.1600.860/1600.40.1920.1040@0.40.1600.860" timestamp="1589294016502" />
+    <state width="1899" height="222" key="GridCell.Tab.0.center/0.40.1600.860/1600.40.1920.1040@1600.40.1920.1040" timestamp="1589368985400" />
+    <state width="1899" height="222" key="GridCell.Tab.0.left" timestamp="1589368985400">
+      <screen x="1600" y="40" width="1920" height="1040" />
     </state>
-    <state width="1579" height="222" key="GridCell.Tab.0.right/0.40.1600.860/1600.40.1920.1040@0.40.1600.860" timestamp="1588929125626" />
+    <state width="1579" height="222" key="GridCell.Tab.0.left/0.40.1600.860/1600.40.1920.1040@0.40.1600.860" timestamp="1589294016501" />
+    <state width="1899" height="222" key="GridCell.Tab.0.left/0.40.1600.860/1600.40.1920.1040@1600.40.1920.1040" timestamp="1589368985400" />
+    <state width="1899" height="222" key="GridCell.Tab.0.right" timestamp="1589368985400">
+      <screen x="1600" y="40" width="1920" height="1040" />
+    </state>
+    <state width="1579" height="222" key="GridCell.Tab.0.right/0.40.1600.860/1600.40.1920.1040@0.40.1600.860" timestamp="1589294016502" />
+    <state width="1899" height="222" key="GridCell.Tab.0.right/0.40.1600.860/1600.40.1920.1040@1600.40.1920.1040" timestamp="1589368985400" />
     <state width="1579" height="276" key="GridCell.Tab.1.bottom" timestamp="1588843181644">
       <screen x="0" y="40" width="1600" height="860" />
     </state>
@@ -154,5 +185,16 @@
       <screen x="0" y="40" width="1600" height="860" />
     </state>
     <state x="522" y="382" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.40.1600.860/1600.40.1920.1040@0.40.1600.860" timestamp="1586779317883" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Machine Ausgabe.py</url>
+          <line>10</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
