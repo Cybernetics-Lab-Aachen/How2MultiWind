@@ -125,7 +125,7 @@ class StartPage(Frame):
 
         self.werte_reset()
 
-        " TO DO: Checks für Gültigkeit der Werte im Verhältnis zu den erlaubten Grenzen "
+        " TO DO: Checks für Gültigkeit der Werte im Verhältnis zu den erlaubten Grenzen"
 
         def norm_wert(wert, wertList, min, max, mode: bool):  # normierte Wert Funktion
             if wert < min:
