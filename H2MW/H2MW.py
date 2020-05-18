@@ -275,15 +275,15 @@ def dimension_rechnen(*argv):
     for arg in argv:
         var = var * (arg * arg + (1 - arg) * (1 - arg))
     return var
-for i in rang(4):
+for i in range(4):
     sozial_oekologisch[i].set(dimension_rechnen())
-    oekologisch[i].set(dimension_rechnen(abfallProzentsatz[i], recyclingAbsolut[i], recyclingRelativ[i])
-    oekologisch_oekonomisch[i].set(dimension_rechnen(verbrauchEnergie[i], verbrauchMaterial[i], kostenEffizienz[i], kostenAufwand[i]))
-    oekonomisch[i].set(dimension_rechnen(zeitAufwand[i], flexibilität[i], zeitEffizienz[i]))
+    oekologisch[i].set(dimension_rechnen(abfallProzentsatz_zg[i], recyclingAbsolut_zg[i], recyclingRelativ_zg[i]))
+    oekologisch_oekonomisch[i].set(dimension_rechnen(verbrauchEnergie_zg[i], verbrauchMaterial_zg[i], kostenEffizienz_zg[i], kostenAufwand_zg[i]))
+    oekonomisch[i].set(dimension_rechnen(zeitAufwand_zg[i], flexibilität_zg[i], zeitEffizienz_zg[i]))
     sozial_oekologisch[i].set(dimension_rechnen())
-    sozial_oekologisch_oekonomisch[i].set(dimension_rechnen(innovativität[i], flächenVerbrauch[i]))
+    sozial_oekologisch_oekonomisch[i].set(dimension_rechnen(innovativität_zg[i], flächenVerbrauch_zg[i]))
 
-print(sozial_oekologisch_oekonomisch)
+
 # Maschine 0
 
 
