@@ -12,7 +12,20 @@
 """
 # importing tkinter module
 from tkinter import *
-
+points = [20, 360, 150, 360, 60, 240]
+points2 = [150, 360, 280, 360, 240, 240]
+points3 = [60, 240, 100, 240, 150, 120, 150, 0]
+points4 = [180, 240, 240, 240, 150, 0, 150, 120]
+points5 = [100, 240, 150, 120, 200, 240]
+points6 = [60, 240, 150, 360, 240, 240]
+points7 = [10,10,100,100]
+Leinwand.create_polygon(points,outline='#f11', fill='#1f1')
+Leinwand.create_polygon(points2,outline='#f11', fill='#1f1')
+Leinwand.create_polygon(points3,outline='#f11', fill='#1f1')
+Leinwand.create_polygon(points4,outline='#f11', fill='#1f1')
+Leinwand.create_polygon(points5,outline='#f11', fill='#1f1')
+Leinwand.create_polygon(points6,outline='#f11', fill='#1f1')
+Leinwand.create_oval(points7)
 
 class H2MW(Tk):
 
