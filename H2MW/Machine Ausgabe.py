@@ -11,7 +11,7 @@ master.geometry('1200x300')
 
 
 
-'''
+
 Sozial_Ökologisch = Frame(master)
 
 button_1_1 = Label(Sozial_Ökologisch, text = "Flechtwickelmaschine")
@@ -70,7 +70,7 @@ entry_4_2.grid(row = 8, column = 6)
 
 Sozial_Ökologisch.grid()
 
-
+'''
 
 
 Ökologisch = Frame(master)
@@ -347,7 +347,7 @@ entry_1_4.grid(row = 8, column = 3)
 
 Sozial_Ökonomisch.grid(row = 1, column = 0)
 
-'''
+
 Sozial_Ökologisch_Ökonomisch = Frame(master)
 
 button_1_1 = Label(Sozial_Ökologisch_Ökonomisch, text = "Flechtwickelmaschine")
@@ -400,5 +400,5 @@ entry_4_2.grid(row = 8, column = 6)
 
 Sozial_Ökologisch_Ökonomisch.grid(row = 1, column = 2)
 
-
+'''
 master.mainloop()
