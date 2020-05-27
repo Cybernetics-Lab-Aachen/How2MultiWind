@@ -9,6 +9,13 @@
  Maschine 2 - Mulftifilamentwickelmaschine 48
  Maschine 3 - Nasswickelmaschine
 
+points = [20, 360, 130, 360, 80, 240, 60, 240]
+points2 = [170, 360, 280, 360, 240, 240, 220, 240]
+points3 = [60, 240, 150, 240, 100, 120]
+points4 = [150, 240, 240, 240, 200, 120]
+points5 = [100, 120, 150, 240, 200, 120, 150, 0]
+points6 = [80, 240, 130, 360, 170, 360, 220, 240]
+
 """
 # importing tkinter module
 from tkinter import *
