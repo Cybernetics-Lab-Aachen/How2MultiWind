@@ -13,6 +13,7 @@
 # importing tkinter module
 from tkinter import *
 from tkinter import font
+import tkinter.ttk
 
 
 
@@ -31,7 +32,7 @@ class H2MW(Tk):
 
         self.frames = {}
 
-        for F in (StartPage, PageOne, PageTwo, PageThree, PageFour, PageFive, PageSix, PageEnd):
+        for F in (StartPage, PageOne, PageTwo, PageThree, PageFour, PageFive, PageSix, PageEnd, MaschineWerte1, MaschineWerte2, MaschineWerte3, MaschineWerte4):
             frame = F(container, self)
 
             self.frames[F] = frame
@@ -899,6 +900,199 @@ class StartPage(Frame):
         self.controller.get_page(PageEnd).auswertung_4.itemconfig(self.controller.get_page(PageEnd).text_4_7_b,
                                                                   text=str(round(self.controller.get_page(StartPage).gsi_wert[3].get(), 5)))
 
+        self.controller.get_page(MaschineWerte1).wert_1_1.config(text= round(self.controller.get_page(StartPage).emissionen_norm[0].get(), 5), bg = colourer(self.controller.get_page(StartPage).emissionen_norm[0]))
+        self.controller.get_page(MaschineWerte1).wert_1_2.config(
+            text=round(self.controller.get_page(StartPage).giftMaterial_norm[0].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).giftMaterial_norm[0]))
+        self.controller.get_page(MaschineWerte1).wert_2_1.config(
+            text=round(self.controller.get_page(StartPage).abfallProzentsatz_norm[0].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).abfallProzentsatz_norm[0]))
+        self.controller.get_page(MaschineWerte1).wert_2_2.config(
+            text=round(self.controller.get_page(StartPage).abfallSzenarien_norm[0].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).abfallSzenarien_norm[0]))
+        self.controller.get_page(MaschineWerte1).wert_2_3.config(
+            text=round(self.controller.get_page(StartPage).recyclingAbsolut_norm[0].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).recyclingAbsolut_norm[0]))
+        self.controller.get_page(MaschineWerte1).wert_2_4.config(
+            text=round(self.controller.get_page(StartPage).recyclingRelativ_norm[0].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).recyclingRelativ_norm[0]))
+        self.controller.get_page(MaschineWerte1).wert_3_1.config(
+            text=round(self.controller.get_page(StartPage).verbrauchEnergie_norm[0].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).verbrauchEnergie_norm[0]))
+        self.controller.get_page(MaschineWerte1).wert_3_2.config(
+            text=round(self.controller.get_page(StartPage).verbrauchMaterial_norm[0].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).verbrauchMaterial_norm[0]))
+        self.controller.get_page(MaschineWerte1).wert_3_3.config(
+            text=round(self.controller.get_page(StartPage).kostenEffizienz_norm[0].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).kostenEffizienz_norm[0]))
+        self.controller.get_page(MaschineWerte1).wert_3_4.config(
+            text=round(self.controller.get_page(StartPage).kostenAufwand_norm[0].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).kostenAufwand_norm[0]))
+        self.controller.get_page(MaschineWerte1).wert_4_1.config(
+            text=round(self.controller.get_page(StartPage).zeitAufwand_norm[0].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).zeitAufwand_norm[0]))
+        self.controller.get_page(MaschineWerte1).wert_4_2.config(
+            text=round(self.controller.get_page(StartPage).flexibilität_norm[0].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).flexibilität_norm[0]))
+        self.controller.get_page(MaschineWerte1).wert_4_3.config(
+            text=round(self.controller.get_page(StartPage).zeitEffizienz_norm[0].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).zeitEffizienz_norm[0]))
+        self.controller.get_page(MaschineWerte1).wert_5_1.config(
+            text=round(self.controller.get_page(StartPage).produktQualität_norm[0].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).produktQualität_norm[0]))
+        self.controller.get_page(MaschineWerte1).wert_6_1.config(
+            text=round(self.controller.get_page(StartPage).innovativität_norm[0].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).innovativität_norm[0]))
+        self.controller.get_page(MaschineWerte1).wert_6_2.config(
+            text=round(self.controller.get_page(StartPage).flächenVerbrauch_norm[0].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).flächenVerbrauch_norm[0]))
+
+        self.controller.get_page(MaschineWerte2).wert_1_1.config(
+            text=round(self.controller.get_page(StartPage).emissionen_norm[1].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).emissionen_norm[1]))
+        self.controller.get_page(MaschineWerte2).wert_1_2.config(
+            text=round(self.controller.get_page(StartPage).giftMaterial_norm[1].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).giftMaterial_norm[1]))
+        self.controller.get_page(MaschineWerte2).wert_2_1.config(
+            text=round(self.controller.get_page(StartPage).abfallProzentsatz_norm[1].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).abfallProzentsatz_norm[1]))
+        self.controller.get_page(MaschineWerte2).wert_2_2.config(
+            text=round(self.controller.get_page(StartPage).abfallSzenarien_norm[1].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).abfallSzenarien_norm[1]))
+        self.controller.get_page(MaschineWerte2).wert_2_3.config(
+            text=round(self.controller.get_page(StartPage).recyclingAbsolut_norm[1].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).recyclingAbsolut_norm[1]))
+        self.controller.get_page(MaschineWerte2).wert_2_4.config(
+            text=round(self.controller.get_page(StartPage).recyclingRelativ_norm[1].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).recyclingRelativ_norm[1]))
+        self.controller.get_page(MaschineWerte2).wert_3_1.config(
+            text=round(self.controller.get_page(StartPage).verbrauchEnergie_norm[1].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).verbrauchEnergie_norm[1]))
+        self.controller.get_page(MaschineWerte2).wert_3_2.config(
+            text=round(self.controller.get_page(StartPage).verbrauchMaterial_norm[1].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).verbrauchMaterial_norm[1]))
+        self.controller.get_page(MaschineWerte2).wert_3_3.config(
+            text=round(self.controller.get_page(StartPage).kostenEffizienz_norm[1].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).kostenEffizienz_norm[1]))
+        self.controller.get_page(MaschineWerte2).wert_3_4.config(
+            text=round(self.controller.get_page(StartPage).kostenAufwand_norm[1].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).kostenAufwand_norm[1]))
+        self.controller.get_page(MaschineWerte2).wert_4_1.config(
+            text=round(self.controller.get_page(StartPage).zeitAufwand_norm[1].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).zeitAufwand_norm[1]))
+        self.controller.get_page(MaschineWerte2).wert_4_2.config(
+            text=round(self.controller.get_page(StartPage).flexibilität_norm[1].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).flexibilität_norm[1]))
+        self.controller.get_page(MaschineWerte2).wert_4_3.config(
+            text=round(self.controller.get_page(StartPage).zeitEffizienz_norm[1].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).zeitEffizienz_norm[1]))
+        self.controller.get_page(MaschineWerte2).wert_5_1.config(
+            text=round(self.controller.get_page(StartPage).produktQualität_norm[1].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).produktQualität_norm[1]))
+        self.controller.get_page(MaschineWerte2).wert_6_1.config(
+            text=round(self.controller.get_page(StartPage).innovativität_norm[1].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).innovativität_norm[1]))
+        self.controller.get_page(MaschineWerte2).wert_6_2.config(
+            text=round(self.controller.get_page(StartPage).flächenVerbrauch_norm[1].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).flächenVerbrauch_norm[1]))
+
+        self.controller.get_page(MaschineWerte3).wert_1_1.config(
+            text=round(self.controller.get_page(StartPage).emissionen_norm[2].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).emissionen_norm[2]))
+        self.controller.get_page(MaschineWerte3).wert_1_2.config(
+            text=round(self.controller.get_page(StartPage).giftMaterial_norm[2].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).giftMaterial_norm[2]))
+        self.controller.get_page(MaschineWerte3).wert_2_1.config(
+            text=round(self.controller.get_page(StartPage).abfallProzentsatz_norm[2].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).abfallProzentsatz_norm[2]))
+        self.controller.get_page(MaschineWerte3).wert_2_2.config(
+            text=round(self.controller.get_page(StartPage).abfallSzenarien_norm[2].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).abfallSzenarien_norm[2]))
+        self.controller.get_page(MaschineWerte3).wert_2_3.config(
+            text=round(self.controller.get_page(StartPage).recyclingAbsolut_norm[2].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).recyclingAbsolut_norm[2]))
+        self.controller.get_page(MaschineWerte3).wert_2_4.config(
+            text=round(self.controller.get_page(StartPage).recyclingRelativ_norm[2].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).recyclingRelativ_norm[2]))
+        self.controller.get_page(MaschineWerte3).wert_3_1.config(
+            text=round(self.controller.get_page(StartPage).verbrauchEnergie_norm[2].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).verbrauchEnergie_norm[2]))
+        self.controller.get_page(MaschineWerte3).wert_3_2.config(
+            text=round(self.controller.get_page(StartPage).verbrauchMaterial_norm[2].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).verbrauchMaterial_norm[2]))
+        self.controller.get_page(MaschineWerte3).wert_3_3.config(
+            text=round(self.controller.get_page(StartPage).kostenEffizienz_norm[2].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).kostenEffizienz_norm[2]))
+        self.controller.get_page(MaschineWerte3).wert_3_4.config(
+            text=round(self.controller.get_page(StartPage).kostenAufwand_norm[2].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).kostenAufwand_norm[2]))
+        self.controller.get_page(MaschineWerte3).wert_4_1.config(
+            text=round(self.controller.get_page(StartPage).zeitAufwand_norm[2].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).zeitAufwand_norm[2]))
+        self.controller.get_page(MaschineWerte3).wert_4_2.config(
+            text=round(self.controller.get_page(StartPage).flexibilität_norm[2].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).flexibilität_norm[2]))
+        self.controller.get_page(MaschineWerte3).wert_4_3.config(
+            text=round(self.controller.get_page(StartPage).zeitEffizienz_norm[2].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).zeitEffizienz_norm[2]))
+        self.controller.get_page(MaschineWerte3).wert_5_1.config(
+            text=round(self.controller.get_page(StartPage).produktQualität_norm[2].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).produktQualität_norm[2]))
+        self.controller.get_page(MaschineWerte3).wert_6_1.config(
+            text=round(self.controller.get_page(StartPage).innovativität_norm[2].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).innovativität_norm[2]))
+        self.controller.get_page(MaschineWerte3).wert_6_2.config(
+            text=round(self.controller.get_page(StartPage).flächenVerbrauch_norm[2].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).flächenVerbrauch_norm[2]))
+
+        self.controller.get_page(MaschineWerte4).wert_1_1.config(
+            text=round(self.controller.get_page(StartPage).emissionen_norm[3].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).emissionen_norm[3]))
+        self.controller.get_page(MaschineWerte4).wert_1_2.config(
+            text=round(self.controller.get_page(StartPage).giftMaterial_norm[3].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).giftMaterial_norm[3]))
+        self.controller.get_page(MaschineWerte4).wert_2_1.config(
+            text=round(self.controller.get_page(StartPage).abfallProzentsatz_norm[3].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).abfallProzentsatz_norm[3]))
+        self.controller.get_page(MaschineWerte4).wert_2_2.config(
+            text=round(self.controller.get_page(StartPage).abfallSzenarien_norm[3].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).abfallSzenarien_norm[3]))
+        self.controller.get_page(MaschineWerte4).wert_2_3.config(
+            text=round(self.controller.get_page(StartPage).recyclingAbsolut_norm[3].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).recyclingAbsolut_norm[3]))
+        self.controller.get_page(MaschineWerte4).wert_2_4.config(
+            text=round(self.controller.get_page(StartPage).recyclingRelativ_norm[3].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).recyclingRelativ_norm[3]))
+        self.controller.get_page(MaschineWerte4).wert_3_1.config(
+            text=round(self.controller.get_page(StartPage).verbrauchEnergie_norm[3].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).verbrauchEnergie_norm[3]))
+        self.controller.get_page(MaschineWerte4).wert_3_2.config(
+            text=round(self.controller.get_page(StartPage).verbrauchMaterial_norm[3].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).verbrauchMaterial_norm[3]))
+        self.controller.get_page(MaschineWerte4).wert_3_3.config(
+            text=round(self.controller.get_page(StartPage).kostenEffizienz_norm[3].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).kostenEffizienz_norm[3]))
+        self.controller.get_page(MaschineWerte4).wert_3_4.config(
+            text=round(self.controller.get_page(StartPage).kostenAufwand_norm[3].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).kostenAufwand_norm[3]))
+        self.controller.get_page(MaschineWerte4).wert_4_1.config(
+            text=round(self.controller.get_page(StartPage).zeitAufwand_norm[3].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).zeitAufwand_norm[3]))
+        self.controller.get_page(MaschineWerte4).wert_4_2.config(
+            text=round(self.controller.get_page(StartPage).flexibilität_norm[3].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).flexibilität_norm[3]))
+        self.controller.get_page(MaschineWerte4).wert_4_3.config(
+            text=round(self.controller.get_page(StartPage).zeitEffizienz_norm[3].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).zeitEffizienz_norm[3]))
+        self.controller.get_page(MaschineWerte4).wert_5_1.config(
+            text=round(self.controller.get_page(StartPage).produktQualität_norm[3].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).produktQualität_norm[3]))
+        self.controller.get_page(MaschineWerte4).wert_6_1.config(
+            text=round(self.controller.get_page(StartPage).innovativität_norm[3].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).innovativität_norm[3]))
+        self.controller.get_page(MaschineWerte4).wert_6_2.config(
+            text=round(self.controller.get_page(StartPage).flächenVerbrauch_norm[3].get(), 5),
+            bg=colourer(self.controller.get_page(StartPage).flächenVerbrauch_norm[3]))
 
     def werte_reset(self):
 
@@ -1001,10 +1195,10 @@ class PageOne(Frame):
         self.Sozial_Ökologisch_4 = Frame(self, highlightbackground="black", highlightthickness=1)
 
 
-        name_1 = Label(self.Sozial_Ökologisch_1, text="Flechtwickelmaschine")
-        name_2 = Label(self.Sozial_Ökologisch_2, text="Multifilamentwickelmaschine90")
-        name_3 = Label(self.Sozial_Ökologisch_3, text="Multifilamentwickelmaschine48")
-        name_4 = Label(self.Sozial_Ökologisch_4, text="Nasswickelmaschine")
+        name_1 = Label(self.Sozial_Ökologisch_1, text="Flechtwickelmaschine", relief = 'ridge')
+        name_2 = Label(self.Sozial_Ökologisch_2, text="Multifilamentwickelmaschine90", relief = 'ridge')
+        name_3 = Label(self.Sozial_Ökologisch_3, text="Multifilamentwickelmaschine48", relief = 'ridge')
+        name_4 = Label(self.Sozial_Ökologisch_4, text="Nasswickelmaschine", relief = 'ridge')
 
         label_1_1 = Label(self.Sozial_Ökologisch_1, text="Anteil giftige Emissionen/Abfälle   (tonne)")
         label_1_2 = Label(self.Sozial_Ökologisch_1, text="Einsatz giftiger/kritischer Materialien   (%)")
@@ -1104,10 +1298,10 @@ class PageTwo(Frame):
         self.Ökologisch_3 = Frame(self, highlightbackground="black", highlightthickness=1)
         self.Ökologisch_4 = Frame(self, highlightbackground="black", highlightthickness=1)
 
-        name_1 = Label(self.Ökologisch_1, text="Flechtwickelmaschine")
-        name_2 = Label(self.Ökologisch_2, text="Multifilamentwickelmaschine90")
-        name_3 = Label(self.Ökologisch_3, text="Multifilamentwickelmaschine48")
-        name_4 = Label(self.Ökologisch_4, text="Nasswickelmaschine")
+        name_1 = Label(self.Ökologisch_1, text="Flechtwickelmaschine", relief = 'ridge')
+        name_2 = Label(self.Ökologisch_2, text="Multifilamentwickelmaschine90", relief = 'ridge')
+        name_3 = Label(self.Ökologisch_3, text="Multifilamentwickelmaschine48", relief = 'ridge')
+        name_4 = Label(self.Ökologisch_4, text="Nasswickelmaschine", relief = 'ridge')
 
         label_1_1 = Label(self.Ökologisch_1, text="Abfall   (%)")
         label_1_2 = Label(self.Ökologisch_1, text="Abfallszenarien    (Skala:     0 = niedrig / 8 = hoch)")
@@ -1239,10 +1433,10 @@ class PageThree(Frame):
         self.Ökologisch_Ökonomisch_3 = Frame(self, highlightbackground="black", highlightthickness=1)
         self.Ökologisch_Ökonomisch_4 = Frame(self, highlightbackground="black", highlightthickness=1)
 
-        name_1_1 = Label(self.Ökologisch_Ökonomisch_1, text="Flechtwickelmaschine")
-        name_1_2 = Label(self.Ökologisch_Ökonomisch_2, text="Multifilamentwickelmaschine90")
-        name_1_3 = Label(self.Ökologisch_Ökonomisch_3, text="Multifilamentwickelmaschine48")
-        name_1_4 = Label(self.Ökologisch_Ökonomisch_4, text="Nasswickelmaschine")
+        name_1_1 = Label(self.Ökologisch_Ökonomisch_1, text="Flechtwickelmaschine", relief = 'ridge')
+        name_1_2 = Label(self.Ökologisch_Ökonomisch_2, text="Multifilamentwickelmaschine90", relief = 'ridge')
+        name_1_3 = Label(self.Ökologisch_Ökonomisch_3, text="Multifilamentwickelmaschine48", relief = 'ridge')
+        name_1_4 = Label(self.Ökologisch_Ökonomisch_4, text="Nasswickelmaschine", relief = 'ridge')
 
         label_1_1 = Label(self.Ökologisch_Ökonomisch_1, text="Energieverbrauch   (W)")
         label_1_2 = Label(self.Ökologisch_Ökonomisch_1, text="Materialverbrauch   (g)")
@@ -1374,10 +1568,10 @@ class PageFour(Frame):
         self.Ökonomisch_3 = Frame(self, highlightbackground="black", highlightthickness=1)
         self.Ökonomisch_4 = Frame(self, highlightbackground="black", highlightthickness=1)
 
-        name_1_1 = Label(self.Ökonomisch_1, text="Flechtwickelmaschine")
-        name_1_2 = Label(self.Ökonomisch_2, text="Multifilamentwickelmaschine90")
-        name_1_3 = Label(self.Ökonomisch_3, text="Multifilamentwickelmaschine48")
-        name_1_4 = Label(self.Ökonomisch_4, text="Nasswickelmaschine")
+        name_1_1 = Label(self.Ökonomisch_1, text="Flechtwickelmaschine", relief = 'ridge')
+        name_1_2 = Label(self.Ökonomisch_2, text="Multifilamentwickelmaschine90", relief = 'ridge')
+        name_1_3 = Label(self.Ökonomisch_3, text="Multifilamentwickelmaschine48", relief = 'ridge')
+        name_1_4 = Label(self.Ökonomisch_4, text="Nasswickelmaschine", relief = 'ridge')
 
         label_1_1 = Label(self.Ökonomisch_1, text="Zeitlicher Aufwand   (min/Tank)")
         label_1_2 = Label(self.Ökonomisch_1, text="Flexibilität   (Skala:     0 = niedrig / 8 = hoch)")
@@ -1493,10 +1687,10 @@ class PageFive(Frame):
         self.Sozial_Ökonomisch_3 = Frame(self, highlightbackground="black", highlightthickness=1)
         self.Sozial_Ökonomisch_4 = Frame(self, highlightbackground="black", highlightthickness=1)
 
-        name_1_1 = Label(self.Sozial_Ökonomisch_1, text="Flechtwickelmaschine")
-        name_1_2 = Label(self.Sozial_Ökonomisch_2, text="Multifilamentwickelmaschine90")
-        name_1_3 = Label(self.Sozial_Ökonomisch_3, text="Multifilamentwickelmaschine48")
-        name_1_4 = Label(self.Sozial_Ökonomisch_4, text="Nasswickelmaschine")
+        name_1_1 = Label(self.Sozial_Ökonomisch_1, text="Flechtwickelmaschine", relief = 'ridge')
+        name_1_2 = Label(self.Sozial_Ökonomisch_2, text="Multifilamentwickelmaschine90", relief = 'ridge')
+        name_1_3 = Label(self.Sozial_Ökonomisch_3, text="Multifilamentwickelmaschine48", relief = 'ridge')
+        name_1_4 = Label(self.Sozial_Ökonomisch_4, text="Nasswickelmaschine", relief = 'ridge')
 
         label_1_1 = Label(self.Sozial_Ökonomisch_1, text="Produktqualität   (%)")
         label_1_2 = Label(self.Sozial_Ökonomisch_2, text="Produktqualität   (%)")
@@ -1566,7 +1760,7 @@ class PageSix(Frame):
         Buttons = Frame(self)
         button_1 = Button(Buttons, text="Back",
                           command=lambda: controller.show_frame(PageFive, "Sozial-Ökonomische Indikatoren"))
-        button_3 = Button(Buttons, text="Accept", command=lambda: controller.show_frame(PageSix, "Sozial-Ökonomisch_Ökologische Indikatoren"))
+        button_3 = Button(Buttons, text="Accept", command=lambda: controller.show_frame(PageSix, "Sozial-Ökonomisch-Ökologische Indikatoren"))
         button_4 = Button(Buttons, text="Auswerten", command=lambda: controller.show_frame(PageEnd, "Visualisierung durch Nachhaltigkeitsdreick"))
         button_5 = Button(Buttons, text="Cancel", command=lambda: controller.resetter())
 
@@ -1578,10 +1772,10 @@ class PageSix(Frame):
         self.Sozial_Ökologisch_Ökonomisch_3 = Frame(self, highlightbackground="black", highlightthickness=1)
         self.Sozial_Ökologisch_Ökonomisch_4 = Frame(self, highlightbackground="black", highlightthickness=1)
 
-        name_1_1 = Label(self.Sozial_Ökologisch_Ökonomisch_1, text="Flechtwickelmaschine")
-        name_1_2 = Label(self.Sozial_Ökologisch_Ökonomisch_2, text="Multifilamentwickelmaschine90")
-        name_1_3 = Label(self.Sozial_Ökologisch_Ökonomisch_3, text="Multifilamentwickelmaschine48")
-        name_1_4 = Label(self.Sozial_Ökologisch_Ökonomisch_4, text="Nasswickelmaschine")
+        name_1_1 = Label(self.Sozial_Ökologisch_Ökonomisch_1, text="Flechtwickelmaschine", relief = 'ridge')
+        name_1_2 = Label(self.Sozial_Ökologisch_Ökonomisch_2, text="Multifilamentwickelmaschine90", relief = 'ridge')
+        name_1_3 = Label(self.Sozial_Ökologisch_Ökonomisch_3, text="Multifilamentwickelmaschine48", relief = 'ridge')
+        name_1_4 = Label(self.Sozial_Ökologisch_Ökonomisch_4, text="Nasswickelmaschine", relief = 'ridge')
 
         label_1_1 = Label(self.Sozial_Ökologisch_Ökonomisch_1, text="Innovativität   (Skala:     0 = niedrig / 8 = hoch)")
         label_1_2 = Label(self.Sozial_Ökologisch_Ökonomisch_1, text="Flächenverbrauch   (m^2)")
@@ -1676,10 +1870,10 @@ class PageEnd(Frame):
         self.End_3 = Frame(self, highlightbackground="black", highlightthickness=1)
         self.End_4 = Frame(self, highlightbackground="black", highlightthickness=1)
 
-        name_1_1 = Label(self.End_1, text="Flechtwickelmaschine")
-        name_1_2 = Label(self.End_2, text="Multifilamentwickelmaschine90")
-        name_1_3 = Label(self.End_3, text="Multifilamentwickelmaschine48")
-        name_1_4 = Label(self.End_4, text="Nasswickelmaschine")
+        name_1_1 = Button(self.End_1, text="Flechtwickelmaschine", command=lambda: controller.show_frame(MaschineWerte1, "Flechtwickelmaschine"))
+        name_1_2 = Button(self.End_2, text="Multifilamentwickelmaschine90", command=lambda: controller.show_frame(MaschineWerte2, "Multifilamentwickelmaschine90"))
+        name_1_3 = Button(self.End_3, text="Multifilamentwickelmaschine48", command=lambda: controller.show_frame(MaschineWerte3, "Multifilamentwickelmaschine48"))
+        name_1_4 = Button(self.End_4, text="Nasswickelmaschine", command=lambda: controller.show_frame(MaschineWerte4, "Nasswickelmaschine"))
 
         self.auswertung_1 = Canvas(self.End_1, width=300, height=360)
         self.auswertung_2 = Canvas(self.End_2, width=300, height=360)
@@ -1826,6 +2020,554 @@ class PageEnd(Frame):
         Buttons.grid(row=2, column=3)
 
 
+class MaschineWerte1(Frame):
+
+    def __init__(self, parent, controller):
+        Frame.__init__(self, parent)
+        self.controller = controller
+
+        self.columnconfigure(1, minsize=100)
+        self.columnconfigure(4, minsize=100)
+        tkinter.ttk.Separator(self, orient=VERTICAL).grid(column=2, row=0, rowspan=14, sticky='ns')
+
+        button_1 = Button(self, text="Back"
+                          , command=lambda: controller.show_frame(PageEnd, "Visualisierung durch Nachhaltigkeitsdreick"))
+
+
+        self.wert_1_1 = Label(self, text= round(controller.get_page(StartPage).emissionen_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).emissionen_norm[0]))
+        self.wert_1_2 = Label(self, text= round(controller.get_page(StartPage).giftMaterial_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).giftMaterial_norm[0]))
+
+        self.wert_2_1 = Label(self, text=round(controller.get_page(StartPage).abfallProzentsatz_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).abfallProzentsatz_norm[0]))
+        self.wert_2_2 = Label(self, text=round(controller.get_page(StartPage).abfallSzenarien_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).abfallSzenarien_norm[0]))
+        self.wert_2_3 = Label(self, text=round(controller.get_page(StartPage).recyclingAbsolut_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).recyclingAbsolut_norm[0]))
+        self.wert_2_4 = Label(self, text=round(controller.get_page(StartPage).recyclingRelativ_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).recyclingRelativ_norm[0]))
+
+        self.wert_3_1 = Label(self, text=round(controller.get_page(StartPage).verbrauchEnergie_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).verbrauchEnergie_norm[0]))
+        self.wert_3_2 = Label(self, text=round(controller.get_page(StartPage).verbrauchMaterial_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).verbrauchMaterial_norm[0]))
+        self.wert_3_3 = Label(self, text=round(controller.get_page(StartPage).kostenEffizienz_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).kostenEffizienz_norm[0]))
+        self.wert_3_4 = Label(self, text=round(controller.get_page(StartPage).kostenAufwand_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).kostenAufwand_norm[0]))
+
+        self.wert_4_1 = Label(self, text=round(controller.get_page(StartPage).zeitAufwand_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).zeitAufwand_norm[0]))
+        self.wert_4_2 = Label(self, text=round(controller.get_page(StartPage).flexibilität_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).flexibilität_norm[0]))
+        self.wert_4_3 = Label(self, text=round(controller.get_page(StartPage).zeitEffizienz_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).zeitEffizienz_norm[0]))
+
+        self.wert_5_1 = Label(self, text=round(controller.get_page(StartPage).produktQualität_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).produktQualität_norm[0]))
+
+        self.wert_6_1 = Label(self, text=round(controller.get_page(StartPage).innovativität_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).innovativität_norm[0]))
+        self.wert_6_2 = Label(self, text=round(controller.get_page(StartPage).flächenVerbrauch_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).flächenVerbrauch_norm[0]))
+
+        name_1 = Label(self, text="Sozial-Ökologische Indikatoren", relief = 'ridge')
+        name_1_1 = Label(self, text="Anteil giftige Emissionen/Abfälle   (tonne)")
+        name_1_2 = Label(self, text="Einsatz giftiger/kritischer Materialien   (%)")
+
+        name_2 = Label(self, text="Ökologische Indikatoren", relief = 'ridge')
+        name_2_1 = Label(self, text="Abfall   (%)")
+        name_2_2 = Label(self, text="Abfallszenarien    (Skala)")
+        name_2_3 = Label(self, text="Anteil verwendetes Recyclingmaterial(Asolut)   (g)")
+        name_2_4 = Label(self, text="Anteil verwendetes Recyclingmaterial(Relativ)   (%)")
+
+        name_3 = Label(self, text="Ökologisch-Ökonomische Indikatoren", relief = 'ridge')
+        name_3_1 = Label(self, text="Energieverbrauch   (W)")
+        name_3_2 = Label(self, text="Materialverbrauch   (g)")
+        name_3_3 = Label(self, text="Kosteneffizient   (Euro/s)")
+        name_3_4 = Label(self, text="Kostenaufwand   (Euro/kg)")
+
+        name_4 = Label(self, text="Ökonomische Indikatoren", relief = 'ridge')
+        name_4_1 = Label(self, text="Zeitlicher Aufwand   (min/Tank)")
+        name_4_2 = Label(self, text="Flexibilität   (Skala)")
+        name_4_3 = Label(self, text="Zeitliche Effizienz   (Skala)")
+
+        name_5 = Label(self, text="Sozial-Ökonomische Indikatoren", relief = 'ridge')
+        name_5_1 = Label(self, text="Produktqualität   (%)")
+
+        name_6 = Label(self, text="Sozial-Ökonomisch-Ökologische Indikatoren", relief = 'ridge')
+        name_6_1 = Label(self, text="Innovativität   (Skala)")
+        name_6_2 = Label(self, text="Flächenverbrauch   (m^2)")
+
+
+        name_1.grid(row=0, column=0)
+
+
+        name_1_1.grid(row=1, column=0)
+        name_1_2.grid(row=2, column=0)
+
+
+        name_2.grid(row=0, column=3)
+        name_2_1.grid(row=1, column=3)
+        name_2_2.grid(row=2, column=3)
+        name_2_3.grid(row=3, column=3)
+        name_2_4.grid(row=4, column=3)
+
+
+        name_3.grid(row=4, column=0)
+        name_3_1.grid(row=5, column=0)
+        name_3_2.grid(row=6, column=0)
+        name_3_3.grid(row=7, column=0)
+        name_3_4.grid(row=8, column=0)
+
+
+        name_4.grid(row=6, column=3)
+        name_4_1.grid(row=7, column=3)
+        name_4_2.grid(row=8, column=3)
+        name_4_3.grid(row=9, column=3)
+
+
+        name_5.grid(row=10, column=0)
+        name_5_1.grid(row=11, column=0)
+
+
+        name_6.grid(row=11, column=3)
+        name_6_1.grid(row=12, column=3)
+        name_6_2.grid(row=13, column=3)
+
+
+        self.wert_1_1.grid(row=2, column=1)
+        self.wert_1_2.grid(row=3, column=1)
+
+        self.wert_2_1.grid(row=1, column=4)
+        self.wert_2_2.grid(row=2, column=4)
+        self.wert_2_3.grid(row=3, column=4)
+        self.wert_2_4.grid(row=4, column=4)
+
+        self.wert_3_1.grid(row=6, column=1)
+        self.wert_3_2.grid(row=7, column=1)
+        self.wert_3_3.grid(row=8, column=1)
+        self.wert_3_4.grid(row=9, column=1)
+
+        self.wert_4_1.grid(row=7, column=4)
+        self.wert_4_2.grid(row=8, column=4)
+        self.wert_4_3.grid(row=9, column=4)
+
+
+        self.wert_5_1.grid(row=12, column=1)
+
+        self.wert_6_1.grid(row=12, column=4)
+        self.wert_6_2.grid(row=13, column=4)
+
+        for i in range(15):
+            self.rowconfigure(i, minsize=20)
+
+
+        button_1.grid(row=15, column=4)
+
+
+
+
+
+        #Buttons.grid(row=2, column=3)
+
+
+class MaschineWerte2(Frame):
+
+    def __init__(self, parent, controller):
+        Frame.__init__(self, parent)
+        self.controller = controller
+
+        self.columnconfigure(1, minsize=100)
+        self.columnconfigure(4, minsize=100)
+        tkinter.ttk.Separator(self, orient=VERTICAL).grid(column=2, row=0, rowspan=14, sticky='ns')
+
+        button_1 = Button(self, text="Back"
+                          , command=lambda: controller.show_frame(PageEnd, "Visualisierung durch Nachhaltigkeitsdreick"))
+
+
+        self.wert_1_1 = Label(self, text= round(controller.get_page(StartPage).emissionen_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).emissionen_norm[1]))
+        self.wert_1_2 = Label(self, text= round(controller.get_page(StartPage).giftMaterial_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).giftMaterial_norm[1]))
+
+        self.wert_2_1 = Label(self, text=round(controller.get_page(StartPage).abfallProzentsatz_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).abfallProzentsatz_norm[1]))
+        self.wert_2_2 = Label(self, text=round(controller.get_page(StartPage).abfallSzenarien_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).abfallSzenarien_norm[1]))
+        self.wert_2_3 = Label(self, text=round(controller.get_page(StartPage).recyclingAbsolut_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).recyclingAbsolut_norm[1]))
+        self.wert_2_4 = Label(self, text=round(controller.get_page(StartPage).recyclingRelativ_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).recyclingRelativ_norm[1]))
+
+        self.wert_3_1 = Label(self, text=round(controller.get_page(StartPage).verbrauchEnergie_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).verbrauchEnergie_norm[1]))
+        self.wert_3_2 = Label(self, text=round(controller.get_page(StartPage).verbrauchMaterial_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).verbrauchMaterial_norm[1]))
+        self.wert_3_3 = Label(self, text=round(controller.get_page(StartPage).kostenEffizienz_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).kostenEffizienz_norm[1]))
+        self.wert_3_4 = Label(self, text=round(controller.get_page(StartPage).kostenAufwand_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).kostenAufwand_norm[1]))
+
+        self.wert_4_1 = Label(self, text=round(controller.get_page(StartPage).zeitAufwand_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).zeitAufwand_norm[1]))
+        self.wert_4_2 = Label(self, text=round(controller.get_page(StartPage).flexibilität_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).flexibilität_norm[1]))
+        self.wert_4_3 = Label(self, text=round(controller.get_page(StartPage).zeitEffizienz_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).zeitEffizienz_norm[1]))
+
+        self.wert_5_1 = Label(self, text=round(controller.get_page(StartPage).produktQualität_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).produktQualität_norm[1]))
+
+        self.wert_6_1 = Label(self, text=round(controller.get_page(StartPage).innovativität_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).innovativität_norm[1]))
+        self.wert_6_2 = Label(self, text=round(controller.get_page(StartPage).flächenVerbrauch_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).flächenVerbrauch_norm[1]))
+
+        name_1 = Label(self, text="Sozial-Ökologische Indikatoren", relief = 'ridge')
+        name_1_1 = Label(self, text="Anteil giftige Emissionen/Abfälle   (tonne)")
+        name_1_2 = Label(self, text="Einsatz giftiger/kritischer Materialien   (%)")
+
+        name_2 = Label(self, text="Ökologische Indikatoren", relief = 'ridge')
+        name_2_1 = Label(self, text="Abfall   (%)")
+        name_2_2 = Label(self, text="Abfallszenarien    (Skala)")
+        name_2_3 = Label(self, text="Anteil verwendetes Recyclingmaterial(Asolut)   (g)")
+        name_2_4 = Label(self, text="Anteil verwendetes Recyclingmaterial(Relativ)   (%)")
+
+        name_3 = Label(self, text="Ökologisch-Ökonomische Indikatoren", relief = 'ridge')
+        name_3_1 = Label(self, text="Energieverbrauch   (W)")
+        name_3_2 = Label(self, text="Materialverbrauch   (g)")
+        name_3_3 = Label(self, text="Kosteneffizient   (Euro/s)")
+        name_3_4 = Label(self, text="Kostenaufwand   (Euro/kg)")
+
+        name_4 = Label(self, text="Ökonomische Indikatoren", relief = 'ridge')
+        name_4_1 = Label(self, text="Zeitlicher Aufwand   (min/Tank)")
+        name_4_2 = Label(self, text="Flexibilität   (Skala)")
+        name_4_3 = Label(self, text="Zeitliche Effizienz   (Skala)")
+
+        name_5 = Label(self, text="Sozial-Ökonomische Indikatoren", relief = 'ridge')
+        name_5_1 = Label(self, text="Produktqualität   (%)")
+
+        name_6 = Label(self, text="Sozial-Ökonomisch-Ökologische Indikatoren", relief = 'ridge')
+        name_6_1 = Label(self, text="Innovativität   (Skala)")
+        name_6_2 = Label(self, text="Flächenverbrauch   (m^2)")
+
+
+        name_1.grid(row=0, column=0)
+
+
+        name_1_1.grid(row=1, column=0)
+        name_1_2.grid(row=2, column=0)
+
+
+        name_2.grid(row=0, column=3)
+        name_2_1.grid(row=1, column=3)
+        name_2_2.grid(row=2, column=3)
+        name_2_3.grid(row=3, column=3)
+        name_2_4.grid(row=4, column=3)
+
+
+        name_3.grid(row=4, column=0)
+        name_3_1.grid(row=5, column=0)
+        name_3_2.grid(row=6, column=0)
+        name_3_3.grid(row=7, column=0)
+        name_3_4.grid(row=8, column=0)
+
+
+        name_4.grid(row=6, column=3)
+        name_4_1.grid(row=7, column=3)
+        name_4_2.grid(row=8, column=3)
+        name_4_3.grid(row=9, column=3)
+
+
+        name_5.grid(row=10, column=0)
+        name_5_1.grid(row=11, column=0)
+
+
+        name_6.grid(row=11, column=3)
+        name_6_1.grid(row=12, column=3)
+        name_6_2.grid(row=13, column=3)
+
+
+        self.wert_1_1.grid(row=2, column=1)
+        self.wert_1_2.grid(row=3, column=1)
+
+        self.wert_2_1.grid(row=1, column=4)
+        self.wert_2_2.grid(row=2, column=4)
+        self.wert_2_3.grid(row=3, column=4)
+        self.wert_2_4.grid(row=4, column=4)
+
+        self.wert_3_1.grid(row=6, column=1)
+        self.wert_3_2.grid(row=7, column=1)
+        self.wert_3_3.grid(row=8, column=1)
+        self.wert_3_4.grid(row=9, column=1)
+
+        self.wert_4_1.grid(row=7, column=4)
+        self.wert_4_2.grid(row=8, column=4)
+        self.wert_4_3.grid(row=9, column=4)
+
+
+        self.wert_5_1.grid(row=12, column=1)
+
+        self.wert_6_1.grid(row=12, column=4)
+        self.wert_6_2.grid(row=13, column=4)
+
+        for i in range(15):
+            self.rowconfigure(i, minsize=20)
+
+
+        button_1.grid(row=15, column=4)
+
+
+
+
+
+        #Buttons.grid(row=2, column=3)
+
+
+class MaschineWerte3(Frame):
+
+    def __init__(self, parent, controller):
+        Frame.__init__(self, parent)
+        self.controller = controller
+
+        self.columnconfigure(1, minsize=100)
+        self.columnconfigure(4, minsize=100)
+        tkinter.ttk.Separator(self, orient=VERTICAL).grid(column=2, row=0, rowspan=14, sticky='ns')
+
+        button_1 = Button(self, text="Back"
+                          , command=lambda: controller.show_frame(PageEnd, "Visualisierung durch Nachhaltigkeitsdreick"))
+
+
+        self.wert_1_1 = Label(self, text= round(controller.get_page(StartPage).emissionen_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).emissionen_norm[2]))
+        self.wert_1_2 = Label(self, text= round(controller.get_page(StartPage).giftMaterial_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).giftMaterial_norm[2]))
+
+        self.wert_2_1 = Label(self, text=round(controller.get_page(StartPage).abfallProzentsatz_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).abfallProzentsatz_norm[2]))
+        self.wert_2_2 = Label(self, text=round(controller.get_page(StartPage).abfallSzenarien_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).abfallSzenarien_norm[2]))
+        self.wert_2_3 = Label(self, text=round(controller.get_page(StartPage).recyclingAbsolut_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).recyclingAbsolut_norm[2]))
+        self.wert_2_4 = Label(self, text=round(controller.get_page(StartPage).recyclingRelativ_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).recyclingRelativ_norm[2]))
+
+        self.wert_3_1 = Label(self, text=round(controller.get_page(StartPage).verbrauchEnergie_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).verbrauchEnergie_norm[2]))
+        self.wert_3_2 = Label(self, text=round(controller.get_page(StartPage).verbrauchMaterial_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).verbrauchMaterial_norm[2]))
+        self.wert_3_3 = Label(self, text=round(controller.get_page(StartPage).kostenEffizienz_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).kostenEffizienz_norm[2]))
+        self.wert_3_4 = Label(self, text=round(controller.get_page(StartPage).kostenAufwand_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).kostenAufwand_norm[2]))
+
+        self.wert_4_1 = Label(self, text=round(controller.get_page(StartPage).zeitAufwand_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).zeitAufwand_norm[2]))
+        self.wert_4_2 = Label(self, text=round(controller.get_page(StartPage).flexibilität_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).flexibilität_norm[2]))
+        self.wert_4_3 = Label(self, text=round(controller.get_page(StartPage).zeitEffizienz_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).zeitEffizienz_norm[2]))
+
+        self.wert_5_1 = Label(self, text=round(controller.get_page(StartPage).produktQualität_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).produktQualität_norm[2]))
+
+        self.wert_6_1 = Label(self, text=round(controller.get_page(StartPage).innovativität_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).innovativität_norm[2]))
+        self.wert_6_2 = Label(self, text=round(controller.get_page(StartPage).flächenVerbrauch_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).flächenVerbrauch_norm[2]))
+
+        name_1 = Label(self, text="Sozial-Ökologische Indikatoren", relief = 'ridge')
+        name_1_1 = Label(self, text="Anteil giftige Emissionen/Abfälle   (tonne)")
+        name_1_2 = Label(self, text="Einsatz giftiger/kritischer Materialien   (%)")
+
+        name_2 = Label(self, text="Ökologische Indikatoren", relief = 'ridge')
+        name_2_1 = Label(self, text="Abfall   (%)")
+        name_2_2 = Label(self, text="Abfallszenarien    (Skala)")
+        name_2_3 = Label(self, text="Anteil verwendetes Recyclingmaterial(Asolut)   (g)")
+        name_2_4 = Label(self, text="Anteil verwendetes Recyclingmaterial(Relativ)   (%)")
+
+        name_3 = Label(self, text="Ökologisch-Ökonomische Indikatoren", relief = 'ridge')
+        name_3_1 = Label(self, text="Energieverbrauch   (W)")
+        name_3_2 = Label(self, text="Materialverbrauch   (g)")
+        name_3_3 = Label(self, text="Kosteneffizient   (Euro/s)")
+        name_3_4 = Label(self, text="Kostenaufwand   (Euro/kg)")
+
+        name_4 = Label(self, text="Ökonomische Indikatoren", relief = 'ridge')
+        name_4_1 = Label(self, text="Zeitlicher Aufwand   (min/Tank)")
+        name_4_2 = Label(self, text="Flexibilität   (Skala)")
+        name_4_3 = Label(self, text="Zeitliche Effizienz   (Skala)")
+
+        name_5 = Label(self, text="Sozial-Ökonomische Indikatoren", relief = 'ridge')
+        name_5_1 = Label(self, text="Produktqualität   (%)")
+
+        name_6 = Label(self, text="Sozial-Ökonomisch-Ökologische Indikatoren", relief = 'ridge')
+        name_6_1 = Label(self, text="Innovativität   (Skala)")
+        name_6_2 = Label(self, text="Flächenverbrauch   (m^2)")
+
+
+        name_1.grid(row=0, column=0)
+
+
+        name_1_1.grid(row=1, column=0)
+        name_1_2.grid(row=2, column=0)
+
+
+        name_2.grid(row=0, column=3)
+        name_2_1.grid(row=1, column=3)
+        name_2_2.grid(row=2, column=3)
+        name_2_3.grid(row=3, column=3)
+        name_2_4.grid(row=4, column=3)
+
+
+        name_3.grid(row=4, column=0)
+        name_3_1.grid(row=5, column=0)
+        name_3_2.grid(row=6, column=0)
+        name_3_3.grid(row=7, column=0)
+        name_3_4.grid(row=8, column=0)
+
+
+        name_4.grid(row=6, column=3)
+        name_4_1.grid(row=7, column=3)
+        name_4_2.grid(row=8, column=3)
+        name_4_3.grid(row=9, column=3)
+
+
+        name_5.grid(row=10, column=0)
+        name_5_1.grid(row=11, column=0)
+
+
+        name_6.grid(row=11, column=3)
+        name_6_1.grid(row=12, column=3)
+        name_6_2.grid(row=13, column=3)
+
+
+        self.wert_1_1.grid(row=2, column=1)
+        self.wert_1_2.grid(row=3, column=1)
+
+        self.wert_2_1.grid(row=1, column=4)
+        self.wert_2_2.grid(row=2, column=4)
+        self.wert_2_3.grid(row=3, column=4)
+        self.wert_2_4.grid(row=4, column=4)
+
+        self.wert_3_1.grid(row=6, column=1)
+        self.wert_3_2.grid(row=7, column=1)
+        self.wert_3_3.grid(row=8, column=1)
+        self.wert_3_4.grid(row=9, column=1)
+
+        self.wert_4_1.grid(row=7, column=4)
+        self.wert_4_2.grid(row=8, column=4)
+        self.wert_4_3.grid(row=9, column=4)
+
+
+        self.wert_5_1.grid(row=12, column=1)
+
+        self.wert_6_1.grid(row=12, column=4)
+        self.wert_6_2.grid(row=13, column=4)
+
+        for i in range(15):
+            self.rowconfigure(i, minsize=20)
+
+
+        button_1.grid(row=15, column=4)
+
+
+
+
+
+        #Buttons.grid(row=2, column=3)
+
+
+class MaschineWerte4(Frame):
+
+    def __init__(self, parent, controller):
+        Frame.__init__(self, parent)
+        self.controller = controller
+
+        self.columnconfigure(1, minsize=100)
+        self.columnconfigure(4, minsize=100)
+        tkinter.ttk.Separator(self, orient=VERTICAL).grid(column=2, row=0, rowspan=14, sticky='ns')
+
+        button_1 = Button(self, text="Back"
+                          , command=lambda: controller.show_frame(PageEnd, "Visualisierung durch Nachhaltigkeitsdreick"))
+
+
+        self.wert_1_1 = Label(self, text= round(controller.get_page(StartPage).emissionen_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).emissionen_norm[3]))
+        self.wert_1_2 = Label(self, text= round(controller.get_page(StartPage).giftMaterial_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).giftMaterial_norm[3]))
+
+        self.wert_2_1 = Label(self, text=round(controller.get_page(StartPage).abfallProzentsatz_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).abfallProzentsatz_norm[3]))
+        self.wert_2_2 = Label(self, text=round(controller.get_page(StartPage).abfallSzenarien_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).abfallSzenarien_norm[3]))
+        self.wert_2_3 = Label(self, text=round(controller.get_page(StartPage).recyclingAbsolut_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).recyclingAbsolut_norm[3]))
+        self.wert_2_4 = Label(self, text=round(controller.get_page(StartPage).recyclingRelativ_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).recyclingRelativ_norm[3]))
+
+        self.wert_3_1 = Label(self, text=round(controller.get_page(StartPage).verbrauchEnergie_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).verbrauchEnergie_norm[3]))
+        self.wert_3_2 = Label(self, text=round(controller.get_page(StartPage).verbrauchMaterial_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).verbrauchMaterial_norm[3]))
+        self.wert_3_3 = Label(self, text=round(controller.get_page(StartPage).kostenEffizienz_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).kostenEffizienz_norm[3]))
+        self.wert_3_4 = Label(self, text=round(controller.get_page(StartPage).kostenAufwand_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).kostenAufwand_norm[3]))
+
+        self.wert_4_1 = Label(self, text=round(controller.get_page(StartPage).zeitAufwand_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).zeitAufwand_norm[3]))
+        self.wert_4_2 = Label(self, text=round(controller.get_page(StartPage).flexibilität_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).flexibilität_norm[3]))
+        self.wert_4_3 = Label(self, text=round(controller.get_page(StartPage).zeitEffizienz_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).zeitEffizienz_norm[3]))
+
+        self.wert_5_1 = Label(self, text=round(controller.get_page(StartPage).produktQualität_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).produktQualität_norm[3]))
+
+        self.wert_6_1 = Label(self, text=round(controller.get_page(StartPage).innovativität_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).innovativität_norm[3]))
+        self.wert_6_2 = Label(self, text=round(controller.get_page(StartPage).flächenVerbrauch_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).flächenVerbrauch_norm[3]))
+
+        name_1 = Label(self, text="Sozial-Ökologische Indikatoren", relief = 'ridge')
+        name_1_1 = Label(self, text="Anteil giftige Emissionen/Abfälle   (tonne)")
+        name_1_2 = Label(self, text="Einsatz giftiger/kritischer Materialien   (%)")
+
+        name_2 = Label(self, text="Ökologische Indikatoren", relief = 'ridge')
+        name_2_1 = Label(self, text="Abfall   (%)")
+        name_2_2 = Label(self, text="Abfallszenarien    (Skala)")
+        name_2_3 = Label(self, text="Anteil verwendetes Recyclingmaterial(Asolut)   (g)")
+        name_2_4 = Label(self, text="Anteil verwendetes Recyclingmaterial(Relativ)   (%)")
+
+        name_3 = Label(self, text="Ökologisch-Ökonomische Indikatoren", relief = 'ridge')
+        name_3_1 = Label(self, text="Energieverbrauch   (W)")
+        name_3_2 = Label(self, text="Materialverbrauch   (g)")
+        name_3_3 = Label(self, text="Kosteneffizient   (Euro/s)")
+        name_3_4 = Label(self, text="Kostenaufwand   (Euro/kg)")
+
+        name_4 = Label(self, text="Ökonomische Indikatoren", relief = 'ridge')
+        name_4_1 = Label(self, text="Zeitlicher Aufwand   (min/Tank)")
+        name_4_2 = Label(self, text="Flexibilität   (Skala)")
+        name_4_3 = Label(self, text="Zeitliche Effizienz   (Skala)")
+
+        name_5 = Label(self, text="Sozial-Ökonomische Indikatoren", relief = 'ridge')
+        name_5_1 = Label(self, text="Produktqualität   (%)")
+
+        name_6 = Label(self, text="Sozial-Ökonomisch-Ökologische Indikatoren", relief = 'ridge')
+        name_6_1 = Label(self, text="Innovativität   (Skala)")
+        name_6_2 = Label(self, text="Flächenverbrauch   (m^2)")
+
+
+        name_1.grid(row=0, column=0)
+
+
+        name_1_1.grid(row=1, column=0)
+        name_1_2.grid(row=2, column=0)
+
+
+        name_2.grid(row=0, column=3)
+        name_2_1.grid(row=1, column=3)
+        name_2_2.grid(row=2, column=3)
+        name_2_3.grid(row=3, column=3)
+        name_2_4.grid(row=4, column=3)
+
+
+        name_3.grid(row=4, column=0)
+        name_3_1.grid(row=5, column=0)
+        name_3_2.grid(row=6, column=0)
+        name_3_3.grid(row=7, column=0)
+        name_3_4.grid(row=8, column=0)
+
+
+        name_4.grid(row=6, column=3)
+        name_4_1.grid(row=7, column=3)
+        name_4_2.grid(row=8, column=3)
+        name_4_3.grid(row=9, column=3)
+
+
+        name_5.grid(row=10, column=0)
+        name_5_1.grid(row=11, column=0)
+
+
+        name_6.grid(row=11, column=3)
+        name_6_1.grid(row=12, column=3)
+        name_6_2.grid(row=13, column=3)
+
+
+        self.wert_1_1.grid(row=2, column=1)
+        self.wert_1_2.grid(row=3, column=1)
+
+        self.wert_2_1.grid(row=1, column=4)
+        self.wert_2_2.grid(row=2, column=4)
+        self.wert_2_3.grid(row=3, column=4)
+        self.wert_2_4.grid(row=4, column=4)
+
+        self.wert_3_1.grid(row=6, column=1)
+        self.wert_3_2.grid(row=7, column=1)
+        self.wert_3_3.grid(row=8, column=1)
+        self.wert_3_4.grid(row=9, column=1)
+
+        self.wert_4_1.grid(row=7, column=4)
+        self.wert_4_2.grid(row=8, column=4)
+        self.wert_4_3.grid(row=9, column=4)
+
+
+        self.wert_5_1.grid(row=12, column=1)
+
+        self.wert_6_1.grid(row=12, column=4)
+        self.wert_6_2.grid(row=13, column=4)
+
+        for i in range(15):
+            self.rowconfigure(i, minsize=20)
+
+
+        button_1.grid(row=15, column=4)
+
+
+
+
+
+        #Buttons.grid(row=2, column=3)
+
+
 def enabler():
     if app.frames[StartPage].var1.get() == 1:
         enable(app.get_page(PageOne).Sozial_Ökologisch_1.winfo_children())
@@ -1888,6 +2630,8 @@ def enabler():
         disable(app.get_page(PageSix).Sozial_Ökologisch_Ökonomisch_4.winfo_children())
 
     #app.frames[StartPage].abfallProzentsatz[0].set(app.frames[PageTwo].entry_1_1.get())
+
+    app.update_idletasks()
 
     app.after(100, enabler)
 
