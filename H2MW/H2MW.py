@@ -14,6 +14,9 @@
 from tkinter import *
 from tkinter import font
 import tkinter.ttk
+import sys
+from tkinter import messagebox
+
 
 
 
@@ -57,6 +60,15 @@ class H2MW(Tk):
     def resetter(self):
         self.get_page(StartPage).werte_reset()
         self.show_frame(StartPage, "Maschinen Auswahl")
+
+    def acceptwerte(self, page, name):
+        self.get_page(StartPage).werte_update()
+        self.show_frame(page, name)
+
+
+
+
+
 
 
 def columnconfig(*argv):
@@ -344,6 +356,8 @@ class StartPage(Frame):
                                                    self.sozial_oekonomisch[i].get(), self.sozial_oekologisch_oekonomisch[i].get()))
 
 
+
+
     def __init__(self, parent, controller):
         Frame.__init__(self, parent)
         self.controller = controller
@@ -364,7 +378,7 @@ class StartPage(Frame):
         button_1 = Button(buttons_first, text="Run with Default", command=lambda: self.default())
         button_2 = Button(buttons_first, text="Next", command=lambda: controller.show_frame(PageOne, "Sozial-Ökologische Indikatoren"))
 
-        label_1 = Label(first, text="Flechtmaschine")
+        label_1 = Label(first, text="Flechtwickelmaschine")
         label_2 = Label(first, text="Multifilamentwickelmaschine90")
         label_3 = Label(first, text="Multifilamentwickelmaschine48")
         label_4 = Label(first, text="Nasswickelmaschine")
@@ -508,86 +522,148 @@ class StartPage(Frame):
         """
     """
     """
+    def setter(self, subject, value, default):
+        if value.isdigit():
+            subject.set(value)
+        else:
+            subject.set(default)
+
+    def errorstring(self, value, checkvalue, errormsg, msg, checkint):
+        if value.get() > checkvalue:
+            errormsg.set(errormsg.get() + msg)
+            checkint.set(1)
+            value.set(checkvalue)
+
     def werte_update(self):
+        self.setter(self.emissionen[0], self.controller.get_page(PageOne).entry_1_1.get(), 0)
+        self.setter(self.giftMaterial[0], self.controller.get_page(PageOne).entry_1_2.get(), 0)
+        self.setter(self.emissionen[1], self.controller.get_page(PageOne).entry_1.get(), 0)
+        self.setter(self.giftMaterial[1], self.controller.get_page(PageOne).entry_2.get(), 0)
+        self.setter(self.emissionen[2], self.controller.get_page(PageOne).entry_3_1.get(), 0)
+        self.setter(self.giftMaterial[2], self.controller.get_page(PageOne).entry_3_1.get(), 0)
+        self.setter(self.emissionen[3], self.controller.get_page(PageOne).entry_4_1.get(), 0)
+        self.setter(self.giftMaterial[3], self.controller.get_page(PageOne).entry_4_1.get(), 0)
 
-        self.emissionen[0].set(self.controller.get_page(PageOne).entry_1_1.get())
-        self.giftMaterial[0].set(self.controller.get_page(PageOne).entry_1_2.get())
-        self.emissionen[1].set(self.controller.get_page(PageOne).entry_1.get())
-        self.giftMaterial[1].set(self.controller.get_page(PageOne).entry_2.get())
-        self.emissionen[2].set(self.controller.get_page(PageOne).entry_3_1.get())
-        self.giftMaterial[2].set(self.controller.get_page(PageOne).entry_3_1.get())
-        self.emissionen[3].set(self.controller.get_page(PageOne).entry_4_1.get())
-        self.giftMaterial[3].set(self.controller.get_page(PageOne).entry_4_1.get())
+        self.setter(self.abfallProzentsatz[0], self.controller.get_page(PageTwo).entry_1_1.get(), 64)
+        self.setter(self.abfallSzenarien[0], self.controller.get_page(PageTwo).entry_1_2.get(), 0)
+        self.setter(self.recyclingAbsolut[0], self.controller.get_page(PageTwo).entry_1_3.get(), 1440)
+        self.setter(self.recyclingRelativ[0], self.controller.get_page(PageTwo).entry_1_4.get(), 51.2)
+        self.setter(self.abfallProzentsatz[1], self.controller.get_page(PageTwo).entry_2_1.get(), 90)
+        self.setter(self.abfallSzenarien[1], self.controller.get_page(PageTwo).entry_2_2.get(), 0)
+        self.setter(self.recyclingAbsolut[1], self.controller.get_page(PageTwo).entry_2_3.get(), 1440)
+        self.setter(self.recyclingRelativ[1], self.controller.get_page(PageTwo).entry_2_4.get(), 53.5)
+        self.setter(self.abfallProzentsatz[2], self.controller.get_page(PageTwo).entry_3_1.get(), 48)
+        self.setter(self.abfallSzenarien[2], self.controller.get_page(PageTwo).entry_3_2.get(), 0)
+        self.setter(self.recyclingAbsolut[2], self.controller.get_page(PageTwo).entry_3_3.get(), 1440)
+        self.setter(self.recyclingRelativ[2], self.controller.get_page(PageTwo).entry_3_4.get(), 52.3)
+        self.setter(self.abfallProzentsatz[3], self.controller.get_page(PageTwo).entry_4_1.get(), 10)
+        self.setter(self.abfallSzenarien[3], self.controller.get_page(PageTwo).entry_4_2.get(), 0)
+        self.setter(self.recyclingAbsolut[3], self.controller.get_page(PageTwo).entry_4_3.get(), 1440)
+        self.setter(self.recyclingRelativ[3], self.controller.get_page(PageTwo).entry_4_4.get(), 51.8)
 
-        self.abfallProzentsatz[0].set(self.controller.get_page(PageTwo).entry_1_1.get())
-        self.abfallSzenarien[0].set(self.controller.get_page(PageTwo).entry_1_2.get())
-        self.recyclingAbsolut[0].set(self.controller.get_page(PageTwo).entry_1_3.get())
-        self.recyclingRelativ[0].set(self.controller.get_page(PageTwo).entry_1_4.get())
-        self.abfallProzentsatz[1].set(self.controller.get_page(PageTwo).entry_2_1.get())
-        self.abfallSzenarien[1].set(self.controller.get_page(PageTwo).entry_2_2.get())
-        self.recyclingAbsolut[1].set(self.controller.get_page(PageTwo).entry_2_3.get())
-        self.recyclingRelativ[1].set(self.controller.get_page(PageTwo).entry_2_4.get())
-        self.abfallProzentsatz[2].set(self.controller.get_page(PageTwo).entry_3_1.get())
-        self.abfallSzenarien[2].set(self.controller.get_page(PageTwo).entry_3_2.get())
-        self.recyclingAbsolut[2].set(self.controller.get_page(PageTwo).entry_3_3.get())
-        self.recyclingRelativ[2].set(self.controller.get_page(PageTwo).entry_3_4.get())
-        self.abfallProzentsatz[3].set(self.controller.get_page(PageTwo).entry_4_1.get())
-        self.abfallSzenarien[3].set(self.controller.get_page(PageTwo).entry_4_2.get())
-        self.recyclingAbsolut[3].set(self.controller.get_page(PageTwo).entry_4_3.get())
-        self.recyclingRelativ[3].set(self.controller.get_page(PageTwo).entry_4_4.get())
+        self.setter(self.verbrauchEnergie[0], self.controller.get_page(PageThree).entry_1_1.get(), 2524)
+        self.setter(self.verbrauchMaterial[0], self.controller.get_page(PageThree).entry_1_2.get(), 1375)
+        self.setter(self.kostenEffizienz[0], self.controller.get_page(PageThree).entry_1_3.get(), 0.91)
+        self.setter(self.kostenAufwand[0], self.controller.get_page(PageThree).entry_1_4.get(), 40)
+        self.setter(self.verbrauchEnergie[1], self.controller.get_page(PageThree).entry_2_1.get(), 3051)
+        self.setter(self.verbrauchMaterial[1], self.controller.get_page(PageThree).entry_2_2.get(), 1250)
+        self.setter(self.kostenEffizienz[1], self.controller.get_page(PageThree).entry_2_3.get(), 2.56)
+        self.setter(self.kostenAufwand[1], self.controller.get_page(PageThree).entry_2_4.get(), 60)
+        self.setter(self.verbrauchEnergie[2], self.controller.get_page(PageThree).entry_3_1.get(), 3051)
+        self.setter(self.verbrauchMaterial[2], self.controller.get_page(PageThree).entry_3_2.get(), 1312)
+        self.setter(self.kostenEffizienz[2], self.controller.get_page(PageThree).entry_3_3.get(), 1.37)
+        self.setter(self.kostenAufwand[2], self.controller.get_page(PageThree).entry_3_4.get(), 60)
+        self.setter(self.verbrauchEnergie[3], self.controller.get_page(PageThree).entry_4_1.get(), 2524)
+        self.setter(self.verbrauchMaterial[3], self.controller.get_page(PageThree).entry_4_2.get(), 1337)
+        self.setter(self.kostenEffizienz[3], self.controller.get_page(PageThree).entry_4_3.get(), 0.28)
+        self.setter(self.kostenAufwand[3], self.controller.get_page(PageThree).entry_4_4.get(), 40)
 
-        self.verbrauchEnergie[0].set(self.controller.get_page(PageThree).entry_1_1.get())
-        self.verbrauchMaterial[0].set(self.controller.get_page(PageThree).entry_1_2.get())
-        self.kostenEffizienz[0].set(self.controller.get_page(PageThree).entry_1_3.get())
-        self.kostenAufwand[0].set(self.controller.get_page(PageThree).entry_1_4.get())
-        self.verbrauchEnergie[1].set(self.controller.get_page(PageThree).entry_2_1.get())
-        self.verbrauchMaterial[1].set(self.controller.get_page(PageThree).entry_2_2.get())
-        self.kostenEffizienz[1].set(self.controller.get_page(PageThree).entry_2_3.get())
-        self.kostenAufwand[1].set(self.controller.get_page(PageThree).entry_2_4.get())
-        self.verbrauchEnergie[2].set(self.controller.get_page(PageThree).entry_3_1.get())
-        self.verbrauchMaterial[2].set(self.controller.get_page(PageThree).entry_3_2.get())
-        self.kostenEffizienz[2].set(self.controller.get_page(PageThree).entry_3_3.get())
-        self.kostenAufwand[2].set(self.controller.get_page(PageThree).entry_3_4.get())
-        self.verbrauchEnergie[3].set(self.controller.get_page(PageThree).entry_4_1.get())
-        self.verbrauchMaterial[3].set(self.controller.get_page(PageThree).entry_4_2.get())
-        self.kostenEffizienz[3].set(self.controller.get_page(PageThree).entry_4_3.get())
-        self.kostenAufwand[3].set(self.controller.get_page(PageThree).entry_4_4.get())
+        self.setter(self.zeitAufwand[0], self.controller.get_page(PageFour).entry_1_1.get(), 3.5)
+        self.setter(self.flexibilität[0], self.controller.get_page(PageFour).entry_1_2.get(), 5)
+        self.setter(self.zeitEffizienz[0], self.controller.get_page(PageFour).entry_1_3.get(), 3)
+        self.setter(self.zeitAufwand[1], self.controller.get_page(PageFour).entry_2_1.get(), 1)
+        self.setter(self.flexibilität[1], self.controller.get_page(PageFour).entry_2_2.get(), 6)
+        self.setter(self.zeitEffizienz[1], self.controller.get_page(PageFour).entry_2_3.get(), 7)
+        self.setter(self.zeitAufwand[2], self.controller.get_page(PageFour).entry_3_1.get(), 1.5)
+        self.setter(self.flexibilität[2], self.controller.get_page(PageFour).entry_3_2.get(), 5)
+        self.setter(self.zeitEffizienz[2], self.controller.get_page(PageFour).entry_3_3.get(), 6)
+        self.setter(self.zeitAufwand[3], self.controller.get_page(PageFour).entry_4_1.get(), 2.5)
+        self.setter(self.flexibilität[3], self.controller.get_page(PageFour).entry_4_2.get(), 7)
+        self.setter(self.zeitEffizienz[3], self.controller.get_page(PageFour).entry_4_3.get(), 5)
 
-        self.zeitAufwand[0].set(self.controller.get_page(PageFour).entry_1_1.get())
-        self.flexibilität[0].set(self.controller.get_page(PageFour).entry_1_2.get())
-        self.zeitEffizienz[0].set(self.controller.get_page(PageFour).entry_1_3.get())
-        self.zeitAufwand[1].set(self.controller.get_page(PageFour).entry_2_1.get())
-        self.flexibilität[1].set(self.controller.get_page(PageFour).entry_2_2.get())
-        self.zeitEffizienz[1].set(self.controller.get_page(PageFour).entry_2_3.get())
-        self.zeitAufwand[2].set(self.controller.get_page(PageFour).entry_3_1.get())
-        self.flexibilität[2].set(self.controller.get_page(PageFour).entry_3_2.get())
-        self.zeitEffizienz[2].set(self.controller.get_page(PageFour).entry_3_3.get())
-        self.zeitAufwand[3].set(self.controller.get_page(PageFour).entry_4_1.get())
-        self.flexibilität[3].set(self.controller.get_page(PageFour).entry_4_2.get())
-        self.zeitEffizienz[3].set(self.controller.get_page(PageFour).entry_4_3.get())
+        self.setter(self.produktQualität[0], self.controller.get_page(PageFive).entry_1_1.get(), 100)
+        self.setter(self.produktQualität[1], self.controller.get_page(PageFive).entry_1_2.get(), 100)
+        self.setter(self.produktQualität[2], self.controller.get_page(PageFive).entry_1_3.get(), 100)
+        self.setter(self.produktQualität[3], self.controller.get_page(PageFive).entry_1_4.get(), 100)
 
-        self.produktQualität[0].set(self.controller.get_page(PageFive).entry_1_1.get())
-        self.produktQualität[1].set(self.controller.get_page(PageFive).entry_1_2.get())
-        self.produktQualität[2].set(self.controller.get_page(PageFive).entry_1_3.get())
-        self.produktQualität[3].set(self.controller.get_page(PageFive).entry_1_4.get())
+        self.setter(self.innovativität[0], self.controller.get_page(PageSix).entry_1_1.get(), 7)
+        self.setter(self.flächenVerbrauch[0], self.controller.get_page(PageSix).entry_1_2.get(), 29.5)
+        self.setter(self.innovativität[1], self.controller.get_page(PageSix).entry_2_1.get(), 7)
+        self.setter(self.flächenVerbrauch[1], self.controller.get_page(PageSix).entry_2_2.get(), 55.5)
+        self.setter(self.innovativität[2], self.controller.get_page(PageSix).entry_3_1.get(), 6)
+        self.setter(self.flächenVerbrauch[2], self.controller.get_page(PageSix).entry_3_1.get(), 36.5)
+        self.setter(self.innovativität[3], self.controller.get_page(PageSix).entry_4_1.get(), 5)
+        self.setter(self.flächenVerbrauch[3], self.controller.get_page(PageSix).entry_4_1.get(), 25.5)
 
-        self.innovativität[0].set(self.controller.get_page(PageSix).entry_1_1.get())
-        self.flächenVerbrauch[0].set(self.controller.get_page(PageSix).entry_1_2.get())
-        self.innovativität[1].set(self.controller.get_page(PageSix).entry_2_1.get())
-        self.flächenVerbrauch[1].set(self.controller.get_page(PageSix).entry_2_2.get())
-        self.innovativität[2].set(self.controller.get_page(PageSix).entry_3_1.get())
-        self.flächenVerbrauch[2].set(self.controller.get_page(PageSix).entry_3_1.get())
-        self.innovativität[3].set(self.controller.get_page(PageSix).entry_4_1.get())
-        self.flächenVerbrauch[3].set(self.controller.get_page(PageSix).entry_4_1.get())
+        self.check = IntVar()
+        self.check.set(0)
+
+        self.errormsg = StringVar()
+        self.errormsg.set("Die eingegebene Werte für Folgende Indikatoren sind größer als erlaubt:\n")
+
+        self.errorstring(self.giftMaterial[0], 100, self.errormsg, "\n-Flechtwickelmaschine (Einsatz giftiger/kritischer Materialien): Prozentzatz überschreitet 100%.", self.check)
+        self.errorstring(self.abfallProzentsatz[0], 100, self.errormsg, "\n-Flechtwickelmaschine (Abfall): Prozentzatz überschreitet 100%.", self.check)
+        self.errorstring(self.abfallSzenarien[0], 8, self.errormsg, "\n-Flechtwickelmaschine (Abfallszenarien): Skalawert überschreitet 8.", self.check)
+        self.errorstring(self.recyclingRelativ[0], 100, self.errormsg, "\n-Flechtwickelmaschine (Anteil verwendetes Recyclingmaterial(Relativ)): Prozentzatz überschreitet 100%.", self.check)
+        self.errorstring(self.flexibilität[0], 8, self.errormsg, "\n-Flechtwickelmaschine (Flexibilität): Skalawert überschreitet 8.", self.check)
+        self.errorstring(self.zeitEffizienz[0], 8, self.errormsg, "\n-Flechtwickelmaschine (Zeitliche Effizienz): Skalawert überschreitet 8.", self.check)
+        self.errorstring(self.produktQualität[0], 100, self.errormsg, "\n-Flechtwickelmaschine (Produktqualität): Prozentzatz überschreitet 100%.", self.check)
+        self.errorstring(self.innovativität[0], 8, self.errormsg, "\n-Flechtwickelmaschine (Innovativität): Skalawert überschreitet 8.", self.check)
+
+        self.errorstring(self.giftMaterial[1], 100, self.errormsg, "\n-Multifilamentwickelmaschine 90 (Einsatz giftiger/kritischer Materialien): Prozentzatz überschreitet 100%.", self.check)
+        self.errorstring(self.abfallProzentsatz[1], 100, self.errormsg, "\n-Multifilamentwickelmaschine 90 (Abfall): Prozentzatz überschreitet 100%.", self.check)
+        self.errorstring(self.abfallSzenarien[1], 8, self.errormsg, "\n-Multifilamentwickelmaschine 90 (Abfallszenarien): Skalawert überschreitet 8.", self.check)
+        self.errorstring(self.recyclingRelativ[1], 100, self.errormsg, "\n-Multifilamentwickelmaschine 90 (Anteil verwendetes Recyclingmaterial(Relativ)): Prozentzatz überschreitet 100%.", self.check)
+        self.errorstring(self.flexibilität[1], 8, self.errormsg, "\n-Multifilamentwickelmaschine 90 (Flexibilität): Skalawert überschreitet 8.", self.check)
+        self.errorstring(self.zeitEffizienz[1], 8, self.errormsg, "\n-Multifilamentwickelmaschine 90 (Zeitliche Effizienz): Skalawert überschreitet 8.", self.check)
+        self.errorstring(self.produktQualität[1], 100, self.errormsg, "\n-Multifilamentwickelmaschine 90 (Produktqualität): Prozentzatz überschreitet 100%.", self.check)
+        self.errorstring(self.innovativität[1], 8, self.errormsg, "\n-Multifilamentwickelmaschine 90 (Innovativität): Skalawert überschreitet 8.", self.check)
+
+        self.errorstring(self.giftMaterial[2], 100, self.errormsg, "\n-Mulftifilamentwickelmaschine 48 (Einsatz giftiger/kritischer Materialien): Prozentzatz überschreitet 100%.", self.check)
+        self.errorstring(self.abfallProzentsatz[2], 100, self.errormsg, "\n-Mulftifilamentwickelmaschine 48 (Abfall): Prozentzatz überschreitet 100%.", self.check)
+        self.errorstring(self.abfallSzenarien[2], 8, self.errormsg, "\n-Mulftifilamentwickelmaschine 48 (Abfallszenarien): Skalawert überschreitet 8.", self.check)
+        self.errorstring(self.recyclingRelativ[2], 100, self.errormsg, "\n-Mulftifilamentwickelmaschine 48 (Anteil verwendetes Recyclingmaterial(Relativ)): Prozentzatz überschreitet 100%.", self.check)
+        self.errorstring(self.flexibilität[2], 8, self.errormsg, "\n-Mulftifilamentwickelmaschine 48 (Flexibilität): Skalawert überschreitet 8.", self.check)
+        self.errorstring(self.zeitEffizienz[2], 8, self.errormsg, "\n-Mulftifilamentwickelmaschine 48 (Zeitliche Effizienz): Skalawert überschreitet 8.", self.check)
+        self.errorstring(self.produktQualität[2], 100, self.errormsg, "\n-Mulftifilamentwickelmaschine 48 (Produktqualität): Prozentzatz überschreitet 100%.", self.check)
+        self.errorstring(self.innovativität[2], 8, self.errormsg, "\n-Mulftifilamentwickelmaschine 48 (Innovativität): Skalawert überschreitet 8.", self.check)
+
+        self.errorstring(self.giftMaterial[3], 100, self.errormsg, "\n-Nasswickelmaschine (Einsatz giftiger/kritischer Materialien): Prozentzatz überschreitet 100%.", self.check)
+        self.errorstring(self.abfallProzentsatz[3], 100, self.errormsg, "\n-Nasswickelmaschine (Abfall): Prozentzatz überschreitet 100%.", self.check)
+        self.errorstring(self.abfallSzenarien[3], 8, self.errormsg, "\n-Nasswickelmaschine (Abfallszenarien): Skalawert überschreitet 8.", self.check)
+        self.errorstring(self.recyclingRelativ[3], 100, self.errormsg, "\n-Nasswickelmaschine (Anteil verwendetes Recyclingmaterial(Relativ)): Prozentzatz überschreitet 100%.", self.check)
+        self.errorstring(self.flexibilität[3], 8, self.errormsg, "\n-Nasswickelmaschine (Flexibilität): Skalawert überschreitet 8.", self.check)
+        self.errorstring(self.zeitEffizienz[3], 8, self.errormsg, "\n-Nasswickelmaschine (Zeitliche Effizienz): Skalawert überschreitet 8.", self.check)
+        self.errorstring(self.produktQualität[3], 100, self.errormsg, "\n-Nasswickelmaschine (Produktqualität): Prozentzatz überschreitet 100%.", self.check)
+        self.errorstring(self.innovativität[3], 8, self.errormsg, "\n-Nasswickelmaschine (Innovativität): Skalawert überschreitet 8.", self.check)
+        #print(self.check.get())
+
+        if self.check.get() == 1:
+            messagebox.showerror("Fehler!", self.errormsg.get() + "\n\nDie Indikatoren wurden zu ihren maximal erlaubten Werten gesetzt.")
+
+
+        self.check.set(0)
 
 
         def norm_wert(wert, wertList, min, max, mode: bool):  # normierte Wert Funktion
             """
-            if wert < min:
-                print("Der von Ihnen gewählte Wert ist kleiner als das Minimum")
+            if wert < 0:
+                print("test")
             elif wert > max:
-                print("Der von Ihnen gewählte Wert ist größer als das Maximum")
+                #self.popup_window()
+                popupmsg("Not supported just yet!")
             """
+
             for x in range(4):
                 if wertList[x].get() < min:
                     if wertList[x].get() < 0:
@@ -1180,11 +1256,14 @@ class PageOne(Frame):
         self.controller = controller
         self.rowconfigure(2, minsize=30)
 
+        regint = controller.register(correct)
+        regfloat = controller.register(correctfloat)
+
 
         Buttons = Frame(self)
-        button_2 = Button(Buttons, text="Next", command=lambda: controller.show_frame(PageTwo, "Ökologische Indikatoren"))
-        button_3 = Button(Buttons, text="Accept", command=lambda: controller.show_frame(PageOne, "Sozial-Ökologische Indikatoren"))
-        button_4 = Button(Buttons, text="Auswerten", command=lambda: controller.show_frame(PageEnd, "Visualisierung durch Nachhaltigkeitsdreick"))
+        button_2 = Button(Buttons, text="Next", command=lambda: controller.acceptwerte(PageTwo, "Ökologische Indikatoren"))
+        button_3 = Button(Buttons, text="Accept", command=lambda: controller.acceptwerte(PageOne, "Sozial-Ökologische Indikatoren"))
+        button_4 = Button(Buttons, text="Auswerten", command=lambda: controller.acceptwerte(PageEnd, "Visualisierung durch Nachhaltigkeitsdreick"))
         button_5 = Button(Buttons, text="Cancel", command=lambda: controller.resetter())
         Buttons.columnconfigure(2, minsize=100)
         Buttons.columnconfigure(4, minsize=30)
@@ -1196,8 +1275,8 @@ class PageOne(Frame):
 
 
         name_1 = Label(self.Sozial_Ökologisch_1, text="Flechtwickelmaschine", relief = 'ridge')
-        name_2 = Label(self.Sozial_Ökologisch_2, text="Multifilamentwickelmaschine90", relief = 'ridge')
-        name_3 = Label(self.Sozial_Ökologisch_3, text="Multifilamentwickelmaschine48", relief = 'ridge')
+        name_2 = Label(self.Sozial_Ökologisch_2, text="Multifilamentwickelmaschine 90", relief = 'ridge')
+        name_3 = Label(self.Sozial_Ökologisch_3, text="Multifilamentwickelmaschine 48", relief = 'ridge')
         name_4 = Label(self.Sozial_Ökologisch_4, text="Nasswickelmaschine", relief = 'ridge')
 
         label_1_1 = Label(self.Sozial_Ökologisch_1, text="Anteil giftige Emissionen/Abfälle   (tonne)")
@@ -1209,14 +1288,14 @@ class PageOne(Frame):
         label_4_1 = Label(self.Sozial_Ökologisch_4, text="Anteil giftige Emissionen/Abfälle   (tonne)")
         label_4_2 = Label(self.Sozial_Ökologisch_4, text="Einsatz giftiger/kritischer Materialien   (%)")
 
-        self.entry_1_1 = Entry(self.Sozial_Ökologisch_1, textvariable = controller.get_page(StartPage).emissionen[0])
-        self.entry_1_2 = Entry(self.Sozial_Ökologisch_1, textvariable = controller.get_page(StartPage).giftMaterial[0])
-        self.entry_1 = Entry(self.Sozial_Ökologisch_2, textvariable = controller.get_page(StartPage).emissionen[1])
-        self.entry_2 = Entry(self.Sozial_Ökologisch_2, textvariable = controller.get_page(StartPage).giftMaterial[1])
-        self.entry_3_1 = Entry(self.Sozial_Ökologisch_3, textvariable = controller.get_page(StartPage).emissionen[2])
-        self.entry_3_2 = Entry(self.Sozial_Ökologisch_3, textvariable = controller.get_page(StartPage).giftMaterial[2])
-        self.entry_4_1 = Entry(self.Sozial_Ökologisch_4, textvariable = controller.get_page(StartPage).emissionen[3])
-        self.entry_4_2 = Entry(self.Sozial_Ökologisch_4, textvariable = controller.get_page(StartPage).giftMaterial[3])
+        self.entry_1_1 = Entry(self.Sozial_Ökologisch_1, textvariable = controller.get_page(StartPage).emissionen[0], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_1_2 = Entry(self.Sozial_Ökologisch_1, textvariable = controller.get_page(StartPage).giftMaterial[0], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_1 = Entry(self.Sozial_Ökologisch_2, textvariable = controller.get_page(StartPage).emissionen[1], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_2 = Entry(self.Sozial_Ökologisch_2, textvariable = controller.get_page(StartPage).giftMaterial[1], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_3_1 = Entry(self.Sozial_Ökologisch_3, textvariable = controller.get_page(StartPage).emissionen[2], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_3_2 = Entry(self.Sozial_Ökologisch_3, textvariable = controller.get_page(StartPage).giftMaterial[2], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_4_1 = Entry(self.Sozial_Ökologisch_4, textvariable = controller.get_page(StartPage).emissionen[3], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_4_2 = Entry(self.Sozial_Ökologisch_4, textvariable = controller.get_page(StartPage).giftMaterial[3], validate = "key", validatecommand =(regint, '%P'))
 
         self.auswertung_1 = Canvas(self.Sozial_Ökologisch_1, width=40, height=40)
         self.auswertung_2 = Canvas(self.Sozial_Ökologisch_2, width=40, height=40)
@@ -1281,13 +1360,16 @@ class PageTwo(Frame):
         self.controller = controller
         self.rowconfigure(2, minsize=30)
 
+        regint = controller.register(correct)
+        regfloat = controller.register(correctfloat)
+
         Buttons = Frame(self)
         button_1 = Button(Buttons, text="Back",
-                          command=lambda: controller.show_frame(PageOne, "Sozial-Ökologische Indikatoren"))
+                          command=lambda: controller.acceptwerte(PageOne, "Sozial-Ökologische Indikatoren"))
         button_2 = Button(Buttons, text="Next",
-                          command=lambda: controller.show_frame(PageThree, "Ökologisch-Ökonomische Indikatoren"))
-        button_3 = Button(Buttons, text="Accept", command=lambda: controller.show_frame(PageTwo, "Ökologische Indikatoren"))
-        button_4 = Button(Buttons, text="Auswerten", command=lambda: controller.show_frame(PageEnd, "Visualisierung durch Nachhaltigkeitsdreick"))
+                          command=lambda: controller.acceptwerte(PageThree, "Ökologisch-Ökonomische Indikatoren"))
+        button_3 = Button(Buttons, text="Accept", command=lambda: controller.acceptwerte(PageTwo, "Ökologische Indikatoren"))
+        button_4 = Button(Buttons, text="Auswerten", command=lambda: controller.acceptwerte(PageEnd, "Visualisierung durch Nachhaltigkeitsdreick"))
         button_5 = Button(Buttons, text="Cancel", command=lambda: controller.resetter())
 
         Buttons.columnconfigure(2, minsize=100)
@@ -1299,8 +1381,8 @@ class PageTwo(Frame):
         self.Ökologisch_4 = Frame(self, highlightbackground="black", highlightthickness=1)
 
         name_1 = Label(self.Ökologisch_1, text="Flechtwickelmaschine", relief = 'ridge')
-        name_2 = Label(self.Ökologisch_2, text="Multifilamentwickelmaschine90", relief = 'ridge')
-        name_3 = Label(self.Ökologisch_3, text="Multifilamentwickelmaschine48", relief = 'ridge')
+        name_2 = Label(self.Ökologisch_2, text="Multifilamentwickelmaschine 90", relief = 'ridge')
+        name_3 = Label(self.Ökologisch_3, text="Multifilamentwickelmaschine 48", relief = 'ridge')
         name_4 = Label(self.Ökologisch_4, text="Nasswickelmaschine", relief = 'ridge')
 
         label_1_1 = Label(self.Ökologisch_1, text="Abfall   (%)")
@@ -1320,22 +1402,22 @@ class PageTwo(Frame):
         label_4_3 = Label(self.Ökologisch_4, text="Anteil verwendetes Recyclingmaterial(Asolut)   (g)")
         label_4_4 = Label(self.Ökologisch_4, text="Anteil verwendetes Recyclingmaterial(Relativ)   (%)")
 
-        self.entry_1_1 = Entry(self.Ökologisch_1, textvariable = controller.get_page(StartPage).abfallProzentsatz[0])
-        self.entry_1_2 = Entry(self.Ökologisch_1, textvariable = controller.get_page(StartPage).abfallSzenarien[0])
-        self.entry_1_3 = Entry(self.Ökologisch_1, textvariable = controller.get_page(StartPage).recyclingAbsolut[0])
-        self.entry_1_4 = Entry(self.Ökologisch_1, textvariable = controller.get_page(StartPage).recyclingRelativ[0])
-        self.entry_2_1 = Entry(self.Ökologisch_2, textvariable = controller.get_page(StartPage).abfallProzentsatz[1])
-        self.entry_2_2 = Entry(self.Ökologisch_2, textvariable = controller.get_page(StartPage).abfallSzenarien[1])
-        self.entry_2_3 = Entry(self.Ökologisch_2, textvariable = controller.get_page(StartPage).recyclingAbsolut[1])
-        self.entry_2_4 = Entry(self.Ökologisch_2, textvariable = controller.get_page(StartPage).recyclingRelativ[1])
-        self.entry_3_1 = Entry(self.Ökologisch_3, textvariable = controller.get_page(StartPage).abfallProzentsatz[2])
-        self.entry_3_2 = Entry(self.Ökologisch_3, textvariable = controller.get_page(StartPage).abfallSzenarien[2])
-        self.entry_3_3 = Entry(self.Ökologisch_3, textvariable = controller.get_page(StartPage).recyclingAbsolut[2])
-        self.entry_3_4 = Entry(self.Ökologisch_3, textvariable = controller.get_page(StartPage).recyclingRelativ[2])
-        self.entry_4_1 = Entry(self.Ökologisch_4, textvariable = controller.get_page(StartPage).abfallProzentsatz[3])
-        self.entry_4_2 = Entry(self.Ökologisch_4, textvariable = controller.get_page(StartPage).abfallSzenarien[3])
-        self.entry_4_3 = Entry(self.Ökologisch_4, textvariable = controller.get_page(StartPage).recyclingAbsolut[3])
-        self.entry_4_4 = Entry(self.Ökologisch_4, textvariable = controller.get_page(StartPage).recyclingRelativ[3])
+        self.entry_1_1 = Entry(self.Ökologisch_1, textvariable = controller.get_page(StartPage).abfallProzentsatz[0], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_1_2 = Entry(self.Ökologisch_1, textvariable = controller.get_page(StartPage).abfallSzenarien[0], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_1_3 = Entry(self.Ökologisch_1, textvariable = controller.get_page(StartPage).recyclingAbsolut[0], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_1_4 = Entry(self.Ökologisch_1, textvariable = controller.get_page(StartPage).recyclingRelativ[0], validate = "key", validatecommand =(regfloat, '%P'))
+        self.entry_2_1 = Entry(self.Ökologisch_2, textvariable = controller.get_page(StartPage).abfallProzentsatz[1], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_2_2 = Entry(self.Ökologisch_2, textvariable = controller.get_page(StartPage).abfallSzenarien[1], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_2_3 = Entry(self.Ökologisch_2, textvariable = controller.get_page(StartPage).recyclingAbsolut[1], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_2_4 = Entry(self.Ökologisch_2, textvariable = controller.get_page(StartPage).recyclingRelativ[1], validate = "key", validatecommand =(regfloat, '%P'))
+        self.entry_3_1 = Entry(self.Ökologisch_3, textvariable = controller.get_page(StartPage).abfallProzentsatz[2], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_3_2 = Entry(self.Ökologisch_3, textvariable = controller.get_page(StartPage).abfallSzenarien[2], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_3_3 = Entry(self.Ökologisch_3, textvariable = controller.get_page(StartPage).recyclingAbsolut[2], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_3_4 = Entry(self.Ökologisch_3, textvariable = controller.get_page(StartPage).recyclingRelativ[2], validate = "key", validatecommand =(regfloat, '%P'))
+        self.entry_4_1 = Entry(self.Ökologisch_4, textvariable = controller.get_page(StartPage).abfallProzentsatz[3], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_4_2 = Entry(self.Ökologisch_4, textvariable = controller.get_page(StartPage).abfallSzenarien[3], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_4_3 = Entry(self.Ökologisch_4, textvariable = controller.get_page(StartPage).recyclingAbsolut[3], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_4_4 = Entry(self.Ökologisch_4, textvariable = controller.get_page(StartPage).recyclingRelativ[3], validate = "key", validatecommand =(regfloat, '%P'))
 
         self.auswertung_1 = Canvas(self.Ökologisch_1, width=40, height=40)
         self.auswertung_2 = Canvas(self.Ökologisch_2, width=40, height=40)
@@ -1416,13 +1498,16 @@ class PageThree(Frame):
         self.controller = controller
         self.rowconfigure(2, minsize=30)
 
+        regint = controller.register(correct)
+        regfloat = controller.register(correctfloat)
+
         Buttons = Frame(self)
         button_1 = Button(Buttons, text="Back",
-                          command=lambda: controller.show_frame(PageTwo, "Ökologische Indikatoren"))
+                          command=lambda: controller.acceptwerte(PageTwo, "Ökologische Indikatoren"))
         button_2 = Button(Buttons, text="Next",
-                          command=lambda: controller.show_frame(PageFour, "Ökonomische Indikatoren"))
-        button_3 = Button(Buttons, text="Accept", command=lambda: controller.show_frame(PageThree, "Ökologisch-Ökonomische Indikatoren"))
-        button_4 = Button(Buttons, text="Auswerten", command=lambda: controller.show_frame(PageEnd, "Visualisierung durch Nachhaltigkeitsdreick"))
+                          command=lambda: controller.acceptwerte(PageFour, "Ökonomische Indikatoren"))
+        button_3 = Button(Buttons, text="Accept", command=lambda: controller.acceptwerte(PageThree, "Ökologisch-Ökonomische Indikatoren"))
+        button_4 = Button(Buttons, text="Auswerten", command=lambda: controller.acceptwerte(PageEnd, "Visualisierung durch Nachhaltigkeitsdreick"))
         button_5 = Button(Buttons, text="Cancel", command=lambda: controller.resetter())
 
         Buttons.columnconfigure(2, minsize=100)
@@ -1434,8 +1519,8 @@ class PageThree(Frame):
         self.Ökologisch_Ökonomisch_4 = Frame(self, highlightbackground="black", highlightthickness=1)
 
         name_1_1 = Label(self.Ökologisch_Ökonomisch_1, text="Flechtwickelmaschine", relief = 'ridge')
-        name_1_2 = Label(self.Ökologisch_Ökonomisch_2, text="Multifilamentwickelmaschine90", relief = 'ridge')
-        name_1_3 = Label(self.Ökologisch_Ökonomisch_3, text="Multifilamentwickelmaschine48", relief = 'ridge')
+        name_1_2 = Label(self.Ökologisch_Ökonomisch_2, text="Multifilamentwickelmaschine 90", relief = 'ridge')
+        name_1_3 = Label(self.Ökologisch_Ökonomisch_3, text="Multifilamentwickelmaschine 48", relief = 'ridge')
         name_1_4 = Label(self.Ökologisch_Ökonomisch_4, text="Nasswickelmaschine", relief = 'ridge')
 
         label_1_1 = Label(self.Ökologisch_Ökonomisch_1, text="Energieverbrauch   (W)")
@@ -1455,22 +1540,22 @@ class PageThree(Frame):
         label_4_3 = Label(self.Ökologisch_Ökonomisch_4, text="Kosteneffizient   (Euro/s)")
         label_4_4 = Label(self.Ökologisch_Ökonomisch_4, text="Kostenaufwand   (Euro/kg)")
 
-        self.entry_1_1 = Entry(self.Ökologisch_Ökonomisch_1, textvariable = controller.get_page(StartPage).verbrauchEnergie[0])
-        self.entry_1_2 = Entry(self.Ökologisch_Ökonomisch_1, textvariable = controller.get_page(StartPage).verbrauchMaterial[0])
-        self.entry_1_3 = Entry(self.Ökologisch_Ökonomisch_1, textvariable = controller.get_page(StartPage).kostenEffizienz[0])
-        self.entry_1_4 = Entry(self.Ökologisch_Ökonomisch_1, textvariable = controller.get_page(StartPage).kostenAufwand[0])
-        self.entry_2_1 = Entry(self.Ökologisch_Ökonomisch_2, textvariable = controller.get_page(StartPage).verbrauchEnergie[1])
-        self.entry_2_2 = Entry(self.Ökologisch_Ökonomisch_2, textvariable = controller.get_page(StartPage).verbrauchMaterial[1])
-        self.entry_2_3 = Entry(self.Ökologisch_Ökonomisch_2, textvariable = controller.get_page(StartPage).kostenEffizienz[1])
-        self.entry_2_4 = Entry(self.Ökologisch_Ökonomisch_2, textvariable = controller.get_page(StartPage).kostenAufwand[1])
-        self.entry_3_1 = Entry(self.Ökologisch_Ökonomisch_3, textvariable = controller.get_page(StartPage).verbrauchEnergie[2])
-        self.entry_3_2 = Entry(self.Ökologisch_Ökonomisch_3, textvariable = controller.get_page(StartPage).verbrauchMaterial[2])
-        self.entry_3_3 = Entry(self.Ökologisch_Ökonomisch_3, textvariable = controller.get_page(StartPage).kostenEffizienz[2])
-        self.entry_3_4 = Entry(self.Ökologisch_Ökonomisch_3, textvariable = controller.get_page(StartPage).kostenAufwand[2])
-        self.entry_4_1 = Entry(self.Ökologisch_Ökonomisch_4, textvariable = controller.get_page(StartPage).verbrauchEnergie[3])
-        self.entry_4_2 = Entry(self.Ökologisch_Ökonomisch_4, textvariable = controller.get_page(StartPage).verbrauchMaterial[3])
-        self.entry_4_3 = Entry(self.Ökologisch_Ökonomisch_4, textvariable = controller.get_page(StartPage).kostenEffizienz[3])
-        self.entry_4_4 = Entry(self.Ökologisch_Ökonomisch_4, textvariable = controller.get_page(StartPage).kostenAufwand[3])
+        self.entry_1_1 = Entry(self.Ökologisch_Ökonomisch_1, textvariable = controller.get_page(StartPage).verbrauchEnergie[0], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_1_2 = Entry(self.Ökologisch_Ökonomisch_1, textvariable = controller.get_page(StartPage).verbrauchMaterial[0], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_1_3 = Entry(self.Ökologisch_Ökonomisch_1, textvariable = controller.get_page(StartPage).kostenEffizienz[0], validate = "key", validatecommand =(regfloat, '%P'))
+        self.entry_1_4 = Entry(self.Ökologisch_Ökonomisch_1, textvariable = controller.get_page(StartPage).kostenAufwand[0], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_2_1 = Entry(self.Ökologisch_Ökonomisch_2, textvariable = controller.get_page(StartPage).verbrauchEnergie[1], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_2_2 = Entry(self.Ökologisch_Ökonomisch_2, textvariable = controller.get_page(StartPage).verbrauchMaterial[1], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_2_3 = Entry(self.Ökologisch_Ökonomisch_2, textvariable = controller.get_page(StartPage).kostenEffizienz[1], validate = "key", validatecommand =(regfloat, '%P'))
+        self.entry_2_4 = Entry(self.Ökologisch_Ökonomisch_2, textvariable = controller.get_page(StartPage).kostenAufwand[1], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_3_1 = Entry(self.Ökologisch_Ökonomisch_3, textvariable = controller.get_page(StartPage).verbrauchEnergie[2], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_3_2 = Entry(self.Ökologisch_Ökonomisch_3, textvariable = controller.get_page(StartPage).verbrauchMaterial[2], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_3_3 = Entry(self.Ökologisch_Ökonomisch_3, textvariable = controller.get_page(StartPage).kostenEffizienz[2], validate = "key", validatecommand =(regfloat, '%P'))
+        self.entry_3_4 = Entry(self.Ökologisch_Ökonomisch_3, textvariable = controller.get_page(StartPage).kostenAufwand[2], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_4_1 = Entry(self.Ökologisch_Ökonomisch_4, textvariable = controller.get_page(StartPage).verbrauchEnergie[3], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_4_2 = Entry(self.Ökologisch_Ökonomisch_4, textvariable = controller.get_page(StartPage).verbrauchMaterial[3], validate = "key", validatecommand =(regfloat, '%P'))
+        self.entry_4_3 = Entry(self.Ökologisch_Ökonomisch_4, textvariable = controller.get_page(StartPage).kostenEffizienz[3], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_4_4 = Entry(self.Ökologisch_Ökonomisch_4, textvariable = controller.get_page(StartPage).kostenAufwand[3], validate = "key", validatecommand =(regint, '%P'))
 
         self.auswertung_1 = Canvas(self.Ökologisch_Ökonomisch_1, width=40, height=40)
         self.auswertung_2 = Canvas(self.Ökologisch_Ökonomisch_2, width=40, height=40)
@@ -1551,13 +1636,16 @@ class PageFour(Frame):
         self.controller = controller
         self.rowconfigure(2, minsize=30)
 
+        regint = controller.register(correct)
+        regfloat = controller.register(correctfloat)
+
         Buttons = Frame(self)
         button_1 = Button(Buttons, text="Back",
-                          command=lambda: controller.show_frame(PageThree, "Ökologisch-Ökonomische Indikatoren"))
+                          command=lambda: controller.acceptwerte(PageThree, "Ökologisch-Ökonomische Indikatoren"))
         button_2 = Button(Buttons, text="Next",
-                          command=lambda: controller.show_frame(PageFive, "Sozial-Ökonomische Indikatoren"))
-        button_3 = Button(Buttons, text="Accept", command=lambda: controller.show_frame(PageFour, "Ökonomische Indikatoren"))
-        button_4 = Button(Buttons, text="Auswerten", command=lambda: controller.show_frame(PageEnd, "Visualisierung durch Nachhaltigkeitsdreick"))
+                          command=lambda: controller.acceptwerte(PageFive, "Sozial-Ökonomische Indikatoren"))
+        button_3 = Button(Buttons, text="Accept", command=lambda: controller.acceptwerte(PageFour, "Ökonomische Indikatoren"))
+        button_4 = Button(Buttons, text="Auswerten", command=lambda: controller.acceptwerte(PageEnd, "Visualisierung durch Nachhaltigkeitsdreick"))
         button_5 = Button(Buttons, text="Cancel", command=lambda: controller.resetter())
 
         Buttons.columnconfigure(2, minsize=100)
@@ -1569,8 +1657,8 @@ class PageFour(Frame):
         self.Ökonomisch_4 = Frame(self, highlightbackground="black", highlightthickness=1)
 
         name_1_1 = Label(self.Ökonomisch_1, text="Flechtwickelmaschine", relief = 'ridge')
-        name_1_2 = Label(self.Ökonomisch_2, text="Multifilamentwickelmaschine90", relief = 'ridge')
-        name_1_3 = Label(self.Ökonomisch_3, text="Multifilamentwickelmaschine48", relief = 'ridge')
+        name_1_2 = Label(self.Ökonomisch_2, text="Multifilamentwickelmaschine 90", relief = 'ridge')
+        name_1_3 = Label(self.Ökonomisch_3, text="Multifilamentwickelmaschine 48", relief = 'ridge')
         name_1_4 = Label(self.Ökonomisch_4, text="Nasswickelmaschine", relief = 'ridge')
 
         label_1_1 = Label(self.Ökonomisch_1, text="Zeitlicher Aufwand   (min/Tank)")
@@ -1586,18 +1674,18 @@ class PageFour(Frame):
         label_4_2 = Label(self.Ökonomisch_4, text="Flexibilität   (Skala:     0 = niedrig / 8 = hoch)")
         label_4_3 = Label(self.Ökonomisch_4, text="Zeitliche Effizienz   (Skala:     0 = niedrig / 8 = hoch)")
 
-        self.entry_1_1 = Entry(self.Ökonomisch_1, textvariable = controller.get_page(StartPage).zeitAufwand[0])
-        self.entry_1_2 = Entry(self.Ökonomisch_1, textvariable = controller.get_page(StartPage).flexibilität[0])
-        self.entry_1_3 = Entry(self.Ökonomisch_1, textvariable = controller.get_page(StartPage).zeitEffizienz[0])
-        self.entry_2_1 = Entry(self.Ökonomisch_2, textvariable = controller.get_page(StartPage).zeitAufwand[1])
-        self.entry_2_2 = Entry(self.Ökonomisch_2, textvariable = controller.get_page(StartPage).flexibilität[1])
-        self.entry_2_3 = Entry(self.Ökonomisch_2, textvariable = controller.get_page(StartPage).zeitEffizienz[1])
-        self.entry_3_1 = Entry(self.Ökonomisch_3, textvariable = controller.get_page(StartPage).zeitAufwand[2])
-        self.entry_3_2 = Entry(self.Ökonomisch_3, textvariable = controller.get_page(StartPage).flexibilität[2])
-        self.entry_3_3 = Entry(self.Ökonomisch_3, textvariable = controller.get_page(StartPage).zeitEffizienz[2])
-        self.entry_4_1 = Entry(self.Ökonomisch_4, textvariable = controller.get_page(StartPage).zeitAufwand[3])
-        self.entry_4_2 = Entry(self.Ökonomisch_4, textvariable = controller.get_page(StartPage).flexibilität[3])
-        self.entry_4_3 = Entry(self.Ökonomisch_4, textvariable = controller.get_page(StartPage).zeitEffizienz[3])
+        self.entry_1_1 = Entry(self.Ökonomisch_1, textvariable = controller.get_page(StartPage).zeitAufwand[0], validate = "key", validatecommand =(regfloat, '%P'))
+        self.entry_1_2 = Entry(self.Ökonomisch_1, textvariable = controller.get_page(StartPage).flexibilität[0], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_1_3 = Entry(self.Ökonomisch_1, textvariable = controller.get_page(StartPage).zeitEffizienz[0], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_2_1 = Entry(self.Ökonomisch_2, textvariable = controller.get_page(StartPage).zeitAufwand[1], validate = "key", validatecommand =(regfloat, '%P'))
+        self.entry_2_2 = Entry(self.Ökonomisch_2, textvariable = controller.get_page(StartPage).flexibilität[1], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_2_3 = Entry(self.Ökonomisch_2, textvariable = controller.get_page(StartPage).zeitEffizienz[1], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_3_1 = Entry(self.Ökonomisch_3, textvariable = controller.get_page(StartPage).zeitAufwand[2], validate = "key", validatecommand =(regfloat, '%P'))
+        self.entry_3_2 = Entry(self.Ökonomisch_3, textvariable = controller.get_page(StartPage).flexibilität[2], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_3_3 = Entry(self.Ökonomisch_3, textvariable = controller.get_page(StartPage).zeitEffizienz[2], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_4_1 = Entry(self.Ökonomisch_4, textvariable = controller.get_page(StartPage).zeitAufwand[3], validate = "key", validatecommand =(regfloat, '%P'))
+        self.entry_4_2 = Entry(self.Ökonomisch_4, textvariable = controller.get_page(StartPage).flexibilität[3], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_4_3 = Entry(self.Ökonomisch_4, textvariable = controller.get_page(StartPage).zeitEffizienz[3], validate = "key", validatecommand =(regint, '%P'))
 
         self.auswertung_1 = Canvas(self.Ökonomisch_1, width=40, height=40)
         self.auswertung_2 = Canvas(self.Ökonomisch_2, width=40, height=40)
@@ -1670,13 +1758,16 @@ class PageFive(Frame):
         self.controller = controller
         self.rowconfigure(2, minsize=30)
 
+        regint = controller.register(correct)
+        regfloat = controller.register(correctfloat)
+
         Buttons = Frame(self)
         button_1 = Button(Buttons, text="Back",
-                          command=lambda: controller.show_frame(PageFour, "Ökonomische Indikatoren"))
+                          command=lambda: controller.acceptwerte(PageFour, "Ökonomische Indikatoren"))
         button_2 = Button(Buttons, text="Next",
-                          command=lambda: controller.show_frame(PageSix, "Sozial-Ökonomisch_Ökologische Indikatoren"))
-        button_3 = Button(Buttons, text="Accept", command=lambda: controller.show_frame(PageFive, "Sozial-Ökonomische Indikatoren"))
-        button_4 = Button(Buttons, text="Auswerten", command=lambda: controller.show_frame(PageEnd, "Visualisierung durch Nachhaltigkeitsdreick"))
+                          command=lambda: controller.acceptwerte(PageSix, "Sozial-Ökonomisch-Ökologische Indikatoren"))
+        button_3 = Button(Buttons, text="Accept", command=lambda: controller.acceptwerte(PageFive, "Sozial-Ökonomische Indikatoren"))
+        button_4 = Button(Buttons, text="Auswerten", command=lambda: controller.acceptwerte(PageEnd, "Visualisierung durch Nachhaltigkeitsdreick"))
         button_5 = Button(Buttons, text="Cancel", command=lambda: controller.resetter())
 
         Buttons.columnconfigure(2, minsize=100)
@@ -1688,8 +1779,8 @@ class PageFive(Frame):
         self.Sozial_Ökonomisch_4 = Frame(self, highlightbackground="black", highlightthickness=1)
 
         name_1_1 = Label(self.Sozial_Ökonomisch_1, text="Flechtwickelmaschine", relief = 'ridge')
-        name_1_2 = Label(self.Sozial_Ökonomisch_2, text="Multifilamentwickelmaschine90", relief = 'ridge')
-        name_1_3 = Label(self.Sozial_Ökonomisch_3, text="Multifilamentwickelmaschine48", relief = 'ridge')
+        name_1_2 = Label(self.Sozial_Ökonomisch_2, text="Multifilamentwickelmaschine 90", relief = 'ridge')
+        name_1_3 = Label(self.Sozial_Ökonomisch_3, text="Multifilamentwickelmaschine 48", relief = 'ridge')
         name_1_4 = Label(self.Sozial_Ökonomisch_4, text="Nasswickelmaschine", relief = 'ridge')
 
         label_1_1 = Label(self.Sozial_Ökonomisch_1, text="Produktqualität   (%)")
@@ -1697,10 +1788,10 @@ class PageFive(Frame):
         label_1_3 = Label(self.Sozial_Ökonomisch_3, text="Produktqualität   (%)")
         label_1_4 = Label(self.Sozial_Ökonomisch_4, text="Produktqualität   (%)")
 
-        self.entry_1_1 = Entry(self.Sozial_Ökonomisch_1, textvariable = controller.get_page(StartPage).produktQualität[0])
-        self.entry_1_2 = Entry(self.Sozial_Ökonomisch_2, textvariable = controller.get_page(StartPage).produktQualität[1])
-        self.entry_1_3 = Entry(self.Sozial_Ökonomisch_3, textvariable = controller.get_page(StartPage).produktQualität[2])
-        self.entry_1_4 = Entry(self.Sozial_Ökonomisch_4, textvariable = controller.get_page(StartPage).produktQualität[3])
+        self.entry_1_1 = Entry(self.Sozial_Ökonomisch_1, textvariable = controller.get_page(StartPage).produktQualität[0], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_1_2 = Entry(self.Sozial_Ökonomisch_2, textvariable = controller.get_page(StartPage).produktQualität[1], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_1_3 = Entry(self.Sozial_Ökonomisch_3, textvariable = controller.get_page(StartPage).produktQualität[2], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_1_4 = Entry(self.Sozial_Ökonomisch_4, textvariable = controller.get_page(StartPage).produktQualität[3], validate = "key", validatecommand =(regint, '%P'))
 
         self.auswertung_1 = Canvas(self.Sozial_Ökonomisch_1, width=40, height=40)
         self.auswertung_2 = Canvas(self.Sozial_Ökonomisch_2, width=40, height=40)
@@ -1757,11 +1848,14 @@ class PageSix(Frame):
         self.controller = controller
         self.rowconfigure(2, minsize=30)
 
+        regint = controller.register(correct)
+        regfloat = controller.register(correctfloat)
+
         Buttons = Frame(self)
         button_1 = Button(Buttons, text="Back",
-                          command=lambda: controller.show_frame(PageFive, "Sozial-Ökonomische Indikatoren"))
-        button_3 = Button(Buttons, text="Accept", command=lambda: controller.show_frame(PageSix, "Sozial-Ökonomisch-Ökologische Indikatoren"))
-        button_4 = Button(Buttons, text="Auswerten", command=lambda: controller.show_frame(PageEnd, "Visualisierung durch Nachhaltigkeitsdreick"))
+                          command=lambda: controller.acceptwerte(PageFive, "Sozial-Ökonomische Indikatoren"))
+        button_3 = Button(Buttons, text="Accept", command=lambda: controller.acceptwerte(PageSix, "Sozial-Ökonomisch-Ökologische Indikatoren"))
+        button_4 = Button(Buttons, text="Auswerten", command=lambda: controller.acceptwerte(PageEnd, "Visualisierung durch Nachhaltigkeitsdreick"))
         button_5 = Button(Buttons, text="Cancel", command=lambda: controller.resetter())
 
         Buttons.columnconfigure(2, minsize=100)
@@ -1773,8 +1867,8 @@ class PageSix(Frame):
         self.Sozial_Ökologisch_Ökonomisch_4 = Frame(self, highlightbackground="black", highlightthickness=1)
 
         name_1_1 = Label(self.Sozial_Ökologisch_Ökonomisch_1, text="Flechtwickelmaschine", relief = 'ridge')
-        name_1_2 = Label(self.Sozial_Ökologisch_Ökonomisch_2, text="Multifilamentwickelmaschine90", relief = 'ridge')
-        name_1_3 = Label(self.Sozial_Ökologisch_Ökonomisch_3, text="Multifilamentwickelmaschine48", relief = 'ridge')
+        name_1_2 = Label(self.Sozial_Ökologisch_Ökonomisch_2, text="Multifilamentwickelmaschine 90", relief = 'ridge')
+        name_1_3 = Label(self.Sozial_Ökologisch_Ökonomisch_3, text="Multifilamentwickelmaschine 48", relief = 'ridge')
         name_1_4 = Label(self.Sozial_Ökologisch_Ökonomisch_4, text="Nasswickelmaschine", relief = 'ridge')
 
         label_1_1 = Label(self.Sozial_Ökologisch_Ökonomisch_1, text="Innovativität   (Skala:     0 = niedrig / 8 = hoch)")
@@ -1786,14 +1880,14 @@ class PageSix(Frame):
         label_4_1 = Label(self.Sozial_Ökologisch_Ökonomisch_4, text="Innovativität   (Skala:     0 = niedrig / 8 = hoch)")
         label_4_2 = Label(self.Sozial_Ökologisch_Ökonomisch_4, text="Fächenverbrauch   (m^2)")
 
-        self.entry_1_1 = Entry(self.Sozial_Ökologisch_Ökonomisch_1, textvariable = controller.get_page(StartPage).innovativität[0])
-        self.entry_1_2 = Entry(self.Sozial_Ökologisch_Ökonomisch_1, textvariable = controller.get_page(StartPage).flächenVerbrauch[0])
-        self.entry_2_1 = Entry(self.Sozial_Ökologisch_Ökonomisch_2, textvariable = controller.get_page(StartPage).innovativität[1])
-        self.entry_2_2 = Entry(self.Sozial_Ökologisch_Ökonomisch_2, textvariable = controller.get_page(StartPage).flächenVerbrauch[1])
-        self.entry_3_1 = Entry(self.Sozial_Ökologisch_Ökonomisch_3, textvariable = controller.get_page(StartPage).innovativität[2])
-        self.entry_3_2 = Entry(self.Sozial_Ökologisch_Ökonomisch_3, textvariable = controller.get_page(StartPage).flächenVerbrauch[2])
-        self.entry_4_1 = Entry(self.Sozial_Ökologisch_Ökonomisch_4, textvariable = controller.get_page(StartPage).innovativität[3])
-        self.entry_4_2 = Entry(self.Sozial_Ökologisch_Ökonomisch_4, textvariable = controller.get_page(StartPage).flächenVerbrauch[3])
+        self.entry_1_1 = Entry(self.Sozial_Ökologisch_Ökonomisch_1, textvariable = controller.get_page(StartPage).innovativität[0], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_1_2 = Entry(self.Sozial_Ökologisch_Ökonomisch_1, textvariable = controller.get_page(StartPage).flächenVerbrauch[0], validate = "key", validatecommand =(regfloat, '%P'))
+        self.entry_2_1 = Entry(self.Sozial_Ökologisch_Ökonomisch_2, textvariable = controller.get_page(StartPage).innovativität[1], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_2_2 = Entry(self.Sozial_Ökologisch_Ökonomisch_2, textvariable = controller.get_page(StartPage).flächenVerbrauch[1], validate = "key", validatecommand =(regfloat, '%P'))
+        self.entry_3_1 = Entry(self.Sozial_Ökologisch_Ökonomisch_3, textvariable = controller.get_page(StartPage).innovativität[2], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_3_2 = Entry(self.Sozial_Ökologisch_Ökonomisch_3, textvariable = controller.get_page(StartPage).flächenVerbrauch[2], validate = "key", validatecommand =(regfloat, '%P'))
+        self.entry_4_1 = Entry(self.Sozial_Ökologisch_Ökonomisch_4, textvariable = controller.get_page(StartPage).innovativität[3], validate = "key", validatecommand =(regint, '%P'))
+        self.entry_4_2 = Entry(self.Sozial_Ökologisch_Ökonomisch_4, textvariable = controller.get_page(StartPage).flächenVerbrauch[3], validate = "key", validatecommand =(regfloat, '%P'))
 
         self.auswertung_1 = Canvas(self.Sozial_Ökologisch_Ökonomisch_1, width=40, height=40)
         self.auswertung_2 = Canvas(self.Sozial_Ökologisch_Ökonomisch_2, width=40, height=40)
@@ -1871,8 +1965,8 @@ class PageEnd(Frame):
         self.End_4 = Frame(self, highlightbackground="black", highlightthickness=1)
 
         name_1_1 = Button(self.End_1, text="Flechtwickelmaschine", command=lambda: controller.show_frame(MaschineWerte1, "Flechtwickelmaschine"))
-        name_1_2 = Button(self.End_2, text="Multifilamentwickelmaschine90", command=lambda: controller.show_frame(MaschineWerte2, "Multifilamentwickelmaschine90"))
-        name_1_3 = Button(self.End_3, text="Multifilamentwickelmaschine48", command=lambda: controller.show_frame(MaschineWerte3, "Multifilamentwickelmaschine48"))
+        name_1_2 = Button(self.End_2, text="Multifilamentwickelmaschine 90", command=lambda: controller.show_frame(MaschineWerte2, "Multifilamentwickelmaschine 90"))
+        name_1_3 = Button(self.End_3, text="Multifilamentwickelmaschine 48", command=lambda: controller.show_frame(MaschineWerte3, "Multifilamentwickelmaschine 48"))
         name_1_4 = Button(self.End_4, text="Nasswickelmaschine", command=lambda: controller.show_frame(MaschineWerte4, "Nasswickelmaschine"))
 
         self.auswertung_1 = Canvas(self.End_1, width=300, height=360)
@@ -2652,7 +2746,45 @@ def colourer(wert):
 
         return ('#' + hex_1[2:4] + 'ff00')
 
+def correctfloat(inp):
+
+    if inp.isdigit() and inp.count(".") <= 1:
+        return True
+    elif inp.count(".") <= 1:
+        if inp.isdigit() or inp == "":
+            return True
+        elif isfloat(inp):
+            return True
+        else:
+            return False
+    elif inp == "":
+        return True
+    else:
+        return False
+
+
+def correct(inp):
+
+    if inp.isdigit():
+        return True
+    elif inp == "":
+        return True
+    else:
+        return False
+
+def isfloat(value):
+  try:
+    float(value)
+    return True
+  except ValueError:
+    return False
+
+def hello():
+   messagebox.showinfo("Say Hello", "Hello World")
+
+
 app = H2MW()
 
+app.resizable(0,0)
 app.after(100, enabler)
 app.mainloop()
