@@ -680,7 +680,7 @@ class StartPage(Frame):
 
 
         if self.check.get() == 1:
-            messagebox.showerror("Fehler!", self.errormsg.get() + "\n\nDie Indikatoren wurden zu ihren maximal erlaubten Werten gesetzt.")
+            messagebox.showerror("Fehler!", self.errormsg.get() + "\n\nDie Indikatoren wurden zu ihren (maximal/minimalen) erlaubten Werten gesetzt.")
 
 
         self.check.set(0)
