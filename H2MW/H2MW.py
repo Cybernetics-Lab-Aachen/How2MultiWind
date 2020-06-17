@@ -13,10 +13,12 @@
 # importing tkinter module
 from tkinter import *
 from tkinter import font
+import tkinter as tk
 import tkinter.ttk
 import sys
 from tkinter import messagebox
-
+from tkinter.ttk import *
+from PIL import Image, ImageTk
 
 
 
@@ -481,7 +483,8 @@ class StartPage(Frame):
         self.controller = controller
 
         first = Frame(self)
-        buttons_first = Frame(first)
+        buttons_first = tk.Frame(first)
+
 
         self.var1 = BooleanVar()
         self.var2 = BooleanVar()
@@ -493,8 +496,8 @@ class StartPage(Frame):
         self.var3.set(0)
         self.var4.set(0)
 
-        button_1 = Button(buttons_first, text="Run with Default", command=lambda: self.default())
-        button_2 = Button(buttons_first, text="Next", command=lambda: controller.show_frame(PageOne, "Sozial-Ökologische Indikatoren"))
+        button_1 = Button(buttons_first, text="Standardmäßig ausführen", command=lambda: self.default())
+        button_2 = Button(buttons_first, text="Nächste Seite", command=lambda: controller.show_frame(PageOne, "Sozial-Ökologische Indikatoren"))
 
         label_1 = Label(first, text="Flechtwickelmaschine")
         label_2 = Label(first, text="Multifilamentwickelmaschine 90")
@@ -506,23 +509,29 @@ class StartPage(Frame):
         check_3 = Checkbutton(first, variable=self.var3, onvalue=1, offvalue=0)
         check_4 = Checkbutton(first, variable=self.var4, onvalue=1, offvalue=0)
 
+        load = Image.open("C:/Users/Ola/Desktop/temp/unnamed1.png")
+        render = ImageTk.PhotoImage(load)
+        img = Label(self, image=render)
+        img.image = render
+
+
         label_1.grid(row=0, column=0)
-        label_2.grid(row=0, column=2)
-        label_3.grid(row=1, column=0)
-        label_4.grid(row=1, column=2)
+        label_2.grid(row=1, column=0)
+        label_3.grid(row=2, column=0)
+        label_4.grid(row=3, column=0)
 
         check_1.grid(row=0, column=1)
-        check_2.grid(row=0, column=3)
-        check_3.grid(row=1, column=1)
-        check_4.grid(row=1, column=3)
+        check_2.grid(row=1, column=1)
+        check_3.grid(row=2, column=1)
+        check_4.grid(row=3, column=1)
 
         button_1.grid(row=0, column=0)
         button_2.grid(row=0, column=1)
 
 
-        buttons_first.grid(row=2, column=2)
-
-        first.grid(row=0, column=0)
+        buttons_first.grid(row=4, column=0)
+        img.grid(row=0, column=0)
+        first.grid(row=0, column=1)
 
         self.boot()
 
@@ -1258,18 +1267,18 @@ class PageOne(Frame):
         regfloat = controller.register(correctfloat)
 
 
-        Buttons = Frame(self)
-        button_2 = Button(Buttons, text="Next", command=lambda: controller.acceptwerte(PageTwo, "Ökologische Indikatoren"))
-        button_3 = Button(Buttons, text="Accept", command=lambda: controller.acceptwerte(PageOne, "Sozial-Ökologische Indikatoren"))
+        Buttons = tk.Frame(self)
+        button_2 = Button(Buttons, text="Nächste Seite", command=lambda: controller.acceptwerte(PageTwo, "Ökologische Indikatoren"))
+        button_3 = Button(Buttons, text="Akzeptieren", command=lambda: controller.acceptwerte(PageOne, "Sozial-Ökologische Indikatoren"))
         button_4 = Button(Buttons, text="Auswerten", command=lambda: controller.acceptwerte(PageEnd, "Visualisierung durch Nachhaltigkeitsdreick"))
-        button_5 = Button(Buttons, text="Cancel", command=lambda: controller.resetter())
+        button_5 = Button(Buttons, text="Abbrechen", command=lambda: controller.resetter())
         Buttons.columnconfigure(2, minsize=100)
         Buttons.columnconfigure(4, minsize=30)
 
-        self.Sozial_Ökologisch_1 = Frame(self, highlightbackground="black", highlightthickness=1)
-        self.Sozial_Ökologisch_2 = Frame(self, highlightbackground="black", highlightthickness=1)
-        self.Sozial_Ökologisch_3 = Frame(self, highlightbackground="black", highlightthickness=1)
-        self.Sozial_Ökologisch_4 = Frame(self, highlightbackground="black", highlightthickness=1)
+        self.Sozial_Ökologisch_1 = tk.Frame(self, highlightbackground="black", highlightthickness=1)
+        self.Sozial_Ökologisch_2 = tk.Frame(self, highlightbackground="black", highlightthickness=1)
+        self.Sozial_Ökologisch_3 = tk.Frame(self, highlightbackground="black", highlightthickness=1)
+        self.Sozial_Ökologisch_4 = tk.Frame(self, highlightbackground="black", highlightthickness=1)
 
 
         name_1 = Label(self.Sozial_Ökologisch_1, text="Flechtwickelmaschine", relief = 'ridge')
@@ -1354,29 +1363,29 @@ class PageOne(Frame):
 class PageTwo(Frame):
 
     def __init__(self, parent, controller):
-        Frame.__init__(self, parent)
+        tk.Frame.__init__(self, parent)
         self.controller = controller
         self.rowconfigure(2, minsize=30)
 
         regint = controller.register(correct)
         regfloat = controller.register(correctfloat)
 
-        Buttons = Frame(self)
-        button_1 = Button(Buttons, text="Back",
+        Buttons = tk.Frame(self)
+        button_1 = Button(Buttons, text="Zürück",
                           command=lambda: controller.acceptwerte(PageOne, "Sozial-Ökologische Indikatoren"))
-        button_2 = Button(Buttons, text="Next",
+        button_2 = Button(Buttons, text="Nächste Seite",
                           command=lambda: controller.acceptwerte(PageThree, "Ökologisch-Ökonomische Indikatoren"))
-        button_3 = Button(Buttons, text="Accept", command=lambda: controller.acceptwerte(PageTwo, "Ökologische Indikatoren"))
+        button_3 = Button(Buttons, text="Akzeptieren", command=lambda: controller.acceptwerte(PageTwo, "Ökologische Indikatoren"))
         button_4 = Button(Buttons, text="Auswerten", command=lambda: controller.acceptwerte(PageEnd, "Visualisierung durch Nachhaltigkeitsdreick"))
-        button_5 = Button(Buttons, text="Cancel", command=lambda: controller.resetter())
+        button_5 = Button(Buttons, text="Abbrechen", command=lambda: controller.resetter())
 
         Buttons.columnconfigure(2, minsize=100)
         Buttons.columnconfigure(4, minsize=30)
 
-        self.Ökologisch_1 = Frame(self, highlightbackground="black", highlightthickness=1)
-        self.Ökologisch_2 = Frame(self, highlightbackground="black", highlightthickness=1)
-        self.Ökologisch_3 = Frame(self, highlightbackground="black", highlightthickness=1)
-        self.Ökologisch_4 = Frame(self, highlightbackground="black", highlightthickness=1)
+        self.Ökologisch_1 = tk.Frame(self, highlightbackground="black", highlightthickness=1)
+        self.Ökologisch_2 = tk.Frame(self, highlightbackground="black", highlightthickness=1)
+        self.Ökologisch_3 = tk.Frame(self, highlightbackground="black", highlightthickness=1)
+        self.Ökologisch_4 = tk.Frame(self, highlightbackground="black", highlightthickness=1)
 
         name_1 = Label(self.Ökologisch_1, text="Flechtwickelmaschine", relief = 'ridge')
         name_2 = Label(self.Ökologisch_2, text="Multifilamentwickelmaschine 90", relief = 'ridge')
@@ -1499,22 +1508,22 @@ class PageThree(Frame):
         regint = controller.register(correct)
         regfloat = controller.register(correctfloat)
 
-        Buttons = Frame(self)
-        button_1 = Button(Buttons, text="Back",
+        Buttons = tk.Frame(self)
+        button_1 = Button(Buttons, text="Zürück",
                           command=lambda: controller.acceptwerte(PageTwo, "Ökologische Indikatoren"))
-        button_2 = Button(Buttons, text="Next",
+        button_2 = Button(Buttons, text="Nächste Seite",
                           command=lambda: controller.acceptwerte(PageFour, "Ökonomische Indikatoren"))
-        button_3 = Button(Buttons, text="Accept", command=lambda: controller.acceptwerte(PageThree, "Ökologisch-Ökonomische Indikatoren"))
+        button_3 = Button(Buttons, text="Akzeptieren", command=lambda: controller.acceptwerte(PageThree, "Ökologisch-Ökonomische Indikatoren"))
         button_4 = Button(Buttons, text="Auswerten", command=lambda: controller.acceptwerte(PageEnd, "Visualisierung durch Nachhaltigkeitsdreick"))
-        button_5 = Button(Buttons, text="Cancel", command=lambda: controller.resetter())
+        button_5 = Button(Buttons, text="Abbrechen", command=lambda: controller.resetter())
 
         Buttons.columnconfigure(2, minsize=100)
         Buttons.columnconfigure(4, minsize=30)
 
-        self.Ökologisch_Ökonomisch_1 = Frame(self, highlightbackground="black", highlightthickness=1)
-        self.Ökologisch_Ökonomisch_2 = Frame(self, highlightbackground="black", highlightthickness=1)
-        self.Ökologisch_Ökonomisch_3 = Frame(self, highlightbackground="black", highlightthickness=1)
-        self.Ökologisch_Ökonomisch_4 = Frame(self, highlightbackground="black", highlightthickness=1)
+        self.Ökologisch_Ökonomisch_1 = tk.Frame(self, highlightbackground="black", highlightthickness=1)
+        self.Ökologisch_Ökonomisch_2 = tk.Frame(self, highlightbackground="black", highlightthickness=1)
+        self.Ökologisch_Ökonomisch_3 = tk.Frame(self, highlightbackground="black", highlightthickness=1)
+        self.Ökologisch_Ökonomisch_4 = tk.Frame(self, highlightbackground="black", highlightthickness=1)
 
         name_1_1 = Label(self.Ökologisch_Ökonomisch_1, text="Flechtwickelmaschine", relief = 'ridge')
         name_1_2 = Label(self.Ökologisch_Ökonomisch_2, text="Multifilamentwickelmaschine 90", relief = 'ridge')
@@ -1637,22 +1646,22 @@ class PageFour(Frame):
         regint = controller.register(correct)
         regfloat = controller.register(correctfloat)
 
-        Buttons = Frame(self)
-        button_1 = Button(Buttons, text="Back",
+        Buttons = tk.Frame(self)
+        button_1 = Button(Buttons, text="Zürück",
                           command=lambda: controller.acceptwerte(PageThree, "Ökologisch-Ökonomische Indikatoren"))
-        button_2 = Button(Buttons, text="Next",
+        button_2 = Button(Buttons, text="Nächste Seite",
                           command=lambda: controller.acceptwerte(PageFive, "Sozial-Ökonomische Indikatoren"))
-        button_3 = Button(Buttons, text="Accept", command=lambda: controller.acceptwerte(PageFour, "Ökonomische Indikatoren"))
+        button_3 = Button(Buttons, text="Akzeptieren", command=lambda: controller.acceptwerte(PageFour, "Ökonomische Indikatoren"))
         button_4 = Button(Buttons, text="Auswerten", command=lambda: controller.acceptwerte(PageEnd, "Visualisierung durch Nachhaltigkeitsdreick"))
-        button_5 = Button(Buttons, text="Cancel", command=lambda: controller.resetter())
+        button_5 = Button(Buttons, text="Abbrechen", command=lambda: controller.resetter())
 
         Buttons.columnconfigure(2, minsize=100)
         Buttons.columnconfigure(4, minsize=30)
 
-        self.Ökonomisch_1 = Frame(self, highlightbackground="black", highlightthickness=1)
-        self.Ökonomisch_2 = Frame(self, highlightbackground="black", highlightthickness=1)
-        self.Ökonomisch_3 = Frame(self, highlightbackground="black", highlightthickness=1)
-        self.Ökonomisch_4 = Frame(self, highlightbackground="black", highlightthickness=1)
+        self.Ökonomisch_1 = tk.Frame(self, highlightbackground="black", highlightthickness=1)
+        self.Ökonomisch_2 = tk.Frame(self, highlightbackground="black", highlightthickness=1)
+        self.Ökonomisch_3 = tk.Frame(self, highlightbackground="black", highlightthickness=1)
+        self.Ökonomisch_4 = tk.Frame(self, highlightbackground="black", highlightthickness=1)
 
         name_1_1 = Label(self.Ökonomisch_1, text="Flechtwickelmaschine", relief = 'ridge')
         name_1_2 = Label(self.Ökonomisch_2, text="Multifilamentwickelmaschine 90", relief = 'ridge')
@@ -1759,22 +1768,22 @@ class PageFive(Frame):
         regint = controller.register(correct)
         regfloat = controller.register(correctfloat)
 
-        Buttons = Frame(self)
-        button_1 = Button(Buttons, text="Back",
+        Buttons = tk.Frame(self)
+        button_1 = Button(Buttons, text="Zürück",
                           command=lambda: controller.acceptwerte(PageFour, "Ökonomische Indikatoren"))
-        button_2 = Button(Buttons, text="Next",
+        button_2 = Button(Buttons, text="Nächste Seite",
                           command=lambda: controller.acceptwerte(PageSix, "Sozial-Ökonomisch-Ökologische Indikatoren"))
-        button_3 = Button(Buttons, text="Accept", command=lambda: controller.acceptwerte(PageFive, "Sozial-Ökonomische Indikatoren"))
+        button_3 = Button(Buttons, text="Akzeptieren", command=lambda: controller.acceptwerte(PageFive, "Sozial-Ökonomische Indikatoren"))
         button_4 = Button(Buttons, text="Auswerten", command=lambda: controller.acceptwerte(PageEnd, "Visualisierung durch Nachhaltigkeitsdreick"))
-        button_5 = Button(Buttons, text="Cancel", command=lambda: controller.resetter())
+        button_5 = Button(Buttons, text="Abbrechen", command=lambda: controller.resetter())
 
         Buttons.columnconfigure(2, minsize=100)
         Buttons.columnconfigure(4, minsize=30)
 
-        self.Sozial_Ökonomisch_1 = Frame(self, highlightbackground="black", highlightthickness=1)
-        self.Sozial_Ökonomisch_2 = Frame(self, highlightbackground="black", highlightthickness=1)
-        self.Sozial_Ökonomisch_3 = Frame(self, highlightbackground="black", highlightthickness=1)
-        self.Sozial_Ökonomisch_4 = Frame(self, highlightbackground="black", highlightthickness=1)
+        self.Sozial_Ökonomisch_1 = tk.Frame(self, highlightbackground="black", highlightthickness=1)
+        self.Sozial_Ökonomisch_2 = tk.Frame(self, highlightbackground="black", highlightthickness=1)
+        self.Sozial_Ökonomisch_3 = tk.Frame(self, highlightbackground="black", highlightthickness=1)
+        self.Sozial_Ökonomisch_4 = tk.Frame(self, highlightbackground="black", highlightthickness=1)
 
         name_1_1 = Label(self.Sozial_Ökonomisch_1, text="Flechtwickelmaschine", relief = 'ridge')
         name_1_2 = Label(self.Sozial_Ökonomisch_2, text="Multifilamentwickelmaschine 90", relief = 'ridge')
@@ -1849,20 +1858,20 @@ class PageSix(Frame):
         regint = controller.register(correct)
         regfloat = controller.register(correctfloat)
 
-        Buttons = Frame(self)
-        button_1 = Button(Buttons, text="Back",
+        Buttons = tk.Frame(self)
+        button_1 = Button(Buttons, text="Zürück",
                           command=lambda: controller.acceptwerte(PageFive, "Sozial-Ökonomische Indikatoren"))
-        button_3 = Button(Buttons, text="Accept", command=lambda: controller.acceptwerte(PageSix, "Sozial-Ökonomisch-Ökologische Indikatoren"))
+        button_3 = Button(Buttons, text="Akzeptieren", command=lambda: controller.acceptwerte(PageSix, "Sozial-Ökonomisch-Ökologische Indikatoren"))
         button_4 = Button(Buttons, text="Auswerten", command=lambda: controller.acceptwerte(PageEnd, "Visualisierung durch Nachhaltigkeitsdreick"))
-        button_5 = Button(Buttons, text="Cancel", command=lambda: controller.resetter())
+        button_5 = Button(Buttons, text="Abbrechen", command=lambda: controller.resetter())
 
         Buttons.columnconfigure(2, minsize=100)
         Buttons.columnconfigure(4, minsize=30)
 
-        self.Sozial_Ökologisch_Ökonomisch_1 = Frame(self, highlightbackground="black", highlightthickness=1)
-        self.Sozial_Ökologisch_Ökonomisch_2 = Frame(self, highlightbackground="black", highlightthickness=1)
-        self.Sozial_Ökologisch_Ökonomisch_3 = Frame(self, highlightbackground="black", highlightthickness=1)
-        self.Sozial_Ökologisch_Ökonomisch_4 = Frame(self, highlightbackground="black", highlightthickness=1)
+        self.Sozial_Ökologisch_Ökonomisch_1 = tk.Frame(self, highlightbackground="black", highlightthickness=1)
+        self.Sozial_Ökologisch_Ökonomisch_2 = tk.Frame(self, highlightbackground="black", highlightthickness=1)
+        self.Sozial_Ökologisch_Ökonomisch_3 = tk.Frame(self, highlightbackground="black", highlightthickness=1)
+        self.Sozial_Ökologisch_Ökonomisch_4 = tk.Frame(self, highlightbackground="black", highlightthickness=1)
 
         name_1_1 = Label(self.Sozial_Ökologisch_Ökonomisch_1, text="Flechtwickelmaschine", relief = 'ridge')
         name_1_2 = Label(self.Sozial_Ökologisch_Ökonomisch_2, text="Multifilamentwickelmaschine 90", relief = 'ridge')
@@ -1950,17 +1959,17 @@ class PageEnd(Frame):
         Frame.__init__(self, parent)
         self.controller = controller
 
-        Buttons = Frame(self)
-        button_1 = Button(Buttons, text="Back",
+        Buttons = tk.Frame(self)
+        button_1 = Button(Buttons, text="Zürück",
                           command=lambda: controller.show_frame(StartPage, "Maschinen Auswahl"))
-        button_2 = Button(Buttons, text="Reset",
+        button_2 = Button(Buttons, text="Zürücksetzen",
                           command=lambda: controller.resetter())
 
 
-        self.End_1 = Frame(self, highlightbackground="black", highlightthickness=1)
-        self.End_2 = Frame(self, highlightbackground="black", highlightthickness=1)
-        self.End_3 = Frame(self, highlightbackground="black", highlightthickness=1)
-        self.End_4 = Frame(self, highlightbackground="black", highlightthickness=1)
+        self.End_1 = tk.Frame(self, highlightbackground="black", highlightthickness=1)
+        self.End_2 = tk.Frame(self, highlightbackground="black", highlightthickness=1)
+        self.End_3 = tk.Frame(self, highlightbackground="black", highlightthickness=1)
+        self.End_4 = tk.Frame(self, highlightbackground="black", highlightthickness=1)
 
         name_1_1 = Button(self.End_1, text="Flechtwickelmaschine", command=lambda: controller.show_frame(MaschineWerte1, "Flechtwickelmaschine"))
         name_1_2 = Button(self.End_2, text="Multifilamentwickelmaschine 90", command=lambda: controller.show_frame(MaschineWerte2, "Multifilamentwickelmaschine 90"))
@@ -2122,31 +2131,31 @@ class MaschineWerte1(Frame):
         self.columnconfigure(4, minsize=100)
         tkinter.ttk.Separator(self, orient=VERTICAL).grid(column=2, row=0, rowspan=14, sticky='ns')
 
-        button_1 = Button(self, text="Back"
+        button_1 = Button(self, text="Zürück"
                           , command=lambda: controller.show_frame(PageEnd, "Visualisierung durch Nachhaltigkeitsdreick"))
 
 
-        self.wert_1_1 = Label(self, text= round(controller.get_page(StartPage).emissionen_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).emissionen_norm[0]))
-        self.wert_1_2 = Label(self, text= round(controller.get_page(StartPage).giftMaterial_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).giftMaterial_norm[0]))
+        self.wert_1_1 = tk.Label(self, text= round(controller.get_page(StartPage).emissionen_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).emissionen_norm[0]))
+        self.wert_1_2 = tk.Label(self, text= round(controller.get_page(StartPage).giftMaterial_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).giftMaterial_norm[0]))
 
-        self.wert_2_1 = Label(self, text=round(controller.get_page(StartPage).abfallProzentsatz_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).abfallProzentsatz_norm[0]))
-        self.wert_2_2 = Label(self, text=round(controller.get_page(StartPage).abfallSzenarien_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).abfallSzenarien_norm[0]))
-        self.wert_2_3 = Label(self, text=round(controller.get_page(StartPage).recyclingAbsolut_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).recyclingAbsolut_norm[0]))
-        self.wert_2_4 = Label(self, text=round(controller.get_page(StartPage).recyclingRelativ_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).recyclingRelativ_norm[0]))
+        self.wert_2_1 = tk.Label(self, text=round(controller.get_page(StartPage).abfallProzentsatz_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).abfallProzentsatz_norm[0]))
+        self.wert_2_2 = tk.Label(self, text=round(controller.get_page(StartPage).abfallSzenarien_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).abfallSzenarien_norm[0]))
+        self.wert_2_3 = tk.Label(self, text=round(controller.get_page(StartPage).recyclingAbsolut_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).recyclingAbsolut_norm[0]))
+        self.wert_2_4 = tk.Label(self, text=round(controller.get_page(StartPage).recyclingRelativ_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).recyclingRelativ_norm[0]))
 
-        self.wert_3_1 = Label(self, text=round(controller.get_page(StartPage).verbrauchEnergie_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).verbrauchEnergie_norm[0]))
-        self.wert_3_2 = Label(self, text=round(controller.get_page(StartPage).verbrauchMaterial_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).verbrauchMaterial_norm[0]))
-        self.wert_3_3 = Label(self, text=round(controller.get_page(StartPage).kostenEffizienz_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).kostenEffizienz_norm[0]))
-        self.wert_3_4 = Label(self, text=round(controller.get_page(StartPage).kostenAufwand_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).kostenAufwand_norm[0]))
+        self.wert_3_1 = tk.Label(self, text=round(controller.get_page(StartPage).verbrauchEnergie_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).verbrauchEnergie_norm[0]))
+        self.wert_3_2 = tk.Label(self, text=round(controller.get_page(StartPage).verbrauchMaterial_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).verbrauchMaterial_norm[0]))
+        self.wert_3_3 = tk.Label(self, text=round(controller.get_page(StartPage).kostenEffizienz_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).kostenEffizienz_norm[0]))
+        self.wert_3_4 = tk.Label(self, text=round(controller.get_page(StartPage).kostenAufwand_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).kostenAufwand_norm[0]))
 
-        self.wert_4_1 = Label(self, text=round(controller.get_page(StartPage).zeitAufwand_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).zeitAufwand_norm[0]))
-        self.wert_4_2 = Label(self, text=round(controller.get_page(StartPage).flexibilität_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).flexibilität_norm[0]))
-        self.wert_4_3 = Label(self, text=round(controller.get_page(StartPage).zeitEffizienz_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).zeitEffizienz_norm[0]))
+        self.wert_4_1 = tk.Label(self, text=round(controller.get_page(StartPage).zeitAufwand_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).zeitAufwand_norm[0]))
+        self.wert_4_2 = tk.Label(self, text=round(controller.get_page(StartPage).flexibilität_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).flexibilität_norm[0]))
+        self.wert_4_3 = tk.Label(self, text=round(controller.get_page(StartPage).zeitEffizienz_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).zeitEffizienz_norm[0]))
 
-        self.wert_5_1 = Label(self, text=round(controller.get_page(StartPage).produktQualität_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).produktQualität_norm[0]))
+        self.wert_5_1 = tk.Label(self, text=round(controller.get_page(StartPage).produktQualität_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).produktQualität_norm[0]))
 
-        self.wert_6_1 = Label(self, text=round(controller.get_page(StartPage).innovativität_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).innovativität_norm[0]))
-        self.wert_6_2 = Label(self, text=round(controller.get_page(StartPage).flächenVerbrauch_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).flächenVerbrauch_norm[0]))
+        self.wert_6_1 = tk.Label(self, text=round(controller.get_page(StartPage).innovativität_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).innovativität_norm[0]))
+        self.wert_6_2 = tk.Label(self, text=round(controller.get_page(StartPage).flächenVerbrauch_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).flächenVerbrauch_norm[0]))
 
         name_1 = Label(self, text="Sozial-Ökologische Indikatoren", relief = 'ridge')
         name_1_1 = Label(self, text="Treibhausgasemissionen   (g/kg)")
@@ -2259,31 +2268,31 @@ class MaschineWerte2(Frame):
         self.columnconfigure(4, minsize=100)
         tkinter.ttk.Separator(self, orient=VERTICAL).grid(column=2, row=0, rowspan=14, sticky='ns')
 
-        button_1 = Button(self, text="Back"
+        button_1 = Button(self, text="Zürück"
                           , command=lambda: controller.show_frame(PageEnd, "Visualisierung durch Nachhaltigkeitsdreick"))
 
 
-        self.wert_1_1 = Label(self, text= round(controller.get_page(StartPage).emissionen_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).emissionen_norm[1]))
-        self.wert_1_2 = Label(self, text= round(controller.get_page(StartPage).giftMaterial_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).giftMaterial_norm[1]))
+        self.wert_1_1 = tk.Label(self, text= round(controller.get_page(StartPage).emissionen_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).emissionen_norm[1]))
+        self.wert_1_2 = tk.Label(self, text= round(controller.get_page(StartPage).giftMaterial_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).giftMaterial_norm[1]))
 
-        self.wert_2_1 = Label(self, text=round(controller.get_page(StartPage).abfallProzentsatz_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).abfallProzentsatz_norm[1]))
-        self.wert_2_2 = Label(self, text=round(controller.get_page(StartPage).abfallSzenarien_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).abfallSzenarien_norm[1]))
-        self.wert_2_3 = Label(self, text=round(controller.get_page(StartPage).recyclingAbsolut_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).recyclingAbsolut_norm[1]))
-        self.wert_2_4 = Label(self, text=round(controller.get_page(StartPage).recyclingRelativ_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).recyclingRelativ_norm[1]))
+        self.wert_2_1 = tk.Label(self, text=round(controller.get_page(StartPage).abfallProzentsatz_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).abfallProzentsatz_norm[1]))
+        self.wert_2_2 = tk.Label(self, text=round(controller.get_page(StartPage).abfallSzenarien_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).abfallSzenarien_norm[1]))
+        self.wert_2_3 = tk.Label(self, text=round(controller.get_page(StartPage).recyclingAbsolut_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).recyclingAbsolut_norm[1]))
+        self.wert_2_4 = tk.Label(self, text=round(controller.get_page(StartPage).recyclingRelativ_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).recyclingRelativ_norm[1]))
 
-        self.wert_3_1 = Label(self, text=round(controller.get_page(StartPage).verbrauchEnergie_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).verbrauchEnergie_norm[1]))
-        self.wert_3_2 = Label(self, text=round(controller.get_page(StartPage).verbrauchMaterial_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).verbrauchMaterial_norm[1]))
-        self.wert_3_3 = Label(self, text=round(controller.get_page(StartPage).kostenEffizienz_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).kostenEffizienz_norm[1]))
-        self.wert_3_4 = Label(self, text=round(controller.get_page(StartPage).kostenAufwand_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).kostenAufwand_norm[1]))
+        self.wert_3_1 = tk.Label(self, text=round(controller.get_page(StartPage).verbrauchEnergie_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).verbrauchEnergie_norm[1]))
+        self.wert_3_2 = tk.Label(self, text=round(controller.get_page(StartPage).verbrauchMaterial_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).verbrauchMaterial_norm[1]))
+        self.wert_3_3 = tk.Label(self, text=round(controller.get_page(StartPage).kostenEffizienz_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).kostenEffizienz_norm[1]))
+        self.wert_3_4 = tk.Label(self, text=round(controller.get_page(StartPage).kostenAufwand_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).kostenAufwand_norm[1]))
 
-        self.wert_4_1 = Label(self, text=round(controller.get_page(StartPage).zeitAufwand_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).zeitAufwand_norm[1]))
-        self.wert_4_2 = Label(self, text=round(controller.get_page(StartPage).flexibilität_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).flexibilität_norm[1]))
-        self.wert_4_3 = Label(self, text=round(controller.get_page(StartPage).zeitEffizienz_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).zeitEffizienz_norm[1]))
+        self.wert_4_1 = tk.Label(self, text=round(controller.get_page(StartPage).zeitAufwand_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).zeitAufwand_norm[1]))
+        self.wert_4_2 = tk.Label(self, text=round(controller.get_page(StartPage).flexibilität_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).flexibilität_norm[1]))
+        self.wert_4_3 = tk.Label(self, text=round(controller.get_page(StartPage).zeitEffizienz_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).zeitEffizienz_norm[1]))
 
-        self.wert_5_1 = Label(self, text=round(controller.get_page(StartPage).produktQualität_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).produktQualität_norm[1]))
+        self.wert_5_1 = tk.Label(self, text=round(controller.get_page(StartPage).produktQualität_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).produktQualität_norm[1]))
 
-        self.wert_6_1 = Label(self, text=round(controller.get_page(StartPage).innovativität_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).innovativität_norm[1]))
-        self.wert_6_2 = Label(self, text=round(controller.get_page(StartPage).flächenVerbrauch_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).flächenVerbrauch_norm[1]))
+        self.wert_6_1 = tk.Label(self, text=round(controller.get_page(StartPage).innovativität_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).innovativität_norm[1]))
+        self.wert_6_2 = tk.Label(self, text=round(controller.get_page(StartPage).flächenVerbrauch_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).flächenVerbrauch_norm[1]))
 
         name_1 = Label(self, text="Sozial-Ökologische Indikatoren", relief = 'ridge')
         name_1_1 = Label(self, text="Treibhausgasemissionen   (g/kg)")
@@ -2396,31 +2405,31 @@ class MaschineWerte3(Frame):
         self.columnconfigure(4, minsize=100)
         tkinter.ttk.Separator(self, orient=VERTICAL).grid(column=2, row=0, rowspan=14, sticky='ns')
 
-        button_1 = Button(self, text="Back"
+        button_1 = Button(self, text="Zürück"
                           , command=lambda: controller.show_frame(PageEnd, "Visualisierung durch Nachhaltigkeitsdreick"))
 
 
-        self.wert_1_1 = Label(self, text= round(controller.get_page(StartPage).emissionen_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).emissionen_norm[2]))
-        self.wert_1_2 = Label(self, text= round(controller.get_page(StartPage).giftMaterial_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).giftMaterial_norm[2]))
+        self.wert_1_1 = tk.Label(self, text= round(controller.get_page(StartPage).emissionen_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).emissionen_norm[2]))
+        self.wert_1_2 = tk.Label(self, text= round(controller.get_page(StartPage).giftMaterial_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).giftMaterial_norm[2]))
 
-        self.wert_2_1 = Label(self, text=round(controller.get_page(StartPage).abfallProzentsatz_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).abfallProzentsatz_norm[2]))
-        self.wert_2_2 = Label(self, text=round(controller.get_page(StartPage).abfallSzenarien_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).abfallSzenarien_norm[2]))
-        self.wert_2_3 = Label(self, text=round(controller.get_page(StartPage).recyclingAbsolut_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).recyclingAbsolut_norm[2]))
-        self.wert_2_4 = Label(self, text=round(controller.get_page(StartPage).recyclingRelativ_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).recyclingRelativ_norm[2]))
+        self.wert_2_1 = tk.Label(self, text=round(controller.get_page(StartPage).abfallProzentsatz_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).abfallProzentsatz_norm[2]))
+        self.wert_2_2 = tk.Label(self, text=round(controller.get_page(StartPage).abfallSzenarien_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).abfallSzenarien_norm[2]))
+        self.wert_2_3 = tk.Label(self, text=round(controller.get_page(StartPage).recyclingAbsolut_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).recyclingAbsolut_norm[2]))
+        self.wert_2_4 = tk.Label(self, text=round(controller.get_page(StartPage).recyclingRelativ_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).recyclingRelativ_norm[2]))
 
-        self.wert_3_1 = Label(self, text=round(controller.get_page(StartPage).verbrauchEnergie_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).verbrauchEnergie_norm[2]))
-        self.wert_3_2 = Label(self, text=round(controller.get_page(StartPage).verbrauchMaterial_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).verbrauchMaterial_norm[2]))
-        self.wert_3_3 = Label(self, text=round(controller.get_page(StartPage).kostenEffizienz_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).kostenEffizienz_norm[2]))
-        self.wert_3_4 = Label(self, text=round(controller.get_page(StartPage).kostenAufwand_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).kostenAufwand_norm[2]))
+        self.wert_3_1 = tk.Label(self, text=round(controller.get_page(StartPage).verbrauchEnergie_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).verbrauchEnergie_norm[2]))
+        self.wert_3_2 = tk.Label(self, text=round(controller.get_page(StartPage).verbrauchMaterial_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).verbrauchMaterial_norm[2]))
+        self.wert_3_3 = tk.Label(self, text=round(controller.get_page(StartPage).kostenEffizienz_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).kostenEffizienz_norm[2]))
+        self.wert_3_4 = tk.Label(self, text=round(controller.get_page(StartPage).kostenAufwand_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).kostenAufwand_norm[2]))
 
-        self.wert_4_1 = Label(self, text=round(controller.get_page(StartPage).zeitAufwand_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).zeitAufwand_norm[2]))
-        self.wert_4_2 = Label(self, text=round(controller.get_page(StartPage).flexibilität_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).flexibilität_norm[2]))
-        self.wert_4_3 = Label(self, text=round(controller.get_page(StartPage).zeitEffizienz_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).zeitEffizienz_norm[2]))
+        self.wert_4_1 = tk.Label(self, text=round(controller.get_page(StartPage).zeitAufwand_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).zeitAufwand_norm[2]))
+        self.wert_4_2 = tk.Label(self, text=round(controller.get_page(StartPage).flexibilität_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).flexibilität_norm[2]))
+        self.wert_4_3 = tk.Label(self, text=round(controller.get_page(StartPage).zeitEffizienz_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).zeitEffizienz_norm[2]))
 
-        self.wert_5_1 = Label(self, text=round(controller.get_page(StartPage).produktQualität_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).produktQualität_norm[2]))
+        self.wert_5_1 = tk.Label(self, text=round(controller.get_page(StartPage).produktQualität_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).produktQualität_norm[2]))
 
-        self.wert_6_1 = Label(self, text=round(controller.get_page(StartPage).innovativität_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).innovativität_norm[2]))
-        self.wert_6_2 = Label(self, text=round(controller.get_page(StartPage).flächenVerbrauch_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).flächenVerbrauch_norm[2]))
+        self.wert_6_1 = tk.Label(self, text=round(controller.get_page(StartPage).innovativität_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).innovativität_norm[2]))
+        self.wert_6_2 = tk.Label(self, text=round(controller.get_page(StartPage).flächenVerbrauch_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).flächenVerbrauch_norm[2]))
 
         name_1 = Label(self, text="Sozial-Ökologische Indikatoren", relief = 'ridge')
         name_1_1 = Label(self, text="Treibhausgasemissionen   (g/kg)")
@@ -2533,31 +2542,31 @@ class MaschineWerte4(Frame):
         self.columnconfigure(4, minsize=100)
         tkinter.ttk.Separator(self, orient=VERTICAL).grid(column=2, row=0, rowspan=14, sticky='ns')
 
-        button_1 = Button(self, text="Back"
+        button_1 = Button(self, text="Zürück"
                           , command=lambda: controller.show_frame(PageEnd, "Visualisierung durch Nachhaltigkeitsdreick"))
 
 
-        self.wert_1_1 = Label(self, text= round(controller.get_page(StartPage).emissionen_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).emissionen_norm[3]))
-        self.wert_1_2 = Label(self, text= round(controller.get_page(StartPage).giftMaterial_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).giftMaterial_norm[3]))
+        self.wert_1_1 = tk.Label(self, text= round(controller.get_page(StartPage).emissionen_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).emissionen_norm[3]))
+        self.wert_1_2 = tk.Label(self, text= round(controller.get_page(StartPage).giftMaterial_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).giftMaterial_norm[3]))
 
-        self.wert_2_1 = Label(self, text=round(controller.get_page(StartPage).abfallProzentsatz_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).abfallProzentsatz_norm[3]))
-        self.wert_2_2 = Label(self, text=round(controller.get_page(StartPage).abfallSzenarien_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).abfallSzenarien_norm[3]))
-        self.wert_2_3 = Label(self, text=round(controller.get_page(StartPage).recyclingAbsolut_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).recyclingAbsolut_norm[3]))
-        self.wert_2_4 = Label(self, text=round(controller.get_page(StartPage).recyclingRelativ_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).recyclingRelativ_norm[3]))
+        self.wert_2_1 = tk.Label(self, text=round(controller.get_page(StartPage).abfallProzentsatz_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).abfallProzentsatz_norm[3]))
+        self.wert_2_2 = tk.Label(self, text=round(controller.get_page(StartPage).abfallSzenarien_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).abfallSzenarien_norm[3]))
+        self.wert_2_3 = tk.Label(self, text=round(controller.get_page(StartPage).recyclingAbsolut_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).recyclingAbsolut_norm[3]))
+        self.wert_2_4 = tk.Label(self, text=round(controller.get_page(StartPage).recyclingRelativ_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).recyclingRelativ_norm[3]))
 
-        self.wert_3_1 = Label(self, text=round(controller.get_page(StartPage).verbrauchEnergie_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).verbrauchEnergie_norm[3]))
-        self.wert_3_2 = Label(self, text=round(controller.get_page(StartPage).verbrauchMaterial_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).verbrauchMaterial_norm[3]))
-        self.wert_3_3 = Label(self, text=round(controller.get_page(StartPage).kostenEffizienz_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).kostenEffizienz_norm[3]))
-        self.wert_3_4 = Label(self, text=round(controller.get_page(StartPage).kostenAufwand_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).kostenAufwand_norm[3]))
+        self.wert_3_1 = tk.Label(self, text=round(controller.get_page(StartPage).verbrauchEnergie_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).verbrauchEnergie_norm[3]))
+        self.wert_3_2 = tk.Label(self, text=round(controller.get_page(StartPage).verbrauchMaterial_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).verbrauchMaterial_norm[3]))
+        self.wert_3_3 = tk.Label(self, text=round(controller.get_page(StartPage).kostenEffizienz_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).kostenEffizienz_norm[3]))
+        self.wert_3_4 = tk.Label(self, text=round(controller.get_page(StartPage).kostenAufwand_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).kostenAufwand_norm[3]))
 
-        self.wert_4_1 = Label(self, text=round(controller.get_page(StartPage).zeitAufwand_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).zeitAufwand_norm[3]))
-        self.wert_4_2 = Label(self, text=round(controller.get_page(StartPage).flexibilität_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).flexibilität_norm[3]))
-        self.wert_4_3 = Label(self, text=round(controller.get_page(StartPage).zeitEffizienz_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).zeitEffizienz_norm[3]))
+        self.wert_4_1 = tk.Label(self, text=round(controller.get_page(StartPage).zeitAufwand_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).zeitAufwand_norm[3]))
+        self.wert_4_2 = tk.Label(self, text=round(controller.get_page(StartPage).flexibilität_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).flexibilität_norm[3]))
+        self.wert_4_3 = tk.Label(self, text=round(controller.get_page(StartPage).zeitEffizienz_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).zeitEffizienz_norm[3]))
 
-        self.wert_5_1 = Label(self, text=round(controller.get_page(StartPage).produktQualität_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).produktQualität_norm[3]))
+        self.wert_5_1 = tk.Label(self, text=round(controller.get_page(StartPage).produktQualität_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).produktQualität_norm[3]))
 
-        self.wert_6_1 = Label(self, text=round(controller.get_page(StartPage).innovativität_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).innovativität_norm[3]))
-        self.wert_6_2 = Label(self, text=round(controller.get_page(StartPage).flächenVerbrauch_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).flächenVerbrauch_norm[3]))
+        self.wert_6_1 = tk.Label(self, text=round(controller.get_page(StartPage).innovativität_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).innovativität_norm[3]))
+        self.wert_6_2 = tk.Label(self, text=round(controller.get_page(StartPage).flächenVerbrauch_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).flächenVerbrauch_norm[3]))
 
         name_1 = Label(self, text="Sozial-Ökologische Indikatoren", relief = 'ridge')
         name_1_1 = Label(self, text="Treibhausgasemissionen   (g/kg)")
@@ -2785,5 +2794,6 @@ def isfloat(value):
 app = H2MW()
 
 app.resizable(0,0)
+app.iconbitmap('C:/Users/Ola/Downloads/unnamed1.ico')
 app.after(100, enabler)
 app.mainloop()
