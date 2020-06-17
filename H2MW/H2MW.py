@@ -509,11 +509,6 @@ class StartPage(Frame):
         check_3 = Checkbutton(first, variable=self.var3, onvalue=1, offvalue=0)
         check_4 = Checkbutton(first, variable=self.var4, onvalue=1, offvalue=0)
 
-        load = Image.open("C:/Users/Ola/Desktop/temp/unnamed1.png")
-        render = ImageTk.PhotoImage(load)
-        img = Label(self, image=render)
-        img.image = render
-
 
         label_1.grid(row=0, column=0)
         label_2.grid(row=1, column=0)
@@ -530,7 +525,6 @@ class StartPage(Frame):
 
 
         buttons_first.grid(row=4, column=0)
-        img.grid(row=0, column=0)
         first.grid(row=0, column=1)
 
         self.boot()
@@ -2794,6 +2788,5 @@ def isfloat(value):
 app = H2MW()
 
 app.resizable(0,0)
-app.iconbitmap('C:/Users/Ola/Downloads/unnamed1.ico')
 app.after(100, enabler)
 app.mainloop()
