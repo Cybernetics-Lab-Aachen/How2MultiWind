@@ -511,14 +511,14 @@ class StartPage(Frame):
 
 
         label_1.grid(row=0, column=0)
-        label_2.grid(row=1, column=0)
-        label_3.grid(row=2, column=0)
-        label_4.grid(row=3, column=0)
+        label_2.grid(row=0, column=2)
+        label_3.grid(row=1, column=0)
+        label_4.grid(row=1, column=2)
 
         check_1.grid(row=0, column=1)
-        check_2.grid(row=1, column=1)
-        check_3.grid(row=2, column=1)
-        check_4.grid(row=3, column=1)
+        check_2.grid(row=0, column=3)
+        check_3.grid(row=1, column=1)
+        check_4.grid(row=1, column=3)
 
         button_1.grid(row=0, column=0)
         button_2.grid(row=0, column=1)
@@ -631,7 +631,7 @@ class StartPage(Frame):
 
         self.errorstring(self.giftMaterial[0], 5, self.errormsg, "\n-Flechtwickelmaschine (Sozio-ökologische Kritikalität des Materials): Skalawert überschreitet 5.", self.check, 0)
         self.errorstring(self.abfallSzenarien[0], 1, self.errormsg, "\n-Flechtwickelmaschine (Abfallszenarien): Skalawert überschreitet 1.", self.check, 0)
-        self.errorstring(self.recyclingRelativ[0], 100, self.errormsg, "\n-Flechtwickelmaschine (Anteil verwendetes Recyclingmaterial(Relativ)): Prozentzatz überschreitet 100%.", self.check, 0)
+        self.errorstring(self.recyclingRelativ[0], 100, self.errormsg, "\n-Flechtwickelmaschine (Anteil verwendetes Recyclingmaterial (Relativ)): Prozentzatz überschreitet 100%.", self.check, 0)
         self.errorstring(self.flexibilität[0], 7, self.errormsg, "\n-Flechtwickelmaschine (Flexibilität): Skalawert überschreitet 7.", self.check, 0)
         self.errorstring(self.zeitEffizienz[0], 7, self.errormsg, "\n-Flechtwickelmaschine (Zeitliche Effizienz): Skalawert überschreitet 7.", self.check, 0)
         self.errorstring(self.produktQualität[0], 100, self.errormsg, "\n-Flechtwickelmaschine (Produktqualität): Prozentzatz überschreitet 100%.", self.check, 0)
@@ -644,7 +644,7 @@ class StartPage(Frame):
 
         self.errorstring(self.giftMaterial[1], 5, self.errormsg, "\n-Multifilamentwickelmaschine 90 (Sozio-ökologische Kritikalität des Materials): Skalawert überschreitet 5.", self.check, 0)
         self.errorstring(self.abfallSzenarien[1], 1, self.errormsg, "\n-Multifilamentwickelmaschine 90 (Abfallszenarien): Skalawert überschreitet 1.", self.check, 0)
-        self.errorstring(self.recyclingRelativ[1], 100, self.errormsg, "\n-Multifilamentwickelmaschine 90 (Anteil verwendetes Recyclingmaterial(Relativ)): Prozentzatz überschreitet 100%.", self.check, 0)
+        self.errorstring(self.recyclingRelativ[1], 100, self.errormsg, "\n-Multifilamentwickelmaschine 90 (Anteil verwendetes Recyclingmaterial (Relativ)): Prozentzatz überschreitet 100%.", self.check, 0)
         self.errorstring(self.flexibilität[1], 7, self.errormsg, "\n-Multifilamentwickelmaschine 90 (Flexibilität): Skalawert überschreitet 8.", self.check, 0)
         self.errorstring(self.zeitEffizienz[1], 7, self.errormsg, "\n-Multifilamentwickelmaschine 90 (Zeitliche Effizienz): Skalawert überschreitet 8.", self.check, 0)
         self.errorstring(self.produktQualität[1], 100, self.errormsg, "\n-Multifilamentwickelmaschine 90 (Produktqualität): Prozentzatz überschreitet 100%.", self.check, 0)
@@ -657,7 +657,7 @@ class StartPage(Frame):
 
         self.errorstring(self.giftMaterial[2], 5, self.errormsg, "\n-Mulftifilamentwickelmaschine 48 (Sozio-ökologische Kritikalität des Materials): Skalawert überschreitet 5.", self.check, 0)
         self.errorstring(self.abfallSzenarien[2], 1, self.errormsg, "\n-Mulftifilamentwickelmaschine 48 (Abfallszenarien): Skalawert überschreitet 1.", self.check, 0)
-        self.errorstring(self.recyclingRelativ[2], 100, self.errormsg, "\n-Mulftifilamentwickelmaschine 48 (Anteil verwendetes Recyclingmaterial(Relativ)): Prozentzatz überschreitet 100%.", self.check, 0)
+        self.errorstring(self.recyclingRelativ[2], 100, self.errormsg, "\n-Mulftifilamentwickelmaschine 48 (Anteil verwendetes Recyclingmaterial (Relativ)): Prozentzatz überschreitet 100%.", self.check, 0)
         self.errorstring(self.flexibilität[2], 7, self.errormsg, "\n-Mulftifilamentwickelmaschine 48 (Flexibilität): Skalawert überschreitet 8.", self.check, 0)
         self.errorstring(self.zeitEffizienz[2], 7, self.errormsg, "\n-Mulftifilamentwickelmaschine 48 (Zeitliche Effizienz): Skalawert überschreitet 8.", self.check, 0)
         self.errorstring(self.produktQualität[2], 100, self.errormsg, "\n-Mulftifilamentwickelmaschine 48 (Produktqualität): Prozentzatz überschreitet 100%.", self.check, 0)
@@ -670,7 +670,7 @@ class StartPage(Frame):
 
         self.errorstring(self.giftMaterial[3], 5, self.errormsg, "\n-Nasswickelmaschine (Sozio-ökologische Kritikalität des Materials): Skalawert überschreitet 5.", self.check, 0)
         self.errorstring(self.abfallSzenarien[3], 1, self.errormsg, "\n-Nasswickelmaschine (Abfallszenarien): Skalawert überschreitet 1.", self.check, 0)
-        self.errorstring(self.recyclingRelativ[3], 100, self.errormsg, "\n-Nasswickelmaschine (Anteil verwendetes Recyclingmaterial(Relativ)): Prozentzatz überschreitet 100%.", self.check, 0)
+        self.errorstring(self.recyclingRelativ[3], 100, self.errormsg, "\n-Nasswickelmaschine (Anteil verwendetes Recyclingmaterial (Relativ)): Prozentzatz überschreitet 100%.", self.check, 0)
         self.errorstring(self.flexibilität[3], 7, self.errormsg, "\n-Nasswickelmaschine (Flexibilität): Skalawert überschreitet 8.", self.check, 0)
         self.errorstring(self.zeitEffizienz[3], 7, self.errormsg, "\n-Nasswickelmaschine (Zeitliche Effizienz): Skalawert überschreitet 8.", self.check, 0)
         self.errorstring(self.produktQualität[3], 100, self.errormsg, "\n-Nasswickelmaschine (Produktqualität): Prozentzatz überschreitet 100%.", self.check, 0)
@@ -1365,7 +1365,7 @@ class PageTwo(Frame):
         regfloat = controller.register(correctfloat)
 
         Buttons = tk.Frame(self)
-        button_1 = Button(Buttons, text="Zürück",
+        button_1 = Button(Buttons, text="Zurück",
                           command=lambda: controller.acceptwerte(PageOne, "Sozial-Ökologische Indikatoren"))
         button_2 = Button(Buttons, text="Nächste Seite",
                           command=lambda: controller.acceptwerte(PageThree, "Ökologisch-Ökonomische Indikatoren"))
@@ -1388,20 +1388,20 @@ class PageTwo(Frame):
 
         label_1_1 = Label(self.Ökologisch_1, text="Abfall   (m)")
         label_1_2 = Label(self.Ökologisch_1, text="Abfallszenarien    (Skala:     nur 1 akzeptiert)")
-        label_1_3 = Label(self.Ökologisch_1, text="Anteil verwendetes Recyclingmaterial(Asolut)   (g)")
-        label_1_4 = Label(self.Ökologisch_1, text="Anteil verwendetes Recyclingmaterial(Relativ)   (%)")
+        label_1_3 = Label(self.Ökologisch_1, text="Anteil verwendetes Recyclingmaterial (Absolut)   (g)")
+        label_1_4 = Label(self.Ökologisch_1, text="Anteil verwendetes Recyclingmaterial (Relativ)   (%)")
         label_2_1 = Label(self.Ökologisch_2, text="Abfall   (m)")
         label_2_2 = Label(self.Ökologisch_2, text="Abfallszenarien    (Skala:     nur 1 akzeptiert)")
-        label_2_3 = Label(self.Ökologisch_2, text="Anteil verwendetes Recyclingmaterial(Asolut)   (g)")
-        label_2_4 = Label(self.Ökologisch_2, text="Anteil verwendetes Recyclingmaterial(Relativ   (%))")
+        label_2_3 = Label(self.Ökologisch_2, text="Anteil verwendetes Recyclingmaterial (Absolut)   (g)")
+        label_2_4 = Label(self.Ökologisch_2, text="Anteil verwendetes Recyclingmaterial (Relativ   (%))")
         label_3_1 = Label(self.Ökologisch_3, text="Abfall   (m)")
         label_3_2 = Label(self.Ökologisch_3, text="Abfallszenarien    (Skala:     nur 1 akzeptiert)")
-        label_3_3 = Label(self.Ökologisch_3, text="Anteil verwendetes Recyclingmaterial(Asolut)   (g)")
-        label_3_4 = Label(self.Ökologisch_3, text="Anteil verwendetes Recyclingmaterial(Relativ)   (%)")
+        label_3_3 = Label(self.Ökologisch_3, text="Anteil verwendetes Recyclingmaterial (Absolut)   (g)")
+        label_3_4 = Label(self.Ökologisch_3, text="Anteil verwendetes Recyclingmaterial (Relativ)   (%)")
         label_4_1 = Label(self.Ökologisch_4, text="Abfall   (m)")
         label_4_2 = Label(self.Ökologisch_4, text="Abfallszenarien    (Skala:     nur 1 akzeptiert)")
-        label_4_3 = Label(self.Ökologisch_4, text="Anteil verwendetes Recyclingmaterial(Asolut)   (g)")
-        label_4_4 = Label(self.Ökologisch_4, text="Anteil verwendetes Recyclingmaterial(Relativ)   (%)")
+        label_4_3 = Label(self.Ökologisch_4, text="Anteil verwendetes Recyclingmaterial (Absolut)   (g)")
+        label_4_4 = Label(self.Ökologisch_4, text="Anteil verwendetes Recyclingmaterial (Relativ)   (%)")
 
         self.entry_1_1 = Entry(self.Ökologisch_1, textvariable = controller.get_page(StartPage).abfallProzentsatz[0], validate = "key", validatecommand =(regfloat, '%P'))
         self.entry_1_2 = Entry(self.Ökologisch_1, textvariable = controller.get_page(StartPage).abfallSzenarien[0], validate = "key", validatecommand =(regint, '%P'))
@@ -1503,7 +1503,7 @@ class PageThree(Frame):
         regfloat = controller.register(correctfloat)
 
         Buttons = tk.Frame(self)
-        button_1 = Button(Buttons, text="Zürück",
+        button_1 = Button(Buttons, text="Zurück",
                           command=lambda: controller.acceptwerte(PageTwo, "Ökologische Indikatoren"))
         button_2 = Button(Buttons, text="Nächste Seite",
                           command=lambda: controller.acceptwerte(PageFour, "Ökonomische Indikatoren"))
@@ -1526,19 +1526,19 @@ class PageThree(Frame):
 
         label_1_1 = Label(self.Ökologisch_Ökonomisch_1, text="Energieverbrauch   (Wh/kg)")
         label_1_2 = Label(self.Ökologisch_Ökonomisch_1, text="Materialverbrauch   (g)")
-        label_1_3 = Label(self.Ökologisch_Ökonomisch_1, text="Kosteneffizient   (Euro/s)")
+        label_1_3 = Label(self.Ökologisch_Ökonomisch_1, text="Kosteneffizienz   (Euro/s)")
         label_1_4 = Label(self.Ökologisch_Ökonomisch_1, text="Ressourcenkosten   (Euro/kg)")
         label_2_1 = Label(self.Ökologisch_Ökonomisch_2, text="Energieverbrauch   (Wh/kg)")
         label_2_2 = Label(self.Ökologisch_Ökonomisch_2, text="Materialverbrauch   (g)")
-        label_2_3 = Label(self.Ökologisch_Ökonomisch_2, text="Kosteneffizient   (Euro/s)")
+        label_2_3 = Label(self.Ökologisch_Ökonomisch_2, text="Kosteneffizienz   (Euro/s)")
         label_2_4 = Label(self.Ökologisch_Ökonomisch_2, text="Ressourcenkosten   (Euro/kg)")
         label_3_1 = Label(self.Ökologisch_Ökonomisch_3, text="Energieverbrauch   (Wh/kg)")
         label_3_2 = Label(self.Ökologisch_Ökonomisch_3, text="Materialverbrauch   (g)")
-        label_3_3 = Label(self.Ökologisch_Ökonomisch_3, text="Kosteneffizient   (Euro/s)")
+        label_3_3 = Label(self.Ökologisch_Ökonomisch_3, text="Kosteneffizienz   (Euro/s)")
         label_3_4 = Label(self.Ökologisch_Ökonomisch_3, text="Ressourcenkosten   (Euro/kg)")
         label_4_1 = Label(self.Ökologisch_Ökonomisch_4, text="Energieverbrauch   (Wh/kg)")
         label_4_2 = Label(self.Ökologisch_Ökonomisch_4, text="Materialverbrauch   (g)")
-        label_4_3 = Label(self.Ökologisch_Ökonomisch_4, text="Kosteneffizient   (Euro/s)")
+        label_4_3 = Label(self.Ökologisch_Ökonomisch_4, text="Kosteneffizienz   (Euro/s)")
         label_4_4 = Label(self.Ökologisch_Ökonomisch_4, text="Ressourcenkosten   (Euro/kg)")
 
         self.entry_1_1 = Entry(self.Ökologisch_Ökonomisch_1, textvariable = controller.get_page(StartPage).verbrauchEnergie[0], validate = "key", validatecommand =(regfloat, '%P'))
@@ -1641,7 +1641,7 @@ class PageFour(Frame):
         regfloat = controller.register(correctfloat)
 
         Buttons = tk.Frame(self)
-        button_1 = Button(Buttons, text="Zürück",
+        button_1 = Button(Buttons, text="Zurück",
                           command=lambda: controller.acceptwerte(PageThree, "Ökologisch-Ökonomische Indikatoren"))
         button_2 = Button(Buttons, text="Nächste Seite",
                           command=lambda: controller.acceptwerte(PageFive, "Sozial-Ökonomische Indikatoren"))
@@ -1763,7 +1763,7 @@ class PageFive(Frame):
         regfloat = controller.register(correctfloat)
 
         Buttons = tk.Frame(self)
-        button_1 = Button(Buttons, text="Zürück",
+        button_1 = Button(Buttons, text="Zurück",
                           command=lambda: controller.acceptwerte(PageFour, "Ökonomische Indikatoren"))
         button_2 = Button(Buttons, text="Nächste Seite",
                           command=lambda: controller.acceptwerte(PageSix, "Sozial-Ökonomisch-Ökologische Indikatoren"))
@@ -1853,7 +1853,7 @@ class PageSix(Frame):
         regfloat = controller.register(correctfloat)
 
         Buttons = tk.Frame(self)
-        button_1 = Button(Buttons, text="Zürück",
+        button_1 = Button(Buttons, text="Zurück",
                           command=lambda: controller.acceptwerte(PageFive, "Sozial-Ökonomische Indikatoren"))
         button_3 = Button(Buttons, text="Akzeptieren", command=lambda: controller.acceptwerte(PageSix, "Sozial-Ökonomisch-Ökologische Indikatoren"))
         button_4 = Button(Buttons, text="Auswerten", command=lambda: controller.acceptwerte(PageEnd, "Visualisierung durch Nachhaltigkeitsdreick"))
@@ -1954,9 +1954,9 @@ class PageEnd(Frame):
         self.controller = controller
 
         Buttons = tk.Frame(self)
-        button_1 = Button(Buttons, text="Zürück",
+        button_1 = Button(Buttons, text="Zurück",
                           command=lambda: controller.show_frame(StartPage, "Maschinen Auswahl"))
-        button_2 = Button(Buttons, text="Zürücksetzen",
+        button_2 = Button(Buttons, text="Zurücksetzen",
                           command=lambda: controller.resetter())
 
 
@@ -2125,7 +2125,7 @@ class MaschineWerte1(Frame):
         self.columnconfigure(4, minsize=100)
         tkinter.ttk.Separator(self, orient=VERTICAL).grid(column=2, row=0, rowspan=14, sticky='ns')
 
-        button_1 = Button(self, text="Zürück"
+        button_1 = Button(self, text="Zurück"
                           , command=lambda: controller.show_frame(PageEnd, "Visualisierung durch Nachhaltigkeitsdreick"))
 
 
@@ -2158,13 +2158,13 @@ class MaschineWerte1(Frame):
         name_2 = Label(self, text="Ökologische Indikatoren", relief = 'ridge')
         name_2_1 = Label(self, text="Abfall   (m)")
         name_2_2 = Label(self, text="Abfallszenarien    (Skala)")
-        name_2_3 = Label(self, text="Anteil verwendetes Recyclingmaterial(Asolut)   (g)")
-        name_2_4 = Label(self, text="Anteil verwendetes Recyclingmaterial(Relativ)   (%)")
+        name_2_3 = Label(self, text="Anteil verwendetes Recyclingmaterial (Absolut)   (g)")
+        name_2_4 = Label(self, text="Anteil verwendetes Recyclingmaterial (Relativ)   (%)")
 
         name_3 = Label(self, text="Ökologisch-Ökonomische Indikatoren", relief = 'ridge')
         name_3_1 = Label(self, text="Energieverbrauch   (Wh/kg)")
         name_3_2 = Label(self, text="Materialverbrauch   (g)")
-        name_3_3 = Label(self, text="Kosteneffizient   (Euro/s)")
+        name_3_3 = Label(self, text="Kosteneffizienz   (Euro/s)")
         name_3_4 = Label(self, text="Ressourcenkosten   (Euro/kg)")
 
         name_4 = Label(self, text="Ökonomische Indikatoren", relief = 'ridge')
@@ -2262,7 +2262,7 @@ class MaschineWerte2(Frame):
         self.columnconfigure(4, minsize=100)
         tkinter.ttk.Separator(self, orient=VERTICAL).grid(column=2, row=0, rowspan=14, sticky='ns')
 
-        button_1 = Button(self, text="Zürück"
+        button_1 = Button(self, text="Zurück"
                           , command=lambda: controller.show_frame(PageEnd, "Visualisierung durch Nachhaltigkeitsdreick"))
 
 
@@ -2295,13 +2295,13 @@ class MaschineWerte2(Frame):
         name_2 = Label(self, text="Ökologische Indikatoren", relief = 'ridge')
         name_2_1 = Label(self, text="Abfall   (m)")
         name_2_2 = Label(self, text="Abfallszenarien    (Skala)")
-        name_2_3 = Label(self, text="Anteil verwendetes Recyclingmaterial(Asolut)   (g)")
-        name_2_4 = Label(self, text="Anteil verwendetes Recyclingmaterial(Relativ)   (%)")
+        name_2_3 = Label(self, text="Anteil verwendetes Recyclingmaterial (Absolut)   (g)")
+        name_2_4 = Label(self, text="Anteil verwendetes Recyclingmaterial (Relativ)   (%)")
 
         name_3 = Label(self, text="Ökologisch-Ökonomische Indikatoren", relief = 'ridge')
         name_3_1 = Label(self, text="Energieverbrauch   (Wh/kg)")
         name_3_2 = Label(self, text="Materialverbrauch   (g)")
-        name_3_3 = Label(self, text="Kosteneffizient   (Euro/s)")
+        name_3_3 = Label(self, text="Kosteneffizienz   (Euro/s)")
         name_3_4 = Label(self, text="Ressourcenkosten   (Euro/kg)")
 
         name_4 = Label(self, text="Ökonomische Indikatoren", relief = 'ridge')
@@ -2399,7 +2399,7 @@ class MaschineWerte3(Frame):
         self.columnconfigure(4, minsize=100)
         tkinter.ttk.Separator(self, orient=VERTICAL).grid(column=2, row=0, rowspan=14, sticky='ns')
 
-        button_1 = Button(self, text="Zürück"
+        button_1 = Button(self, text="Zurück"
                           , command=lambda: controller.show_frame(PageEnd, "Visualisierung durch Nachhaltigkeitsdreick"))
 
 
@@ -2432,13 +2432,13 @@ class MaschineWerte3(Frame):
         name_2 = Label(self, text="Ökologische Indikatoren", relief = 'ridge')
         name_2_1 = Label(self, text="Abfall   (m)")
         name_2_2 = Label(self, text="Abfallszenarien    (Skala)")
-        name_2_3 = Label(self, text="Anteil verwendetes Recyclingmaterial(Asolut)   (g)")
-        name_2_4 = Label(self, text="Anteil verwendetes Recyclingmaterial(Relativ)   (%)")
+        name_2_3 = Label(self, text="Anteil verwendetes Recyclingmaterial (Absolut)   (g)")
+        name_2_4 = Label(self, text="Anteil verwendetes Recyclingmaterial (Relativ)   (%)")
 
         name_3 = Label(self, text="Ökologisch-Ökonomische Indikatoren", relief = 'ridge')
         name_3_1 = Label(self, text="Energieverbrauch   (Wh/kg)")
         name_3_2 = Label(self, text="Materialverbrauch   (g)")
-        name_3_3 = Label(self, text="Kosteneffizient   (Euro/s)")
+        name_3_3 = Label(self, text="Kosteneffizienz   (Euro/s)")
         name_3_4 = Label(self, text="Ressourcenkosten   (Euro/kg)")
 
         name_4 = Label(self, text="Ökonomische Indikatoren", relief = 'ridge')
@@ -2536,7 +2536,7 @@ class MaschineWerte4(Frame):
         self.columnconfigure(4, minsize=100)
         tkinter.ttk.Separator(self, orient=VERTICAL).grid(column=2, row=0, rowspan=14, sticky='ns')
 
-        button_1 = Button(self, text="Zürück"
+        button_1 = Button(self, text="Zurück"
                           , command=lambda: controller.show_frame(PageEnd, "Visualisierung durch Nachhaltigkeitsdreick"))
 
 
@@ -2569,13 +2569,13 @@ class MaschineWerte4(Frame):
         name_2 = Label(self, text="Ökologische Indikatoren", relief = 'ridge')
         name_2_1 = Label(self, text="Abfall   (m)")
         name_2_2 = Label(self, text="Abfallszenarien    (Skala)")
-        name_2_3 = Label(self, text="Anteil verwendetes Recyclingmaterial(Asolut)   (g)")
-        name_2_4 = Label(self, text="Anteil verwendetes Recyclingmaterial(Relativ)   (%)")
+        name_2_3 = Label(self, text="Anteil verwendetes Recyclingmaterial (Absolut)   (g)")
+        name_2_4 = Label(self, text="Anteil verwendetes Recyclingmaterial (Relativ)   (%)")
 
         name_3 = Label(self, text="Ökologisch-Ökonomische Indikatoren", relief = 'ridge')
         name_3_1 = Label(self, text="Energieverbrauch   (Wh/kg)")
         name_3_2 = Label(self, text="Materialverbrauch   (g)")
-        name_3_3 = Label(self, text="Kosteneffizient   (Euro/s)")
+        name_3_3 = Label(self, text="Kosteneffizienz   (Euro/s)")
         name_3_4 = Label(self, text="Ressourcenkosten   (Euro/kg)")
 
         name_4 = Label(self, text="Ökonomische Indikatoren", relief = 'ridge')
