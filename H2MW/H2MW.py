@@ -54,7 +54,7 @@ class H2MW(ThemedTk):
             frame.grid_remove()
 
 
-        self.show_frame(StartPage, "Maschinen Auswahl")
+        self.show_frame(StartPage, "Maschinenauswahl")
 
     def show_frame(self, cont, name):
         """ clears all frames from the screen and draws the requested page as set in @cont with the window-name as set in @name"""
@@ -78,7 +78,7 @@ class H2MW(ThemedTk):
     def resetter(self):
         """ Function that returns to Selection screen and resets values to default. To be called from End Page"""
         self.get_page(StartPage).werte_reset()
-        self.show_frame(StartPage, "Maschinen Auswahl")
+        self.show_frame(StartPage, "Maschinenauswahl")
 
     def acceptwerte(self, page, name):
         """ Used by the Akzeptieren Buttons in the program, recalculates values and redraws page"""
@@ -1450,19 +1450,19 @@ class PageOne(ttk.Frame):
         name_3 = ttk.Label(self.Sozial_Ökologisch_3, text="Multifilamentwickelmaschine 48", relief = 'ridge', font = tkFont.Font(family = "helvetica", size=14, weight='bold'))
         name_4 = ttk.Label(self.Sozial_Ökologisch_4, text="Nasswickelmaschine", relief = 'ridge', font = tkFont.Font(family = "helvetica", size=14, weight='bold'))
 
-        label_1_0 = ttk.Label(self.Sozial_Ökologisch_1, text="Sozial-Ökologische Auswertung --->", font = tkFont.Font(family = "helvetica", size=10))
+        label_1_0 = ttk.Label(self.Sozial_Ökologisch_1, text="Sozial-Ökologische Auswertung --->", font = tkFont.Font(family = "helvetica", size=11, weight='bold'))
         label_1_1 = ttk.Label(self.Sozial_Ökologisch_1, text="Treibhausgasemissionen   (g/kg)", font = tkFont.Font(family = "helvetica", size=10))
         label_1_2 = ttk.Label(self.Sozial_Ökologisch_1, text="Kritikalität des Materials   (Skala: 1 = hoch / 5 = niedrig)", font = tkFont.Font(family = "helvetica", size=10))
         label_2_0 = ttk.Label(self.Sozial_Ökologisch_2, text="Sozial-Ökologische Auswertung --->",
-                              font=tkFont.Font(family="helvetica", size=10))
+                              font=tkFont.Font(family="helvetica", size=11, weight='bold'))
         label_2_1 = ttk.Label(self.Sozial_Ökologisch_2, text="Treibhausgasemissionen   (g/kg)", font = tkFont.Font(family = "helvetica", size=10))
         label_2_2 = ttk.Label(self.Sozial_Ökologisch_2, text="Kritikalität des Materials   (Skala: 1 = hoch / 5 = niedrig)", font = tkFont.Font(family = "helvetica", size=10))
         label_3_0 = ttk.Label(self.Sozial_Ökologisch_3, text="Sozial-Ökologische Auswertung --->",
-                              font=tkFont.Font(family="helvetica", size=10))
+                              font=tkFont.Font(family="helvetica", size=11, weight='bold'))
         label_3_1 = ttk.Label(self.Sozial_Ökologisch_3, text="Treibhausgasemissionen   (g/kg)", font = tkFont.Font(family = "helvetica", size=10))
         label_3_2 = ttk.Label(self.Sozial_Ökologisch_3, text="Kritikalität des Materials   (Skala: 1 = hoch / 5 = niedrig)", font = tkFont.Font(family = "helvetica", size=10))
         label_4_0 = ttk.Label(self.Sozial_Ökologisch_4, text="Sozial-Ökologische Auswertung --->",
-                              font=tkFont.Font(family="helvetica", size=10))
+                              font=tkFont.Font(family="helvetica", size=11, weight='bold'))
         label_4_1 = ttk.Label(self.Sozial_Ökologisch_4, text="Treibhausgasemissionen   (g/kg)", font = tkFont.Font(family = "helvetica", size=10))
         label_4_2 = ttk.Label(self.Sozial_Ökologisch_4, text="Kritikalität des Materials   (Skala: 1 = hoch / 5 = niedrig)", font = tkFont.Font(family = "helvetica", size=10))
 
@@ -1568,25 +1568,25 @@ class PageTwo(ttk.Frame):
         name_4 = ttk.Label(self.Ökologisch_4, text="Nasswickelmaschine", relief = 'ridge', font = tkFont.Font(family = "helvetica", size=14, weight='bold'))
 
         label_1_0 = ttk.Label(self.Ökologisch_1, text="Ökologische Auswertung --->",
-                              font=tkFont.Font(family="helvetica", size=10))
+                              font=tkFont.Font(family="helvetica", size=11, weight='bold'))
         label_1_1 = ttk.Label(self.Ökologisch_1, text="Abfall   (m)" , font = tkFont.Font(family = "helvetica", size=10))
         label_1_2 = ttk.Label(self.Ökologisch_1, text="Abfallszenarien    (Skala:     nur 1 akzeptiert)" , font = tkFont.Font(family = "helvetica", size=10))
         label_1_3 = ttk.Label(self.Ökologisch_1, text="Anteil verwendetes Recyclingmaterial (Absolut)   (g)" , font = tkFont.Font(family = "helvetica", size=10))
         label_1_4 = ttk.Label(self.Ökologisch_1, text="Anteil verwendetes Recyclingmaterial (Relativ)   (%)" , font = tkFont.Font(family = "helvetica", size=10))
         label_2_0 = ttk.Label(self.Ökologisch_2, text="Ökologische Auswertung --->",
-                              font=tkFont.Font(family="helvetica", size=10))
+                              font=tkFont.Font(family="helvetica", size=11, weight='bold'))
         label_2_1 = ttk.Label(self.Ökologisch_2, text="Abfall   (m)" , font = tkFont.Font(family = "helvetica", size=10))
         label_2_2 = ttk.Label(self.Ökologisch_2, text="Abfallszenarien    (Skala:     nur 1 akzeptiert)" , font = tkFont.Font(family = "helvetica", size=10))
         label_2_3 = ttk.Label(self.Ökologisch_2, text="Anteil verwendetes Recyclingmaterial (Absolut)   (g)" , font = tkFont.Font(family = "helvetica", size=10))
         label_2_4 = ttk.Label(self.Ökologisch_2, text="Anteil verwendetes Recyclingmaterial (Relativ   (%))" , font = tkFont.Font(family = "helvetica", size=10))
         label_3_0 = ttk.Label(self.Ökologisch_3, text="Ökologische Auswertung --->",
-                              font=tkFont.Font(family="helvetica", size=10))
+                              font=tkFont.Font(family="helvetica", size=11, weight='bold'))
         label_3_1 = ttk.Label(self.Ökologisch_3, text="Abfall   (m)" , font = tkFont.Font(family = "helvetica", size=10))
         label_3_2 = ttk.Label(self.Ökologisch_3, text="Abfallszenarien    (Skala:     nur 1 akzeptiert)" , font = tkFont.Font(family = "helvetica", size=10))
         label_3_3 = ttk.Label(self.Ökologisch_3, text="Anteil verwendetes Recyclingmaterial (Absolut)   (g)" , font = tkFont.Font(family = "helvetica", size=10))
         label_3_4 = ttk.Label(self.Ökologisch_3, text="Anteil verwendetes Recyclingmaterial (Relativ)   (%)" , font = tkFont.Font(family = "helvetica", size=10))
         label_4_0 = ttk.Label(self.Ökologisch_4, text="Ökologische Auswertung --->",
-                              font=tkFont.Font(family="helvetica", size=10))
+                              font=tkFont.Font(family="helvetica", size=11, weight='bold'))
         label_4_1 = ttk.Label(self.Ökologisch_4, text="Abfall   (m)" , font = tkFont.Font(family = "helvetica", size=10))
         label_4_2 = ttk.Label(self.Ökologisch_4, text="Abfallszenarien    (Skala:     nur 1 akzeptiert)" , font = tkFont.Font(family = "helvetica", size=10))
         label_4_3 = ttk.Label(self.Ökologisch_4, text="Anteil verwendetes Recyclingmaterial (Absolut)   (g)" , font = tkFont.Font(family = "helvetica", size=10))
@@ -1718,25 +1718,25 @@ class PageThree(ttk.Frame):
         name_1_4 = ttk.Label(self.Ökologisch_Ökonomisch_4, text="Nasswickelmaschine", relief = 'ridge' , font = tkFont.Font(family = "helvetica", size=14, weight='bold'))
 
         label_1_0 = ttk.Label(self.Ökologisch_Ökonomisch_1, text="Ökologisch-Ökonomische Auswertung --->",
-                              font=tkFont.Font(family="helvetica", size=10))
+                              font=tkFont.Font(family="helvetica", size=11, weight='bold'))
         label_1_1 = ttk.Label(self.Ökologisch_Ökonomisch_1, text="Energieverbrauch   (Wh/kg)" , font = tkFont.Font(family = "helvetica", size=10))
         label_1_2 = ttk.Label(self.Ökologisch_Ökonomisch_1, text="Materialverbrauch   (g)" , font = tkFont.Font(family = "helvetica", size=10))
         label_1_3 = ttk.Label(self.Ökologisch_Ökonomisch_1, text="Kosteneffizienz   (Euro/s)" , font = tkFont.Font(family = "helvetica", size=10))
         label_1_4 = ttk.Label(self.Ökologisch_Ökonomisch_1, text="Ressourcenkosten   (Euro/kg)" , font = tkFont.Font(family = "helvetica", size=10))
         label_2_0 = ttk.Label(self.Ökologisch_Ökonomisch_2, text="Ökologisch-Ökonomische Auswertung --->",
-                              font=tkFont.Font(family="helvetica", size=10))
+                              font=tkFont.Font(family="helvetica", size=11, weight='bold'))
         label_2_1 = ttk.Label(self.Ökologisch_Ökonomisch_2, text="Energieverbrauch   (Wh/kg)" , font = tkFont.Font(family = "helvetica", size=10))
         label_2_2 = ttk.Label(self.Ökologisch_Ökonomisch_2, text="Materialverbrauch   (g)" , font = tkFont.Font(family = "helvetica", size=10))
         label_2_3 = ttk.Label(self.Ökologisch_Ökonomisch_2, text="Kosteneffizienz   (Euro/s)" , font = tkFont.Font(family = "helvetica", size=10))
         label_2_4 = ttk.Label(self.Ökologisch_Ökonomisch_2, text="Ressourcenkosten   (Euro/kg)" , font = tkFont.Font(family = "helvetica", size=10))
         label_3_0 = ttk.Label(self.Ökologisch_Ökonomisch_3, text="Ökologisch-Ökonomische Auswertung --->",
-                              font=tkFont.Font(family="helvetica", size=10))
+                              font=tkFont.Font(family="helvetica", size=11, weight='bold'))
         label_3_1 = ttk.Label(self.Ökologisch_Ökonomisch_3, text="Energieverbrauch   (Wh/kg)" , font = tkFont.Font(family = "helvetica", size=10))
         label_3_2 = ttk.Label(self.Ökologisch_Ökonomisch_3, text="Materialverbrauch   (g)" , font = tkFont.Font(family = "helvetica", size=10))
         label_3_3 = ttk.Label(self.Ökologisch_Ökonomisch_3, text="Kosteneffizienz   (Euro/s)" , font = tkFont.Font(family = "helvetica", size=10))
         label_3_4 = ttk.Label(self.Ökologisch_Ökonomisch_3, text="Ressourcenkosten   (Euro/kg)" , font = tkFont.Font(family = "helvetica", size=10))
         label_4_0 = ttk.Label(self.Ökologisch_Ökonomisch_4, text="Ökologisch-Ökonomische Auswertung --->",
-                              font=tkFont.Font(family="helvetica", size=10))
+                              font=tkFont.Font(family="helvetica", size=11, weight='bold'))
         label_4_1 = ttk.Label(self.Ökologisch_Ökonomisch_4, text="Energieverbrauch   (Wh/kg)" , font = tkFont.Font(family = "helvetica", size=10))
         label_4_2 = ttk.Label(self.Ökologisch_Ökonomisch_4, text="Materialverbrauch   (g)" , font = tkFont.Font(family = "helvetica", size=10))
         label_4_3 = ttk.Label(self.Ökologisch_Ökonomisch_4, text="Kosteneffizienz   (Euro/s)" , font = tkFont.Font(family = "helvetica", size=10))
@@ -1868,22 +1868,22 @@ class PageFour(ttk.Frame):
         name_1_4 = ttk.Label(self.Ökonomisch_4, text="Nasswickelmaschine", relief = 'ridge' , font = tkFont.Font(family = "helvetica", size=14, weight='bold'))
 
         label_1_0 = ttk.Label(self.Ökonomisch_1, text="Ökonomische Auswertung --->",
-                              font=tkFont.Font(family="helvetica", size=10))
+                              font=tkFont.Font(family="helvetica", size=11, weight='bold'))
         label_1_1 = ttk.Label(self.Ökonomisch_1, text="Zykluszeit   (min/preform)" , font = tkFont.Font(family = "helvetica", size=10))
         label_1_2 = ttk.Label(self.Ökonomisch_1, text="Flexibilität   (Skala:     5 = niedrig / 7 = hoch)" , font = tkFont.Font(family = "helvetica", size=10))
         label_1_3 = ttk.Label(self.Ökonomisch_1, text="Zeitliche Effizienz   (Skala:     3 = niedrig / 7 = hoch)" , font = tkFont.Font(family = "helvetica", size=10))
         label_2_0 = ttk.Label(self.Ökonomisch_2, text="Ökonomische Auswertung --->",
-                              font=tkFont.Font(family="helvetica", size=10))
+                              font=tkFont.Font(family="helvetica", size=11, weight='bold'))
         label_2_1 = ttk.Label(self.Ökonomisch_2, text="Zykluszeit   (min/preform)" , font = tkFont.Font(family = "helvetica", size=10))
         label_2_2 = ttk.Label(self.Ökonomisch_2, text="Flexibilität   (Skala:     5 = niedrig / 7 = hoch)" , font = tkFont.Font(family = "helvetica", size=10))
         label_2_3 = ttk.Label(self.Ökonomisch_2, text="Zeitliche Effizienz   (Skala:     3 = niedrig / 7 = hoch)" , font = tkFont.Font(family = "helvetica", size=10))
         label_3_0 = ttk.Label(self.Ökonomisch_3, text="Ökonomische Auswertung --->",
-                              font=tkFont.Font(family="helvetica", size=10))
+                              font=tkFont.Font(family="helvetica", size=11, weight='bold'))
         label_3_1 = ttk.Label(self.Ökonomisch_3, text="Zykluszeit   (min/preform)" , font = tkFont.Font(family = "helvetica", size=10))
         label_3_2 = ttk.Label(self.Ökonomisch_3, text="Flexibilität   (Skala:     5 = niedrig / 7 = hoch)" , font = tkFont.Font(family = "helvetica", size=10))
         label_3_3 = ttk.Label(self.Ökonomisch_3, text="Zeitliche Effizienz   (Skala:     3 = niedrig / 7 = hoch)" , font = tkFont.Font(family = "helvetica", size=10))
         label_4_0 = ttk.Label(self.Ökonomisch_4, text="Ökonomische Auswertung --->",
-                              font=tkFont.Font(family="helvetica", size=10))
+                              font=tkFont.Font(family="helvetica", size=11, weight='bold'))
         label_4_1 = ttk.Label(self.Ökonomisch_4, text="Zykluszeit   (min/preform)" , font = tkFont.Font(family = "helvetica", size=10))
         label_4_2 = ttk.Label(self.Ökonomisch_4, text="Flexibilität   (Skala:     5 = niedrig / 7 = hoch)" , font = tkFont.Font(family = "helvetica", size=10))
         label_4_3 = ttk.Label(self.Ökonomisch_4, text="Zeitliche Effizienz   (Skala:     3 = niedrig / 7 = hoch)" , font = tkFont.Font(family = "helvetica", size=10))
@@ -2002,16 +2002,16 @@ class PageFive(ttk.Frame):
         name_1_4 = ttk.Label(self.Sozial_Ökonomisch_4, text="Nasswickelmaschine", relief = 'ridge' , font = tkFont.Font(family = "helvetica", size=14, weight='bold'))
 
         label_1_0 = ttk.Label(self.Sozial_Ökonomisch_1, text="Sozial-Ökonomische Auswertung --->",
-                              font=tkFont.Font(family="helvetica", size=10))
+                              font=tkFont.Font(family="helvetica", size=11, weight='bold'))
         label_1_1 = ttk.Label(self.Sozial_Ökonomisch_1, text="Produktqualität   (%)" , font = tkFont.Font(family = "helvetica", size=10))
         label_2_0 = ttk.Label(self.Sozial_Ökonomisch_2, text="Sozial-Ökonomische Auswertung --->",
-                              font=tkFont.Font(family="helvetica", size=10))
+                              font=tkFont.Font(family="helvetica", size=11, weight='bold'))
         label_1_2 = ttk.Label(self.Sozial_Ökonomisch_2, text="Produktqualität   (%)" , font = tkFont.Font(family = "helvetica", size=10))
         label_3_0 = ttk.Label(self.Sozial_Ökonomisch_3, text="Sozial-Ökonomische Auswertung --->",
-                              font=tkFont.Font(family="helvetica", size=10))
+                              font=tkFont.Font(family="helvetica", size=11, weight='bold'))
         label_1_3 = ttk.Label(self.Sozial_Ökonomisch_3, text="Produktqualität   (%)" , font = tkFont.Font(family = "helvetica", size=10))
         label_4_0 = ttk.Label(self.Sozial_Ökonomisch_4, text="Sozial-Ökonomische Auswertung --->",
-                              font=tkFont.Font(family="helvetica", size=10))
+                              font=tkFont.Font(family="helvetica", size=11, weight='bold'))
         label_1_4 = ttk.Label(self.Sozial_Ökonomisch_4, text="Produktqualität   (%)" , font = tkFont.Font(family = "helvetica", size=10))
 
         self.entry_1_1 = ttk.Entry(self.Sozial_Ökonomisch_1, textvariable = controller.get_page(StartPage).produktQualität[0], validate = "key", validatecommand =(regfloat, '%P'))
@@ -2102,19 +2102,19 @@ class PageSix(ttk.Frame):
         name_1_4 = ttk.Label(self.Sozial_Ökologisch_Ökonomisch_4, text="Nasswickelmaschine", relief = 'ridge' , font = tkFont.Font(family = "helvetica", size=14, weight='bold'))
 
         label_1_0 = ttk.Label(self.Sozial_Ökologisch_Ökonomisch_1, text="Sozial-Ökologisch-Ökonomische Auswertung --->",
-                              font=tkFont.Font(family="helvetica", size=10))
+                              font=tkFont.Font(family="helvetica", size=11, weight='bold'))
         label_1_1 = ttk.Label(self.Sozial_Ökologisch_Ökonomisch_1, text="Innovativität   (Skala:     4 = niedrig / 7 = hoch)" , font = tkFont.Font(family = "helvetica", size=10))
         label_1_2 = ttk.Label(self.Sozial_Ökologisch_Ökonomisch_1, text="Flächenverbrauch   (m^2)" , font = tkFont.Font(family = "helvetica", size=10))
         label_2_0 = ttk.Label(self.Sozial_Ökologisch_Ökonomisch_2, text="Sozial-Ökologisch-Ökonomische Auswertung --->",
-                              font=tkFont.Font(family="helvetica", size=10))
+                              font=tkFont.Font(family="helvetica", size=11, weight='bold'))
         label_2_1 = ttk.Label(self.Sozial_Ökologisch_Ökonomisch_2, text="Innovativität   (Skala:     4 = niedrig / 7 = hoch)" , font = tkFont.Font(family = "helvetica", size=10))
         label_2_2 = ttk.Label(self.Sozial_Ökologisch_Ökonomisch_2, text="Flächenverbrauch   (m^2)" , font = tkFont.Font(family = "helvetica", size=10))
         label_3_0 = ttk.Label(self.Sozial_Ökologisch_Ökonomisch_3, text="Sozial-Ökologisch-Ökonomische Auswertung --->",
-                              font=tkFont.Font(family="helvetica", size=10))
+                              font=tkFont.Font(family="helvetica", size=11, weight='bold'))
         label_3_1 = ttk.Label(self.Sozial_Ökologisch_Ökonomisch_3, text="Innovativität   (Skala:     4 = niedrig / 7 = hoch)" , font = tkFont.Font(family = "helvetica", size=10))
         label_3_2 = ttk.Label(self.Sozial_Ökologisch_Ökonomisch_3, text="Flächenverbrauch   (m^2)" , font = tkFont.Font(family = "helvetica", size=10))
         label_4_0 = ttk.Label(self.Sozial_Ökologisch_Ökonomisch_4, text="Sozial-Ökologisch-Ökonomische Auswertung --->",
-                              font=tkFont.Font(family="helvetica", size=10))
+                              font=tkFont.Font(family="helvetica", size=11, weight='bold'))
         label_4_1 = ttk.Label(self.Sozial_Ökologisch_Ökonomisch_4, text="Innovativität   (Skala:     4 = niedrig / 7 = hoch)" , font = tkFont.Font(family = "helvetica", size=10))
         label_4_2 = ttk.Label(self.Sozial_Ökologisch_Ökonomisch_4, text="Fächenverbrauch   (m^2)" , font = tkFont.Font(family = "helvetica", size=10))
 
@@ -2195,10 +2195,13 @@ class PageEnd(ttk.Frame):
         self.controller = controller
 
         Buttons = ttk.Frame(self)
-        button_1 = ttk.Button(Buttons, text="Zurück",
-                          command=lambda: controller.show_frame(StartPage, "Maschinen Auswahl"))
-        button_2 = ttk.Button(Buttons, text="Zurücksetzen",
+        button_1 = ttk.Button(Buttons, text="Startseite (Werte erhalten)",
+                          command=lambda: controller.show_frame(StartPage, "Maschinenauswahl"))
+        button_2 = ttk.Button(Buttons, text="Startseite (Werte zurücksetzen)",
                           command=lambda: controller.resetter())
+
+        boldStyle = ttk.Style()
+        boldStyle.configure("Bold.Button", font=('10', 'bold'))
 
 
         self.End_1 = ttk.Frame(self, relief = "ridge", borderwidth = 5)
@@ -2207,9 +2210,13 @@ class PageEnd(ttk.Frame):
         self.End_4 = ttk.Frame(self, relief = "ridge", borderwidth = 5)
 
         name_1_1 = Button(self.End_1, text="Flechtwickelmaschine", command=lambda: controller.show_frame(MaschineWerte1, "Flechtwickelmaschine"))
+        name_1_1.configure(font=('helvetica', '10', 'bold'))
         name_1_2 = Button(self.End_2, text="Multifilamentwickelmaschine 90", command=lambda: controller.show_frame(MaschineWerte2, "Multifilamentwickelmaschine 90"))
+        name_1_2.configure(font=('helvetica', '10', 'bold'))
         name_1_3 = Button(self.End_3, text="Multifilamentwickelmaschine 48", command=lambda: controller.show_frame(MaschineWerte3, "Multifilamentwickelmaschine 48"))
+        name_1_3.configure(font=('helvetica', '10', 'bold'))
         name_1_4 = Button(self.End_4, text="Nasswickelmaschine", command=lambda: controller.show_frame(MaschineWerte4, "Nasswickelmaschine"))
+        name_1_4.configure(font=('helvetica', '10', 'bold'))
 
         self.auswertung_1 = Canvas(self.End_1, width=300, height=360)
         self.auswertung_2 = Canvas(self.End_2, width=300, height=360)
