@@ -153,20 +153,20 @@ def enabler():
 
 def colourer(wert):
     """ Returns a colour from red to green based on a normalised 0-1 float"""
-    if wert.get() <= 0.5:
+    if round(wert.get(),5) <= 0.5:
 
         hex_1 = hex(int(wert.get() * 255))
 
-        if int(wert.get() * 255) > 15:
+        if int(round(wert.get(),5) * 255) > 15:
             return ('#ff' + hex_1[2:4] + '00')
         else:
             return ('#ff0' + hex_1[2:4] + '00')
 
     else:
 
-        hex_1 = hex(int(255 - ((wert.get() - 0.5) * 255)))
+        hex_1 = hex(int(255 - ((round(wert.get(),5) - 0.5) * 255)))
 
-        if int(255 - ((wert.get() - 0.5) * 255)) > 15:
+        if int(255 - ((round(wert.get(),5) - 0.5) * 255)) > 15:
             return ('#' + hex_1[2:4] + 'ff00')
         else:
             return ('#0' + hex_1[3:4] + 'ff00')
@@ -1341,6 +1341,7 @@ class StartPage(Frame):
             text=round(self.controller.get_page(StartPage).flächenVerbrauch_norm[3].get(), 5),
             bg=colourer(self.controller.get_page(StartPage).flächenVerbrauch_norm[3]))
 
+
     def werte_reset(self):
         """Resets all values"""
         # Maschine 0
@@ -2394,7 +2395,7 @@ class MaschineWerte1(ttk.Frame):
 
         name_1 = ttk.Label(self, text="Sozial-Ökologische Indikatoren", relief = 'ridge' , font = tkFont.Font(family = "helvetica", size=10))
         name_1_1 = ttk.Label(self, text="Treibhausgasemissionen   (g/kg)" , font = tkFont.Font(family = "helvetica", size=10))
-        name_1_2 = ttk.Label(self, text="Kritikalität des Materials   (Skala: 3 = hoch / 7 = niedrig)" , font = tkFont.Font(family = "helvetica", size=10))
+        name_1_2 = ttk.Label(self, text="Kritikalität des Materials   (Skala)" , font = tkFont.Font(family = "helvetica", size=10))
 
         name_2 = ttk.Label(self, text="Ökologische Indikatoren", relief = 'ridge' , font = tkFont.Font(family = "helvetica", size=10))
         name_2_1 = ttk.Label(self, text="Abfall   (m)" , font = tkFont.Font(family = "helvetica", size=10))
@@ -2525,7 +2526,7 @@ class MaschineWerte2(ttk.Frame):
 
         name_1 = ttk.Label(self, text="Sozial-Ökologische Indikatoren", relief = 'ridge' , font = tkFont.Font(family = "helvetica", size=10))
         name_1_1 = ttk.Label(self, text="Treibhausgasemissionen   (g/kg)" , font = tkFont.Font(family = "helvetica", size=10))
-        name_1_2 = ttk.Label(self, text="Kritikalität des Materials   (Skala: 3 = hoch / 7 = niedrig)" , font = tkFont.Font(family = "helvetica", size=10))
+        name_1_2 = ttk.Label(self, text="Kritikalität des Materials   (Skala)" , font = tkFont.Font(family = "helvetica", size=10))
 
         name_2 = ttk.Label(self, text="Ökologische Indikatoren", relief = 'ridge' , font = tkFont.Font(family = "helvetica", size=10))
         name_2_1 = ttk.Label(self, text="Abfall   (m)" , font = tkFont.Font(family = "helvetica", size=10))
@@ -2656,7 +2657,7 @@ class MaschineWerte3(ttk.Frame):
 
         name_1 = ttk.Label(self, text="Sozial-Ökologische Indikatoren", relief = 'ridge' , font = tkFont.Font(family = "helvetica", size=10))
         name_1_1 = ttk.Label(self, text="Treibhausgasemissionen   (g/kg)" , font = tkFont.Font(family = "helvetica", size=10))
-        name_1_2 = ttk.Label(self, text="Kritikalität des Materials   (Skala: 3 = hoch / 7 = niedrig)" , font = tkFont.Font(family = "helvetica", size=10))
+        name_1_2 = ttk.Label(self, text="Kritikalität des Materials   (Skala)" , font = tkFont.Font(family = "helvetica", size=10))
 
         name_2 = ttk.Label(self, text="Ökologische Indikatoren", relief = 'ridge' , font = tkFont.Font(family = "helvetica", size=10))
         name_2_1 = ttk.Label(self, text="Abfall   (m)" , font = tkFont.Font(family = "helvetica", size=10))
@@ -2788,7 +2789,7 @@ class MaschineWerte4(ttk.Frame):
 
         name_1 = ttk.Label(self, text="Sozial-Ökologische Indikatoren", relief = 'ridge' , font = tkFont.Font(family = "helvetica", size=10))
         name_1_1 = ttk.Label(self, text="Treibhausgasemissionen   (g/kg)" , font = tkFont.Font(family = "helvetica", size=10))
-        name_1_2 = ttk.Label(self, text="Kritikalität des Materials   (Skala: 3 = hoch / 7 = niedrig)" , font = tkFont.Font(family = "helvetica", size=10))
+        name_1_2 = ttk.Label(self, text="Kritikalität des Materials   (Skala)" , font = tkFont.Font(family = "helvetica", size=10))
 
         name_2 = ttk.Label(self, text="Ökologische Indikatoren", relief = 'ridge' , font = tkFont.Font(family = "helvetica", size=10))
         name_2_1 = ttk.Label(self, text="Abfall   (m)" , font = tkFont.Font(family = "helvetica", size=10))
