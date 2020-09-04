@@ -714,10 +714,11 @@ class StartPage(Frame):
 
     def setter(self, subject, value, default):
         """Sets blank spaces to default values when pages are switched"""
-        if value.isdigit():
-            subject.set(value)
-        else:
+        if value == "":
             subject.set(default)
+        else:
+            subject.set(value)
+
 
     def errorstring(self, value, checkvalue, errormsg, msg, checkint, mode):
         """Checks if @value is smaller or greater (@mode) than @checkvalue and add corresponding lines to error message"""
@@ -2004,16 +2005,16 @@ class PageFive(ttk.Frame):
 
         label_1_0 = ttk.Label(self.Sozial_Ökonomisch_1, text="Sozial-Ökonomische Auswertung --->",
                               font=tkFont.Font(family="helvetica", size=11, weight='bold'))
-        label_1_1 = ttk.Label(self.Sozial_Ökonomisch_1, text="Produktqualität   (%)" , font = tkFont.Font(family = "helvetica", size=10))
+        label_1_1 = ttk.Label(self.Sozial_Ökonomisch_1, text="Produktqualität  (Porengehalt in %)" , font = tkFont.Font(family = "helvetica", size=10))
         label_2_0 = ttk.Label(self.Sozial_Ökonomisch_2, text="Sozial-Ökonomische Auswertung --->",
                               font=tkFont.Font(family="helvetica", size=11, weight='bold'))
-        label_1_2 = ttk.Label(self.Sozial_Ökonomisch_2, text="Produktqualität   (%)" , font = tkFont.Font(family = "helvetica", size=10))
+        label_1_2 = ttk.Label(self.Sozial_Ökonomisch_2, text="Produktqualität  (Porengehalt in %)" , font = tkFont.Font(family = "helvetica", size=10))
         label_3_0 = ttk.Label(self.Sozial_Ökonomisch_3, text="Sozial-Ökonomische Auswertung --->",
                               font=tkFont.Font(family="helvetica", size=11, weight='bold'))
-        label_1_3 = ttk.Label(self.Sozial_Ökonomisch_3, text="Produktqualität   (%)" , font = tkFont.Font(family = "helvetica", size=10))
+        label_1_3 = ttk.Label(self.Sozial_Ökonomisch_3, text="Produktqualität  (Porengehalt in %)" , font = tkFont.Font(family = "helvetica", size=10))
         label_4_0 = ttk.Label(self.Sozial_Ökonomisch_4, text="Sozial-Ökonomische Auswertung --->",
                               font=tkFont.Font(family="helvetica", size=11, weight='bold'))
-        label_1_4 = ttk.Label(self.Sozial_Ökonomisch_4, text="Produktqualität   (%)" , font = tkFont.Font(family = "helvetica", size=10))
+        label_1_4 = ttk.Label(self.Sozial_Ökonomisch_4, text="Produktqualität  (Porengehalt in %)" , font = tkFont.Font(family = "helvetica", size=10))
 
         self.entry_1_1 = ttk.Entry(self.Sozial_Ökonomisch_1, textvariable = controller.get_page(StartPage).produktQualität[0], validate = "key", validatecommand =(regfloat, '%P'))
         self.entry_1_2 = ttk.Entry(self.Sozial_Ökonomisch_2, textvariable = controller.get_page(StartPage).produktQualität[1], validate = "key", validatecommand =(regfloat, '%P'))
@@ -2415,7 +2416,7 @@ class MaschineWerte1(ttk.Frame):
         name_4_3 = ttk.Label(self, text="Zeitliche Effizienz   (Skala)" , font = tkFont.Font(family = "helvetica", size=10))
 
         name_5 = ttk.Label(self, text="Sozial-Ökonomische Indikatoren", relief = 'ridge' , font = tkFont.Font(family = "helvetica", size=10))
-        name_5_1 = ttk.Label(self, text="Produktqualität   (%)" , font = tkFont.Font(family = "helvetica", size=10))
+        name_5_1 = ttk.Label(self, text="Produktqualität  (Porengehalt in %)" , font = tkFont.Font(family = "helvetica", size=10))
 
         name_6 = ttk.Label(self, text="Sozial-Ökonomisch-Ökologische Indikatoren", relief = 'ridge' , font = tkFont.Font(family = "helvetica", size=10))
         name_6_1 = ttk.Label(self, text="Innovativität   (Skala)" , font = tkFont.Font(family = "helvetica", size=10))
@@ -2546,7 +2547,7 @@ class MaschineWerte2(ttk.Frame):
         name_4_3 = ttk.Label(self, text="Zeitliche Effizienz   (Skala)" , font = tkFont.Font(family = "helvetica", size=10))
 
         name_5 = ttk.Label(self, text="Sozial-Ökonomische Indikatoren", relief = 'ridge' , font = tkFont.Font(family = "helvetica", size=10))
-        name_5_1 = ttk.Label(self, text="Produktqualität   (%)" , font = tkFont.Font(family = "helvetica", size=10))
+        name_5_1 = ttk.Label(self, text="Produktqualität  (Porengehalt in %)" , font = tkFont.Font(family = "helvetica", size=10))
 
         name_6 = ttk.Label(self, text="Sozial-Ökonomisch-Ökologische Indikatoren", relief = 'ridge' , font = tkFont.Font(family = "helvetica", size=10))
         name_6_1 = ttk.Label(self, text="Innovativität   (Skala)" , font = tkFont.Font(family = "helvetica", size=10))
@@ -2677,7 +2678,7 @@ class MaschineWerte3(ttk.Frame):
         name_4_3 = ttk.Label(self, text="Zeitliche Effizienz   (Skala)" , font = tkFont.Font(family = "helvetica", size=10))
 
         name_5 = ttk.Label(self, text="Sozial-Ökonomische Indikatoren", relief = 'ridge' , font = tkFont.Font(family = "helvetica", size=10))
-        name_5_1 = ttk.Label(self, text="Produktqualität   (%)" , font = tkFont.Font(family = "helvetica", size=10))
+        name_5_1 = ttk.Label(self, text="Produktqualität  (Porengehalt in %)" , font = tkFont.Font(family = "helvetica", size=10))
 
         name_6 = ttk.Label(self, text="Sozial-Ökonomisch-Ökologische Indikatoren", relief = 'ridge' , font = tkFont.Font(family = "helvetica", size=10))
         name_6_1 = ttk.Label(self, text="Innovativität   (Skala)" , font = tkFont.Font(family = "helvetica", size=10))
@@ -2809,7 +2810,7 @@ class MaschineWerte4(ttk.Frame):
         name_4_3 = ttk.Label(self, text="Zeitliche Effizienz   (Skala)" , font = tkFont.Font(family = "helvetica", size=10))
 
         name_5 = ttk.Label(self, text="Sozial-Ökonomische Indikatoren", relief = 'ridge' , font = tkFont.Font(family = "helvetica", size=10))
-        name_5_1 = ttk.Label(self, text="Produktqualität   (%)" , font = tkFont.Font(family = "helvetica", size=10))
+        name_5_1 = ttk.Label(self, text="Produktqualität  (Porengehalt in %)" , font = tkFont.Font(family = "helvetica", size=10))
 
         name_6 = ttk.Label(self, text="Sozial-Ökonomisch-Ökologische Indikatoren", relief = 'ridge' , font = tkFont.Font(family = "helvetica", size=10))
         name_6_1 = ttk.Label(self, text="Innovativität   (Skala)" , font = tkFont.Font(family = "helvetica", size=10))
