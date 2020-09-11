@@ -1871,22 +1871,22 @@ class PageFour(ttk.Frame):
 
         label_1_0 = ttk.Label(self.Ökonomisch_1, text="Ökonomische Auswertung --->",
                               font=tkFont.Font(family="helvetica", size=11, weight='bold'))
-        label_1_1 = ttk.Label(self.Ökonomisch_1, text="Zykluszeit   (min/preform)" , font = tkFont.Font(family = "helvetica", size=10))
+        label_1_1 = ttk.Label(self.Ökonomisch_1, text="Zykluszeit   (min/Lage)" , font = tkFont.Font(family = "helvetica", size=10))
         label_1_2 = ttk.Label(self.Ökonomisch_1, text="Flexibilität   (Skala:     5 = niedrig / 7 = hoch)" , font = tkFont.Font(family = "helvetica", size=10))
         label_1_3 = ttk.Label(self.Ökonomisch_1, text="Zeitliche Effizienz   (Skala:     3 = niedrig / 7 = hoch)" , font = tkFont.Font(family = "helvetica", size=10))
         label_2_0 = ttk.Label(self.Ökonomisch_2, text="Ökonomische Auswertung --->",
                               font=tkFont.Font(family="helvetica", size=11, weight='bold'))
-        label_2_1 = ttk.Label(self.Ökonomisch_2, text="Zykluszeit   (min/preform)" , font = tkFont.Font(family = "helvetica", size=10))
+        label_2_1 = ttk.Label(self.Ökonomisch_2, text="Zykluszeit   (min/Lage)" , font = tkFont.Font(family = "helvetica", size=10))
         label_2_2 = ttk.Label(self.Ökonomisch_2, text="Flexibilität   (Skala:     5 = niedrig / 7 = hoch)" , font = tkFont.Font(family = "helvetica", size=10))
         label_2_3 = ttk.Label(self.Ökonomisch_2, text="Zeitliche Effizienz   (Skala:     3 = niedrig / 7 = hoch)" , font = tkFont.Font(family = "helvetica", size=10))
         label_3_0 = ttk.Label(self.Ökonomisch_3, text="Ökonomische Auswertung --->",
                               font=tkFont.Font(family="helvetica", size=11, weight='bold'))
-        label_3_1 = ttk.Label(self.Ökonomisch_3, text="Zykluszeit   (min/preform)" , font = tkFont.Font(family = "helvetica", size=10))
+        label_3_1 = ttk.Label(self.Ökonomisch_3, text="Zykluszeit   (min/Lage)" , font = tkFont.Font(family = "helvetica", size=10))
         label_3_2 = ttk.Label(self.Ökonomisch_3, text="Flexibilität   (Skala:     5 = niedrig / 7 = hoch)" , font = tkFont.Font(family = "helvetica", size=10))
         label_3_3 = ttk.Label(self.Ökonomisch_3, text="Zeitliche Effizienz   (Skala:     3 = niedrig / 7 = hoch)" , font = tkFont.Font(family = "helvetica", size=10))
         label_4_0 = ttk.Label(self.Ökonomisch_4, text="Ökonomische Auswertung --->",
                               font=tkFont.Font(family="helvetica", size=11, weight='bold'))
-        label_4_1 = ttk.Label(self.Ökonomisch_4, text="Zykluszeit   (min/preform)" , font = tkFont.Font(family = "helvetica", size=10))
+        label_4_1 = ttk.Label(self.Ökonomisch_4, text="Zykluszeit   (min/Lage)" , font = tkFont.Font(family = "helvetica", size=10))
         label_4_2 = ttk.Label(self.Ökonomisch_4, text="Flexibilität   (Skala:     5 = niedrig / 7 = hoch)" , font = tkFont.Font(family = "helvetica", size=10))
         label_4_3 = ttk.Label(self.Ökonomisch_4, text="Zeitliche Effizienz   (Skala:     3 = niedrig / 7 = hoch)" , font = tkFont.Font(family = "helvetica", size=10))
 
@@ -2411,7 +2411,7 @@ class MaschineWerte1(ttk.Frame):
         name_3_4 = ttk.Label(self, text="Ressourcenkosten   (Euro/kg)" , font = tkFont.Font(family = "helvetica", size=10))
 
         name_4 = ttk.Label(self, text="Ökonomische Indikatoren", relief = 'ridge' , font = tkFont.Font(family = "helvetica", size=10))
-        name_4_1 = ttk.Label(self, text="Zykluszeit   (min/preform)" , font = tkFont.Font(family = "helvetica", size=10))
+        name_4_1 = ttk.Label(self, text="Zykluszeit   (min/Lage)" , font = tkFont.Font(family = "helvetica", size=10))
         name_4_2 = ttk.Label(self, text="Flexibilität   (Skala)" , font = tkFont.Font(family = "helvetica", size=10))
         name_4_3 = ttk.Label(self, text="Zeitliche Effizienz   (Skala)" , font = tkFont.Font(family = "helvetica", size=10))
 
@@ -2542,7 +2542,7 @@ class MaschineWerte2(ttk.Frame):
         name_3_4 = ttk.Label(self, text="Ressourcenkosten   (Euro/kg)" , font = tkFont.Font(family = "helvetica", size=10))
 
         name_4 = ttk.Label(self, text="Ökonomische Indikatoren", relief = 'ridge' , font = tkFont.Font(family = "helvetica", size=10))
-        name_4_1 = ttk.Label(self, text="Zykluszeit   (min/preform)" , font = tkFont.Font(family = "helvetica", size=10))
+        name_4_1 = ttk.Label(self, text="Zykluszeit   (min/Lage)" , font = tkFont.Font(family = "helvetica", size=10))
         name_4_2 = ttk.Label(self, text="Flexibilität   (Skala)" , font = tkFont.Font(family = "helvetica", size=10))
         name_4_3 = ttk.Label(self, text="Zeitliche Effizienz   (Skala)" , font = tkFont.Font(family = "helvetica", size=10))
 
@@ -2673,7 +2673,7 @@ class MaschineWerte3(ttk.Frame):
         name_3_4 = ttk.Label(self, text="Ressourcenkosten   (Euro/kg)" , font = tkFont.Font(family = "helvetica", size=10))
 
         name_4 = ttk.Label(self, text="Ökonomische Indikatoren", relief = 'ridge' , font = tkFont.Font(family = "helvetica", size=10))
-        name_4_1 = ttk.Label(self, text="Zykluszeit   (min/preform)" , font = tkFont.Font(family = "helvetica", size=10))
+        name_4_1 = ttk.Label(self, text="Zykluszeit   (min/Lage)" , font = tkFont.Font(family = "helvetica", size=10))
         name_4_2 = ttk.Label(self, text="Flexibilität   (Skala)" , font = tkFont.Font(family = "helvetica", size=10))
         name_4_3 = ttk.Label(self, text="Zeitliche Effizienz   (Skala)" , font = tkFont.Font(family = "helvetica", size=10))
 
@@ -2805,7 +2805,7 @@ class MaschineWerte4(ttk.Frame):
         name_3_4 = ttk.Label(self, text="Ressourcenkosten   (Euro/kg)" , font = tkFont.Font(family = "helvetica", size=10))
 
         name_4 = ttk.Label(self, text="Ökonomische Indikatoren", relief = 'ridge' , font = tkFont.Font(family = "helvetica", size=10))
-        name_4_1 = ttk.Label(self, text="Zykluszeit   (min/preform)" , font = tkFont.Font(family = "helvetica", size=10))
+        name_4_1 = ttk.Label(self, text="Zykluszeit   (min/Lage)" , font = tkFont.Font(family = "helvetica", size=10))
         name_4_2 = ttk.Label(self, text="Flexibilität   (Skala)" , font = tkFont.Font(family = "helvetica", size=10))
         name_4_3 = ttk.Label(self, text="Zeitliche Effizienz   (Skala)" , font = tkFont.Font(family = "helvetica", size=10))
 
