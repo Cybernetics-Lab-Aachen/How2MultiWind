@@ -17,10 +17,12 @@ import tkinter.font as tkFont
 import sys
 import os
 import os.path
+import Pmw
 from tkinter import messagebox
 from tkinter import ttk
 from ttkthemes import ThemedTk
 from PIL import Image, ImageTk
+
 #ttk.Button(app)
 
 def resource_path(relative_path):
@@ -45,7 +47,10 @@ class H2MW(ThemedTk):
 
         self.frames = {}
 
-        for F in (StartPage, PageOne, PageTwo, PageThree, PageFour, PageFive, PageSix, PageEnd, MaschineWerte1, MaschineWerte2, MaschineWerte3, MaschineWerte4):
+        for F in (StartPage, PageOne, PageTwo, PageThree, PageFour, PageFive, PageSix, PageEnd, MaschineWerte1, MaschineWerte2, MaschineWerte3, MaschineWerte4,
+                  PageTutorial1, PageTutorial2, PageTutorial3, PageTutorial4, PageTutorial5, PageTutorial6, PageTutorial7, PageTutorial8, PageTutorial9, PageTutorial10, PageTutorial11
+                  , StartTutorial1, StartTutorial2, StartTutorial3, StartTutorial4, StartTutorial5, StartTutorial6, StartTutorial7, StartTutorial8
+                  , StartTutorial9, StartTutorial10, StartTutorial11, StartTutorial12, StartTutorial13, StartTutorial14):
             frame = F(container, self)
 
             self.frames[F] = frame
@@ -667,8 +672,10 @@ class StartPage(Frame):
         self.var3.set(0)
         self.var4.set(0)
 
-        button_1 = ttk.Button(buttons_first, text="Standardmäßig ausführen", command=lambda: self.default())
-        button_2 = ttk.Button(buttons_first, text="Nächste Seite", command=lambda: controller.show_first())
+        button_1 = ttk.Button(buttons_first, text="Standardparameter verwenden", command=lambda: self.default())
+        button_2 = ttk.Button(buttons_first, text="Parameter ändern", command=lambda: controller.show_first())
+        button_3 = ttk.Button(buttons_first, text="Tutorial",
+                              command=lambda: controller.show_frame(StartTutorial1, "Tutorial (1/14)"))
 
         label_1 = ttk.Label(first, text="Flechtmaschine", font = tkFont.Font(family = "helvetica", size=12))
         label_2 = ttk.Label(first, text="Multifilamentwickelmaschine 90", font = tkFont.Font(family = "helvetica", size=12))
@@ -698,6 +705,7 @@ class StartPage(Frame):
 
         button_1.grid(row=0, column=0)
         button_2.grid(row=0, column=1)
+        button_3.grid(row=0, column=2)
 
 
         buttons_first.grid(row=6, column=0)
@@ -1427,7 +1435,7 @@ class PageOne(ttk.Frame):
     def __init__(self, parent, controller):
         ttk.Frame.__init__(self, parent)
         self.controller = controller
-
+        self.balloon = Pmw.Balloon(parent)
 
         regint = controller.register(correct)
         regfloat = controller.register(correctfloat)
@@ -1438,8 +1446,12 @@ class PageOne(ttk.Frame):
         button_3 = ttk.Button(Buttons, text="Akzeptieren", command=lambda: controller.acceptwerte(PageOne, "Sozial-Ökologische Indikatoren"))
         button_4 = ttk.Button(Buttons, text="Auswerten", command=lambda: controller.acceptwerte(PageEnd, "Visualisierung durch Nachhaltigkeitsdreieck"))
         button_5 = ttk.Button(Buttons, text="Abbrechen", command=lambda: controller.resetter())
+
+        button_6 = ttk.Button(Buttons, text=" ? ", command=lambda: controller.acceptwerte(PageTutorial1, "Test"))
+
         Buttons.columnconfigure(2, minsize=100)
         Buttons.columnconfigure(4, minsize=30)
+        Buttons.columnconfigure(7, minsize=50)
 
         self.Sozial_Ökologisch_1 = ttk.Frame(self, relief = "ridge", borderwidth = 5)
         self.Sozial_Ökologisch_2 = ttk.Frame(self, relief = "ridge", borderwidth = 5)
@@ -1494,6 +1506,8 @@ class PageOne(ttk.Frame):
         button_3.grid(row=0, column=3)
         button_4.grid(row=0, column=5)
         button_5.grid(row=0, column=6)
+        button_6.grid(row=0, column=8)
+
 
         name_1.grid(row=0, column=0)
         name_2.grid(row=0, column=0)
@@ -1536,12 +1550,22 @@ class PageOne(ttk.Frame):
         self.Sozial_Ökologisch_4.grid(row=1, column=1)
         Buttons.grid(row=2, column=1)
 
+        self.balloon.bind(label_1_1, 'Die Menge an Treibhausgasen, die pro kg Abluft freigesetzt werden. \nBerechnung auf Basis vom Energieverbrauch und dem German Energy Mix (401g/kWh).')
+        self.balloon.bind(label_1_2, 'Der Gesamtausmaß der negativen umweltbeeinflussenden Faktoren, die das ausgewählte Herstellungsverfahren mit sich bringt \n(z.B. Einsatz giftiger Materialien, Entflammbarkeit, karzinogene Effekte usw.).')
+        self.balloon.bind(label_2_1, 'Die Menge an Treibhausgasen, die pro kg Abluft freigesetzt werden. \nBerechnung auf Basis vom Energieverbrauch und dem German Energy Mix (401g/kWh).')
+        self.balloon.bind(label_2_2, 'Der Gesamtausmaß der negativen umweltbeeinflussenden Faktoren, die das ausgewählte Herstellungsverfahren mit sich bringt \n(z.B. Einsatz giftiger Materialien, Entflammbarkeit, karzinogene Effekte usw.).')
+        self.balloon.bind(label_3_1, 'Die Menge an Treibhausgasen, die pro kg Abluft freigesetzt werden. \nBerechnung auf Basis vom Energieverbrauch und dem German Energy Mix (401g/kWh).')
+        self.balloon.bind(label_3_2, 'Der Gesamtausmaß der negativen umweltbeeinflussenden Faktoren, die das ausgewählte Herstellungsverfahren mit sich bringt \n(z.B. Einsatz giftiger Materialien, Entflammbarkeit, karzinogene Effekte usw.).')
+        self.balloon.bind(label_4_1, 'Die Menge an Treibhausgasen, die pro kg Abluft freigesetzt werden. \nBerechnung auf Basis vom Energieverbrauch und dem German Energy Mix (401g/kWh).')
+        self.balloon.bind(label_4_2, 'Der Gesamtausmaß der negativen umweltbeeinflussenden Faktoren, die das ausgewählte Herstellungsverfahren mit sich bringt \n(z.B. Einsatz giftiger Materialien, Entflammbarkeit, karzinogene Effekte usw.).')
+
 
 class PageTwo(ttk.Frame):
     """Page for Ecologic dimension"""
     def __init__(self, parent, controller):
         ttk.Frame.__init__(self, parent)
         self.controller = controller
+        self.balloon = Pmw.Balloon(parent)
 
 
         regint = controller.register(correct)
@@ -1555,9 +1579,12 @@ class PageTwo(ttk.Frame):
         button_3 = ttk.Button(Buttons, text="Akzeptieren", command=lambda: controller.acceptwerte(PageTwo, "Ökologische Indikatoren"))
         button_4 = ttk.Button(Buttons, text="Auswerten", command=lambda: controller.acceptwerte(PageEnd, "Visualisierung durch Nachhaltigkeitsdreieck"))
         button_5 = ttk.Button(Buttons, text="Abbrechen", command=lambda: controller.resetter())
+        button_6 = ttk.Button(Buttons, text=" ? ", command=lambda: controller.acceptwerte(PageTutorial2, "Test"))
 
         Buttons.columnconfigure(2, minsize=100)
         Buttons.columnconfigure(4, minsize=30)
+        Buttons.columnconfigure(7, minsize=50)
+
 
         self.Ökologisch_1 = ttk.Frame(self, relief = "ridge", borderwidth = 5)
         self.Ökologisch_2 = ttk.Frame(self, relief = "ridge", borderwidth = 5)
@@ -1580,7 +1607,7 @@ class PageTwo(ttk.Frame):
         label_2_1 = ttk.Label(self.Ökologisch_2, text="Abfall   (m)" , font = tkFont.Font(family = "helvetica", size=10))
         label_2_2 = ttk.Label(self.Ökologisch_2, text="Abfallszenarien    (Skala:     nur 1 akzeptiert)" , font = tkFont.Font(family = "helvetica", size=10))
         label_2_3 = ttk.Label(self.Ökologisch_2, text="Anteil verwendetes Recyclingmaterial (Absolut)   (g)" , font = tkFont.Font(family = "helvetica", size=10))
-        label_2_4 = ttk.Label(self.Ökologisch_2, text="Anteil verwendetes Recyclingmaterial (Relativ   (%))" , font = tkFont.Font(family = "helvetica", size=10))
+        label_2_4 = ttk.Label(self.Ökologisch_2, text="Anteil verwendetes Recyclingmaterial (Relativ   (%)" , font = tkFont.Font(family = "helvetica", size=10))
         label_3_0 = ttk.Label(self.Ökologisch_3, text="Ökologische Auswertung --->",
                               font=tkFont.Font(family="helvetica", size=11, weight='bold'))
         label_3_1 = ttk.Label(self.Ökologisch_3, text="Abfall   (m)" , font = tkFont.Font(family = "helvetica", size=10))
@@ -1629,6 +1656,7 @@ class PageTwo(ttk.Frame):
         button_3.grid(row=0, column=3)
         button_4.grid(row=0, column=5)
         button_5.grid(row=0, column=6)
+        button_6.grid(row=0, column=8)
 
         name_1.grid(row=0, column=0)
         name_2.grid(row=0, column=0)
@@ -1686,12 +1714,30 @@ class PageTwo(ttk.Frame):
         self.Ökologisch_4.grid(row=1, column=1)
         Buttons.grid(row=2, column=1)
 
+        self.balloon.bind(label_1_1, 'Die Länge des Abfallmaterials (in m), die bei der Herstellung \neines Tanks entsteht bzw. verloren geht.')
+        self.balloon.bind(label_1_2, 'Indikatorbeschreibung hier.')
+        self.balloon.bind(label_1_3, 'Die Menge des recycelten Materials, die für die Herstellung \neines Tanks verwendet wird.')
+        self.balloon.bind(label_1_4, 'Der Anteil an recyceltem Material in einem fertigen Tank \n(relativ zur Gesamtmenge).')
+        self.balloon.bind(label_2_1, 'Die Länge des Abfallmaterials (in m), die bei der Herstellung \neines Tanks entsteht bzw. verloren geht.')
+        self.balloon.bind(label_2_2, 'Indikatorbeschreibung hier.')
+        self.balloon.bind(label_2_3, 'Die Menge des recycelten Materials, die für die Herstellung \neines Tanks verwendet wird.')
+        self.balloon.bind(label_2_4, 'Der Anteil an recyceltem Material in einem fertigen Tank \n(relativ zur Gesamtmenge).')
+        self.balloon.bind(label_3_1, 'Die Länge des Abfallmaterials (in m), die bei der Herstellung \neines Tanks entsteht bzw. verloren geht.')
+        self.balloon.bind(label_3_2, 'Indikatorbeschreibung hier.')
+        self.balloon.bind(label_3_3, 'Die Menge des recycelten Materials, die für die Herstellung \neines Tanks verwendet wird.')
+        self.balloon.bind(label_3_4, 'Der Anteil an recyceltem Material in einem fertigen Tank \n(relativ zur Gesamtmenge).')
+        self.balloon.bind(label_4_1, 'Die Länge des Abfallmaterials (in m), die bei der Herstellung \neines Tanks entsteht bzw. verloren geht.')
+        self.balloon.bind(label_4_2, 'Indikatorbeschreibung hier.')
+        self.balloon.bind(label_4_3, 'Die Menge des recycelten Materials, die für die Herstellung \neines Tanks verwendet wird.')
+        self.balloon.bind(label_4_4, 'Der Anteil an recyceltem Material in einem fertigen Tank \n(relativ zur Gesamtmenge).')
+
 
 class PageThree(ttk.Frame):
     """Page for Ecologic-Economic dimension"""
     def __init__(self, parent, controller):
         ttk.Frame.__init__(self, parent)
         self.controller = controller
+        self.balloon = Pmw.Balloon(parent)
 
 
         regint = controller.register(correct)
@@ -1705,9 +1751,12 @@ class PageThree(ttk.Frame):
         button_3 = ttk.Button(Buttons, text="Akzeptieren", command=lambda: controller.acceptwerte(PageThree, "Ökologisch-Ökonomische Indikatoren"))
         button_4 = ttk.Button(Buttons, text="Auswerten", command=lambda: controller.acceptwerte(PageEnd, "Visualisierung durch Nachhaltigkeitsdreieck"))
         button_5 = ttk.Button(Buttons, text="Abbrechen", command=lambda: controller.resetter())
+        button_6 = ttk.Button(Buttons, text=" ? ", command=lambda: controller.acceptwerte(PageTutorial3, "Test"))
 
         Buttons.columnconfigure(2, minsize=100)
         Buttons.columnconfigure(4, minsize=30)
+        Buttons.columnconfigure(7, minsize=50)
+
 
         self.Ökologisch_Ökonomisch_1 = ttk.Frame(self, relief = "ridge", borderwidth = 5)
         self.Ökologisch_Ökonomisch_2 = ttk.Frame(self, relief = "ridge", borderwidth = 5)
@@ -1779,6 +1828,7 @@ class PageThree(ttk.Frame):
         button_3.grid(row=0, column=3)
         button_4.grid(row=0, column=5)
         button_5.grid(row=0, column=6)
+        button_6.grid(row=0, column=8)
 
         name_1_1.grid(row=0, column=0)
         name_1_2.grid(row=0, column=0)
@@ -1836,12 +1886,30 @@ class PageThree(ttk.Frame):
         self.Ökologisch_Ökonomisch_4.grid(row=1, column=1)
         Buttons.grid(row=2, column=1)
 
+        self.balloon.bind(label_1_1, 'Die Menge elektrischer Energie, die bei der Herstellung pro kg \nFasermaterial verbraucht wird.')
+        self.balloon.bind(label_1_2, 'Die Gesamtmenge an Material (in g), die für die Herstellung \neines Tanks benötigt wird.')
+        self.balloon.bind(label_1_3, 'Die geschätzten Kosten des Herstellungsverfahrens pro Sekunde \n(während die Maschine in Betrieb ist).')
+        self.balloon.bind(label_1_4, 'Die geschätzten Kosten der für die Herstellung benötigten Materialien pro kg.')
+        self.balloon.bind(label_2_1, 'Die Menge elektrischer Energie, die bei der Herstellung pro kg \nFasermaterial verbraucht wird.')
+        self.balloon.bind(label_2_2, 'Die Gesamtmenge an Material (in g), die für die Herstellung \neines Tanks benötigt wird.')
+        self.balloon.bind(label_2_3, 'Die geschätzten Kosten des Herstellungsverfahrens pro Sekunde \n(während die Maschine in Betrieb ist).')
+        self.balloon.bind(label_2_4, 'Die geschätzten Kosten der für die Herstellung benötigten Materialien pro kg.')
+        self.balloon.bind(label_3_1, 'Die Menge elektrischer Energie, die bei der Herstellung pro kg \nFasermaterial verbraucht wird.')
+        self.balloon.bind(label_3_2, 'Die Gesamtmenge an Material (in g), die für die Herstellung \neines Tanks benötigt wird.')
+        self.balloon.bind(label_3_3, 'Die geschätzten Kosten des Herstellungsverfahrens pro Sekunde \n(während die Maschine in Betrieb ist).')
+        self.balloon.bind(label_3_4, 'Die geschätzten Kosten der für die Herstellung benötigten Materialien pro kg.')
+        self.balloon.bind(label_4_1, 'Die Menge elektrischer Energie, die bei der Herstellung pro kg \nFasermaterial verbraucht wird.')
+        self.balloon.bind(label_4_2, 'Die Gesamtmenge an Material (in g), die für die Herstellung \neines Tanks benötigt wird.')
+        self.balloon.bind(label_4_3, 'Die geschätzten Kosten des Herstellungsverfahrens pro Sekunde \n(während die Maschine in Betrieb ist).')
+        self.balloon.bind(label_4_4, 'Die geschätzten Kosten der für die Herstellung benötigten Materialien pro kg.')
+
 
 class PageFour(ttk.Frame):
     """Page for Economic dimension"""
     def __init__(self, parent, controller):
         ttk.Frame.__init__(self, parent)
         self.controller = controller
+        self.balloon = Pmw.Balloon(parent)
 
 
         regint = controller.register(correct)
@@ -1855,9 +1923,12 @@ class PageFour(ttk.Frame):
         button_3 = ttk.Button(Buttons, text="Akzeptieren", command=lambda: controller.acceptwerte(PageFour, "Ökonomische Indikatoren"))
         button_4 = ttk.Button(Buttons, text="Auswerten", command=lambda: controller.acceptwerte(PageEnd, "Visualisierung durch Nachhaltigkeitsdreieck"))
         button_5 = ttk.Button(Buttons, text="Abbrechen", command=lambda: controller.resetter())
+        button_6 = ttk.Button(Buttons, text=" ? ", command=lambda: controller.acceptwerte(PageTutorial4, "Test"))
 
         Buttons.columnconfigure(2, minsize=100)
         Buttons.columnconfigure(4, minsize=30)
+        Buttons.columnconfigure(7, minsize=50)
+
 
         self.Ökonomisch_1 = ttk.Frame(self, relief = "ridge", borderwidth = 5)
         self.Ökonomisch_2 = ttk.Frame(self, relief = "ridge", borderwidth = 5)
@@ -1921,6 +1992,7 @@ class PageFour(ttk.Frame):
         button_3.grid(row=0, column=3)
         button_4.grid(row=0, column=5)
         button_5.grid(row=0, column=6)
+        button_6.grid(row=0, column=8)
 
         name_1_1.grid(row=0, column=0)
         name_1_2.grid(row=0, column=0)
@@ -1970,12 +2042,26 @@ class PageFour(ttk.Frame):
         self.Ökonomisch_4.grid(row=1, column=1)
         Buttons.grid(row=2, column=1)
 
+        self.balloon.bind(label_1_1, 'Die Zeit, die für die Herstellung eines Tanks mit dem jew. \nHerstellungsverfahren benötigt wird.')
+        self.balloon.bind(label_1_2, 'Das Ausmaß an zusätzlichen Konfigurationsmöglichkeiten des Herstellungsverfahrens \n(z.B. größere Maschinen können größere Tanks wickeln, ...).')
+        self.balloon.bind(label_1_3, 'Die zeitliche Effizienz des jew. Herstellungsverfahrens, \nbasierend auf Erfahrungsberichten.')
+        self.balloon.bind(label_2_1, 'Die Zeit, die für die Herstellung eines Tanks mit dem jew. \nHerstellungsverfahren benötigt wird.')
+        self.balloon.bind(label_2_2, 'Das Ausmaß an zusätzlichen Konfigurationsmöglichkeiten des Herstellungsverfahrens \n(z.B. größere Maschinen können größere Tanks wickeln, ...).')
+        self.balloon.bind(label_2_3, 'Die zeitliche Effizienz des jew. Herstellungsverfahrens, \nbasierend auf Erfahrungsberichten.')
+        self.balloon.bind(label_3_1, 'Die Zeit, die für die Herstellung eines Tanks mit dem jew. \nHerstellungsverfahren benötigt wird.')
+        self.balloon.bind(label_3_2, 'Das Ausmaß an zusätzlichen Konfigurationsmöglichkeiten des Herstellungsverfahrens \n(z.B. größere Maschinen können größere Tanks wickeln, ...).')
+        self.balloon.bind(label_3_3, 'Die zeitliche Effizienz des jew. Herstellungsverfahrens, \nbasierend auf Erfahrungsberichten.')
+        self.balloon.bind(label_4_1, 'Die Zeit, die für die Herstellung eines Tanks mit dem jew. \nHerstellungsverfahren benötigt wird.')
+        self.balloon.bind(label_4_2, 'Das Ausmaß an zusätzlichen Konfigurationsmöglichkeiten des Herstellungsverfahrens \n(z.B. größere Maschinen können größere Tanks wickeln, ...).')
+        self.balloon.bind(label_4_3, 'Die zeitliche Effizienz des jew. Herstellungsverfahrens, \nbasierend auf Erfahrungsberichten.')
+
 
 class PageFive(ttk.Frame):
     """Page for Social-Economic dimension"""
     def __init__(self, parent, controller):
         ttk.Frame.__init__(self, parent)
         self.controller = controller
+        self.balloon = Pmw.Balloon(parent)
 
 
         regint = controller.register(correct)
@@ -1989,9 +2075,12 @@ class PageFive(ttk.Frame):
         button_3 = ttk.Button(Buttons, text="Akzeptieren", command=lambda: controller.acceptwerte(PageFive, "Sozial-Ökonomische Indikatoren"))
         button_4 = ttk.Button(Buttons, text="Auswerten", command=lambda: controller.acceptwerte(PageEnd, "Visualisierung durch Nachhaltigkeitsdreieck"))
         button_5 = ttk.Button(Buttons, text="Abbrechen", command=lambda: controller.resetter())
+        button_6 = ttk.Button(Buttons, text=" ? ", command=lambda: controller.acceptwerte(PageTutorial5, "Test"))
 
         Buttons.columnconfigure(2, minsize=100)
         Buttons.columnconfigure(4, minsize=30)
+        Buttons.columnconfigure(7, minsize=50)
+
 
         self.Sozial_Ökonomisch_1 = ttk.Frame(self, relief = "ridge", borderwidth = 5)
         self.Sozial_Ökonomisch_2 = ttk.Frame(self, relief = "ridge", borderwidth = 5)
@@ -2008,13 +2097,13 @@ class PageFive(ttk.Frame):
         label_1_1 = ttk.Label(self.Sozial_Ökonomisch_1, text="Produktqualität  (Porengehalt in %)" , font = tkFont.Font(family = "helvetica", size=10))
         label_2_0 = ttk.Label(self.Sozial_Ökonomisch_2, text="Sozial-Ökonomische Auswertung --->",
                               font=tkFont.Font(family="helvetica", size=11, weight='bold'))
-        label_1_2 = ttk.Label(self.Sozial_Ökonomisch_2, text="Produktqualität  (Porengehalt in %)" , font = tkFont.Font(family = "helvetica", size=10))
+        label_2_1 = ttk.Label(self.Sozial_Ökonomisch_2, text="Produktqualität  (Porengehalt in %)" , font = tkFont.Font(family = "helvetica", size=10))
         label_3_0 = ttk.Label(self.Sozial_Ökonomisch_3, text="Sozial-Ökonomische Auswertung --->",
                               font=tkFont.Font(family="helvetica", size=11, weight='bold'))
-        label_1_3 = ttk.Label(self.Sozial_Ökonomisch_3, text="Produktqualität  (Porengehalt in %)" , font = tkFont.Font(family = "helvetica", size=10))
+        label_3_1 = ttk.Label(self.Sozial_Ökonomisch_3, text="Produktqualität  (Porengehalt in %)" , font = tkFont.Font(family = "helvetica", size=10))
         label_4_0 = ttk.Label(self.Sozial_Ökonomisch_4, text="Sozial-Ökonomische Auswertung --->",
                               font=tkFont.Font(family="helvetica", size=11, weight='bold'))
-        label_1_4 = ttk.Label(self.Sozial_Ökonomisch_4, text="Produktqualität  (Porengehalt in %)" , font = tkFont.Font(family = "helvetica", size=10))
+        label_4_1 = ttk.Label(self.Sozial_Ökonomisch_4, text="Produktqualität  (Porengehalt in %)" , font = tkFont.Font(family = "helvetica", size=10))
 
         self.entry_1_1 = ttk.Entry(self.Sozial_Ökonomisch_1, textvariable = controller.get_page(StartPage).produktQualität[0], validate = "key", validatecommand =(regfloat, '%P'))
         self.entry_1_2 = ttk.Entry(self.Sozial_Ökonomisch_2, textvariable = controller.get_page(StartPage).produktQualität[1], validate = "key", validatecommand =(regfloat, '%P'))
@@ -2039,6 +2128,7 @@ class PageFive(ttk.Frame):
         button_3.grid(row=0, column=3)
         button_4.grid(row=0, column=5)
         button_5.grid(row=0, column=6)
+        button_6.grid(row=0, column=8)
 
         name_1_1.grid(row=0, column=0)
         name_1_2.grid(row=0, column=0)
@@ -2048,11 +2138,11 @@ class PageFive(ttk.Frame):
         label_1_0.grid(row=1, column=0)
         label_1_1.grid(row=2, column=0)
         label_2_0.grid(row=1, column=0)
-        label_1_2.grid(row=2, column=0)
+        label_2_1.grid(row=2, column=0)
         label_3_0.grid(row=1, column=0)
-        label_1_3.grid(row=2, column=0)
+        label_3_1.grid(row=2, column=0)
         label_4_0.grid(row=1, column=0)
-        label_1_4.grid(row=2, column=0)
+        label_4_1.grid(row=2, column=0)
 
         self.entry_1_1.grid(row=2, column=1)
         self.entry_1_2.grid(row=2, column=1)
@@ -2072,12 +2162,18 @@ class PageFive(ttk.Frame):
         self.Sozial_Ökonomisch_4.grid(row=1, column=1)
         Buttons.grid(row=2, column=1)
 
+        self.balloon.bind(label_1_1, 'Der relative Porengehalt des Materials in einem fertigen Tank.')
+        self.balloon.bind(label_2_1, 'Der relative Porengehalt des Materials in einem fertigen Tank.')
+        self.balloon.bind(label_3_1, 'Der relative Porengehalt des Materials in einem fertigen Tank.')
+        self.balloon.bind(label_4_1, 'Der relative Porengehalt des Materials in einem fertigen Tank.')
+
 
 class PageSix(ttk.Frame):
     """Page for Sozial-Ecologic-Economic dimension"""
     def __init__(self, parent, controller):
         ttk.Frame.__init__(self, parent)
         self.controller = controller
+        self.balloon = Pmw.Balloon(parent)
 
 
         regint = controller.register(correct)
@@ -2089,9 +2185,12 @@ class PageSix(ttk.Frame):
         button_3 = ttk.Button(Buttons, text="Akzeptieren", command=lambda: controller.acceptwerte(PageSix, "Sozial-Ökonomisch-Ökologische Indikatoren"))
         button_4 = ttk.Button(Buttons, text="Auswerten", command=lambda: controller.acceptwerte(PageEnd, "Visualisierung durch Nachhaltigkeitsdreieck"))
         button_5 = ttk.Button(Buttons, text="Abbrechen", command=lambda: controller.resetter())
+        button_6 = ttk.Button(Buttons, text=" ? ", command=lambda: controller.acceptwerte(PageTutorial6, "Test"))
 
         Buttons.columnconfigure(2, minsize=100)
         Buttons.columnconfigure(4, minsize=30)
+        Buttons.columnconfigure(7, minsize=50)
+
 
         self.Sozial_Ökologisch_Ökonomisch_1 = ttk.Frame(self, relief = "ridge", borderwidth = 5)
         self.Sozial_Ökologisch_Ökonomisch_2 = ttk.Frame(self, relief = "ridge", borderwidth = 5)
@@ -2118,7 +2217,7 @@ class PageSix(ttk.Frame):
         label_4_0 = ttk.Label(self.Sozial_Ökologisch_Ökonomisch_4, text="Sozial-Ökologisch-Ökonomische Auswertung --->",
                               font=tkFont.Font(family="helvetica", size=11, weight='bold'))
         label_4_1 = ttk.Label(self.Sozial_Ökologisch_Ökonomisch_4, text="Innovativität   (Skala:     4 = niedrig / 7 = hoch)" , font = tkFont.Font(family = "helvetica", size=10))
-        label_4_2 = ttk.Label(self.Sozial_Ökologisch_Ökonomisch_4, text="Fächenverbrauch   (m^2)" , font = tkFont.Font(family = "helvetica", size=10))
+        label_4_2 = ttk.Label(self.Sozial_Ökologisch_Ökonomisch_4, text="Flächenverbrauch   (m^2)" , font = tkFont.Font(family = "helvetica", size=10))
 
         self.entry_1_1 = ttk.Entry(self.Sozial_Ökologisch_Ökonomisch_1, textvariable = controller.get_page(StartPage).innovativität[0], validate = "key", validatecommand =(regint, '%P'))
         self.entry_1_2 = ttk.Entry(self.Sozial_Ökologisch_Ökonomisch_1, textvariable = controller.get_page(StartPage).flächenVerbrauch[0], validate = "key", validatecommand =(regfloat, '%P'))
@@ -2147,6 +2246,7 @@ class PageSix(ttk.Frame):
         button_3.grid(row=0, column=3)
         button_4.grid(row=0, column=5)
         button_5.grid(row=0, column=6)
+        button_6.grid(row=0, column=8)
 
         name_1_1.grid(row=0, column=0)
         name_1_2.grid(row=0, column=0)
@@ -2189,6 +2289,15 @@ class PageSix(ttk.Frame):
         self.Sozial_Ökologisch_Ökonomisch_4.grid(row=1, column=1)
         Buttons.grid(row=2, column=1)
 
+        self.balloon.bind(label_1_1, 'Dieser Indikator beschreibt, wie zukunftsorientiert das jew. Herstellungsverfahren ist, \nbasierend auf Expertenschätzungen.')
+        self.balloon.bind(label_1_2, 'Die gesamte Fläche, die für das Herstellungsverfahren (pro Maschine) benötigt wird. \nHier wird nicht nur die Maschine selbst betrachtet, \nsondern auch die gesamte zusätzliche Fläche, die ggf. benötigt wird \n(z.B. Arbeitsraum, Lagerraum, ggf. Kühlschrank, ...).')
+        self.balloon.bind(label_2_1, 'Dieser Indikator beschreibt, wie zukunftsorientiert das jew. Herstellungsverfahren ist, \nbasierend auf Expertenschätzungen.')
+        self.balloon.bind(label_2_2, 'Die gesamte Fläche, die für das Herstellungsverfahren (pro Maschine) benötigt wird. \nHier wird nicht nur die Maschine selbst betrachtet, \nsondern auch die gesamte zusätzliche Fläche, die ggf. benötigt wird \n(z.B. Arbeitsraum, Lagerraum, ggf. Kühlschrank, ...).')
+        self.balloon.bind(label_3_1, 'Dieser Indikator beschreibt, wie zukunftsorientiert das jew. Herstellungsverfahren ist, \nbasierend auf Expertenschätzungen.')
+        self.balloon.bind(label_3_2, 'Die gesamte Fläche, die für das Herstellungsverfahren (pro Maschine) benötigt wird. \nHier wird nicht nur die Maschine selbst betrachtet, \nsondern auch die gesamte zusätzliche Fläche, die ggf. benötigt wird \n(z.B. Arbeitsraum, Lagerraum, ggf. Kühlschrank, ...).')
+        self.balloon.bind(label_4_1, 'Dieser Indikator beschreibt, wie zukunftsorientiert das jew. Herstellungsverfahren ist, \nbasierend auf Expertenschätzungen.')
+        self.balloon.bind(label_4_2, 'Die gesamte Fläche, die für das Herstellungsverfahren (pro Maschine) benötigt wird. \nHier wird nicht nur die Maschine selbst betrachtet, \nsondern auch die gesamte zusätzliche Fläche, die ggf. benötigt wird \n(z.B. Arbeitsraum, Lagerraum, ggf. Kühlschrank, ...).')
+
 
 class PageEnd(ttk.Frame):
     """Ending Page. Shows Sustainability triangles for each dimension and allows further examination of values"""
@@ -2201,6 +2310,10 @@ class PageEnd(ttk.Frame):
                           command=lambda: controller.show_frame(StartPage, "Maschinenauswahl"))
         button_2 = ttk.Button(Buttons, text="Startseite (Werte zurücksetzen)",
                           command=lambda: controller.resetter())
+        button_3 = ttk.Button(Buttons, text=" ? ", command=lambda: controller.acceptwerte(PageTutorial7, "Test"))
+
+        Buttons.columnconfigure(2, minsize=100)
+        Buttons.columnconfigure(4, minsize=40)
 
         boldStyle = ttk.Style()
         boldStyle.configure("Bold.Button", font=('10', 'bold'))
@@ -2338,6 +2451,7 @@ class PageEnd(ttk.Frame):
 
         button_1.grid(row=0, column=0)
         button_2.grid(row=0, column=1)
+        button_3.grid(row=0, column=3)
 
         name_1_1.grid(row=0, column=0)
         name_1_2.grid(row=0, column=0)
@@ -2355,7 +2469,7 @@ class PageEnd(ttk.Frame):
         self.End_3.grid(row=0, column=1)
         self.End_2.grid(row=0, column=2)
         self.End_4.grid(row=0, column=3)
-        Buttons.grid(row=2, column=3)
+        Buttons.grid(row=2, column=2, columnspan=2)
 
 
 class MaschineWerte1(ttk.Frame):
@@ -2370,6 +2484,10 @@ class MaschineWerte1(ttk.Frame):
 
         button_1 = ttk.Button(self, text="Zurück"
                           , command=lambda: controller.show_frame(PageEnd, "Visualisierung durch Nachhaltigkeitsdreieck"))
+        button_2 = ttk.Button(self, text=" ? ", command=lambda: controller.acceptwerte(PageTutorial8, "Test"))
+
+        self.columnconfigure(5, minsize=3)
+        self.columnconfigure(7, minsize=3)
 
 
         self.wert_1_1 = Label(self, text= round(controller.get_page(StartPage).emissionen_norm[0].get(), 5), bg = colourer(controller.get_page(StartPage).emissionen_norm[0]))
@@ -2487,6 +2605,7 @@ class MaschineWerte1(ttk.Frame):
 
 
         button_1.grid(row=15, column=4)
+        button_2.grid(row=15,column = 6)
 
 
 class MaschineWerte2(ttk.Frame):
@@ -2501,6 +2620,10 @@ class MaschineWerte2(ttk.Frame):
 
         button_1 = ttk.Button(self, text="Zurück"
                           , command=lambda: controller.show_frame(PageEnd, "Visualisierung durch Nachhaltigkeitsdreieck"))
+        button_2 = ttk.Button(self, text=" ? ", command=lambda: controller.acceptwerte(PageTutorial9, "Test"))
+
+        self.columnconfigure(5, minsize=3)
+        self.columnconfigure(7, minsize=3)
 
 
         self.wert_1_1 = Label(self, text= round(controller.get_page(StartPage).emissionen_norm[1].get(), 5), bg = colourer(controller.get_page(StartPage).emissionen_norm[1]))
@@ -2618,6 +2741,7 @@ class MaschineWerte2(ttk.Frame):
 
 
         button_1.grid(row=15, column=4)
+        button_2.grid(row=15,column = 6)
 
 
 class MaschineWerte3(ttk.Frame):
@@ -2632,6 +2756,10 @@ class MaschineWerte3(ttk.Frame):
 
         button_1 = Button(self, text="Zurück"
                           , command=lambda: controller.show_frame(PageEnd, "Visualisierung durch Nachhaltigkeitsdreieck"))
+        button_2 = ttk.Button(self, text=" ? ", command=lambda: controller.acceptwerte(PageTutorial10, "Test"))
+
+        self.columnconfigure(5, minsize=3)
+        self.columnconfigure(7, minsize=3)
 
 
         self.wert_1_1 = Label(self, text= round(controller.get_page(StartPage).emissionen_norm[2].get(), 5), bg = colourer(controller.get_page(StartPage).emissionen_norm[2]))
@@ -2749,7 +2877,7 @@ class MaschineWerte3(ttk.Frame):
 
 
         button_1.grid(row=15, column=4)
-
+        button_2.grid(row=15,column = 6)
 
 
 class MaschineWerte4(ttk.Frame):
@@ -2764,6 +2892,10 @@ class MaschineWerte4(ttk.Frame):
 
         button_1 = ttk.Button(self, text="Zurück"
                           , command=lambda: controller.show_frame(PageEnd, "Visualisierung durch Nachhaltigkeitsdreieck"))
+        button_2 = ttk.Button(self, text=" ? ", command=lambda: controller.acceptwerte(PageTutorial11, "Test"))
+
+        self.columnconfigure(5, minsize=3)
+        self.columnconfigure(7, minsize=3)
 
 
         self.wert_1_1 = Label(self, text= round(controller.get_page(StartPage).emissionen_norm[3].get(), 5), bg = colourer(controller.get_page(StartPage).emissionen_norm[3]))
@@ -2881,10 +3013,593 @@ class MaschineWerte4(ttk.Frame):
 
 
         button_1.grid(row=15, column=4)
+        button_2.grid(row=15,column = 6)
+
+
+class PageTutorial1(ttk.Frame):
+    """Page for checking the normalised values for all indicators for Maschine 3. Also includes colour feedback on the values"""
+    def __init__(self, parent, controller):
+        ttk.Frame.__init__(self, parent)
+        self.controller = controller
+
+
+        button_1 = ttk.Button(self, text="Zurück"
+                          , command=lambda: controller.acceptwerte(PageOne, "Sozial-Ökologische Indikatoren"))
+
+        load1 = Image.open(resource_path('/IMAGES/Capture7.png'))
+        load1 = load1.resize((1355, 739), Image.ANTIALIAS)
+        render1 = ImageTk.PhotoImage(load1)
+        img1 = Label(self, image=render1)
+        img1.image = render1
+
+
+
+
+        img1.grid(row=0, column=0)
+        button_1.grid(row=1, column=0)
+
+class PageTutorial2(ttk.Frame):
+    """Page for checking the normalised values for all indicators for Maschine 3. Also includes colour feedback on the values"""
+    def __init__(self, parent, controller):
+        ttk.Frame.__init__(self, parent)
+        self.controller = controller
+
+
+        button_1 = ttk.Button(self, text="Zurück"
+                          , command=lambda: controller.acceptwerte(PageTwo, "Ökologische Indikatoren"))
+
+        load1 = Image.open(resource_path('/IMAGES/Capture7.png'))
+        load1 = load1.resize((1355, 739), Image.ANTIALIAS)
+        render1 = ImageTk.PhotoImage(load1)
+        img1 = Label(self, image=render1)
+        img1.image = render1
+
+
+
+
+        img1.grid(row=0, column=0)
+        button_1.grid(row=1, column=0)
+
+class PageTutorial3(ttk.Frame):
+    """Page for checking the normalised values for all indicators for Maschine 3. Also includes colour feedback on the values"""
+
+    def __init__(self, parent, controller):
+        ttk.Frame.__init__(self, parent)
+        self.controller = controller
+
+        button_1 = ttk.Button(self, text="Zurück"
+                              , command=lambda: controller.acceptwerte(PageThree, "Ökologisch-Ökonomische Indikatoren"))
+
+        load1 = Image.open(resource_path('/IMAGES/Capture7.png'))
+        load1 = load1.resize((1355, 739), Image.ANTIALIAS)
+        render1 = ImageTk.PhotoImage(load1)
+        img1 = Label(self, image=render1)
+        img1.image = render1
+
+        img1.grid(row=0, column=0)
+        button_1.grid(row=1, column=0)
+
+class PageTutorial4(ttk.Frame):
+    """Page for checking the normalised values for all indicators for Maschine 3. Also includes colour feedback on the values"""
+
+    def __init__(self, parent, controller):
+        ttk.Frame.__init__(self, parent)
+        self.controller = controller
+
+        button_1 = ttk.Button(self, text="Zurück"
+                              , command=lambda: controller.acceptwerte(PageFour, "Ökonomische Indikatoren"))
+
+        load1 = Image.open(resource_path('/IMAGES/Capture7.png'))
+        load1 = load1.resize((1355, 739), Image.ANTIALIAS)
+        render1 = ImageTk.PhotoImage(load1)
+        img1 = Label(self, image=render1)
+        img1.image = render1
+
+        img1.grid(row=0, column=0)
+        button_1.grid(row=1, column=0)
+
+class PageTutorial5(ttk.Frame):
+    """Page for checking the normalised values for all indicators for Maschine 3. Also includes colour feedback on the values"""
+
+    def __init__(self, parent, controller):
+        ttk.Frame.__init__(self, parent)
+        self.controller = controller
+
+        button_1 = ttk.Button(self, text="Zurück"
+                              , command=lambda: controller.acceptwerte(PageFive, "Sozial-Ökonomische Indikatoren"))
+
+        load1 = Image.open(resource_path('/IMAGES/Capture7.png'))
+        load1 = load1.resize((1355, 739), Image.ANTIALIAS)
+        render1 = ImageTk.PhotoImage(load1)
+        img1 = Label(self, image=render1)
+        img1.image = render1
+
+        img1.grid(row=0, column=0)
+        button_1.grid(row=1, column=0)
+
+class PageTutorial6(ttk.Frame):
+    """Page for checking the normalised values for all indicators for Maschine 3. Also includes colour feedback on the values"""
+
+    def __init__(self, parent, controller):
+        ttk.Frame.__init__(self, parent)
+        self.controller = controller
+
+        button_1 = ttk.Button(self, text="Zurück"
+                              , command=lambda: controller.acceptwerte(PageSix, "Sozial-Ökonomisch-Ökologische Indikatoren"))
+
+        load1 = Image.open(resource_path('/IMAGES/Capture7.png'))
+        load1 = load1.resize((1355, 739), Image.ANTIALIAS)
+        render1 = ImageTk.PhotoImage(load1)
+        img1 = Label(self, image=render1)
+        img1.image = render1
+
+        img1.grid(row=0, column=0)
+        button_1.grid(row=1, column=0)
+
+
+class PageTutorial7(ttk.Frame):
+    """Page for checking the normalised values for all indicators for Maschine 3. Also includes colour feedback on the values"""
+
+    def __init__(self, parent, controller):
+        ttk.Frame.__init__(self, parent)
+        self.controller = controller
+
+        button_1 = ttk.Button(self, text="Zurück"
+                              , command=lambda: controller.acceptwerte(PageEnd, "Visualisierung durch Nachhaltigkeitsdreieck"))
+
+        load1 = Image.open(resource_path('/IMAGES/Capture8.png'))
+        load1 = load1.resize((1355, 717), Image.ANTIALIAS)
+        render1 = ImageTk.PhotoImage(load1)
+        img1 = Label(self, image=render1)
+        img1.image = render1
+
+        img1.grid(row=0, column=0)
+        button_1.grid(row=1, column=0)
+
+
+class PageTutorial8(ttk.Frame):
+    """Page for checking the normalised values for all indicators for Maschine 3. Also includes colour feedback on the values"""
+
+    def __init__(self, parent, controller):
+        ttk.Frame.__init__(self, parent)
+        self.controller = controller
+
+        button_1 = ttk.Button(self, text="Zurück"
+                              , command=lambda: controller.acceptwerte(MaschineWerte1, "Flechtmaschine"))
+
+        load1 = Image.open(resource_path('/IMAGES/Capture9.png'))
+        load1 = load1.resize((1355, 578), Image.ANTIALIAS)
+        render1 = ImageTk.PhotoImage(load1)
+        img1 = Label(self, image=render1)
+        img1.image = render1
+
+        img1.grid(row=0, column=0)
+        button_1.grid(row=1, column=0)
+
+class PageTutorial9(ttk.Frame):
+    """Page for checking the normalised values for all indicators for Maschine 3. Also includes colour feedback on the values"""
+
+    def __init__(self, parent, controller):
+        ttk.Frame.__init__(self, parent)
+        self.controller = controller
+
+        button_1 = ttk.Button(self, text="Zurück"
+                              , command=lambda: controller.acceptwerte(MaschineWerte2, "Multifilamentwickelmaschine 90"))
+
+        load1 = Image.open(resource_path('/IMAGES/Capture9.png'))
+        load1 = load1.resize((1355, 578), Image.ANTIALIAS)
+        render1 = ImageTk.PhotoImage(load1)
+        img1 = Label(self, image=render1)
+        img1.image = render1
+
+        img1.grid(row=0, column=0)
+        button_1.grid(row=1, column=0)
+
+class PageTutorial10(ttk.Frame):
+    """Page for checking the normalised values for all indicators for Maschine 3. Also includes colour feedback on the values"""
+
+    def __init__(self, parent, controller):
+        ttk.Frame.__init__(self, parent)
+        self.controller = controller
+
+        button_1 = ttk.Button(self, text="Zurück"
+                              , command=lambda: controller.acceptwerte(MaschineWerte3, "Multifilamentwickelmaschine 48"))
+
+        load1 = Image.open(resource_path('/IMAGES/Capture9.png'))
+        load1 = load1.resize((1355, 578), Image.ANTIALIAS)
+        render1 = ImageTk.PhotoImage(load1)
+        img1 = Label(self, image=render1)
+        img1.image = render1
+
+        img1.grid(row=0, column=0)
+        button_1.grid(row=1, column=0)
+
+class PageTutorial11(ttk.Frame):
+    """Page for checking the normalised values for all indicators for Maschine 3. Also includes colour feedback on the values"""
+
+    def __init__(self, parent, controller):
+        ttk.Frame.__init__(self, parent)
+        self.controller = controller
+
+        button_1 = ttk.Button(self, text="Zurück"
+                              , command=lambda: controller.acceptwerte(MaschineWerte4, "Nasswickelmaschine"))
+
+        load1 = Image.open(resource_path('/IMAGES/Capture9.png'))
+        load1 = load1.resize((1355, 578), Image.ANTIALIAS)
+        render1 = ImageTk.PhotoImage(load1)
+        img1 = Label(self, image=render1)
+        img1.image = render1
+
+        img1.grid(row=0, column=0)
+        button_1.grid(row=1, column=0)
+
+
+class StartTutorial1(ttk.Frame):
+    """Page for checking the normalised values for all indicators for Maschine 3. Also includes colour feedback on the values"""
+    def __init__(self, parent, controller):
+        ttk.Frame.__init__(self, parent)
+        self.controller = controller
+
+
+        button_2 = ttk.Button(self, text="Nächste Seite",
+                              command=lambda: controller.show_frame(StartTutorial2, "Tutorial (2/14)"))
+        button_3 = ttk.Button(self, text="Abbrechen", command=lambda: controller.show_frame(StartPage, "Maschinenauswahl"))
+
+        load2 = Image.open(resource_path('/IMAGES/Capture2.png'))
+        load2 = load2.resize((1355, 583), Image.ANTIALIAS)
+        render2 = ImageTk.PhotoImage(load2)
+        img2 = Label(self, image=render2)
+        img2.image = render2
+
+
+
+
+        img2.grid(row=0, column=0, columnspan=3)
+
+        button_2.grid(row=1, column=1)
+        button_3.grid(row=1, column=2)
+
+class StartTutorial2(ttk.Frame):
+    """Page for checking the normalised values for all indicators for Maschine 3. Also includes colour feedback on the values"""
+    def __init__(self, parent, controller):
+        ttk.Frame.__init__(self, parent)
+        self.controller = controller
+
+        button_1 = ttk.Button(self, text="Zurück",
+                              command=lambda: controller.show_frame(StartTutorial1, "Tutorial (1/14)"))
+        button_2 = ttk.Button(self, text="Nächste Seite",
+                              command=lambda: controller.show_frame(StartTutorial3, "Tutorial (3/14)"))
+        button_3 = ttk.Button(self, text="Abbrechen", command=lambda: controller.show_frame(StartPage, "Maschinenauswahl"))
+
+        load3 = Image.open(resource_path('/IMAGES/Capture3.png'))
+        load3 = load3.resize((1355, 601), Image.ANTIALIAS)
+        render3 = ImageTk.PhotoImage(load3)
+        img3 = Label(self, image=render3)
+        img3.image = render3
+
+
+
+
+        img3.grid(row=0, column=0, columnspan=3)
+        button_1.grid(row=1, column=0)
+        button_2.grid(row=1, column=1)
+        button_3.grid(row=1, column=2)
+
+class StartTutorial3(ttk.Frame):
+    """Page for checking the normalised values for all indicators for Maschine 3. Also includes colour feedback on the values"""
+    def __init__(self, parent, controller):
+        ttk.Frame.__init__(self, parent)
+        self.controller = controller
+
+        button_1 = ttk.Button(self, text="Zurück",
+                              command=lambda: controller.show_frame(StartTutorial2, "Tutorial (2/14)"))
+        button_2 = ttk.Button(self, text="Nächste Seite",
+                              command=lambda: controller.show_frame(StartTutorial4, "Tutorial (4/14)"))
+        button_3 = ttk.Button(self, text="Abbrechen", command=lambda: controller.show_frame(StartPage, "Maschinenauswahl"))
+
+        load3 = Image.open(resource_path('/IMAGES/Capture4.png'))
+        load3 = load3.resize((1355, 693), Image.ANTIALIAS)
+        render3 = ImageTk.PhotoImage(load3)
+        img3 = Label(self, image=render3)
+        img3.image = render3
+
+
+
+
+        img3.grid(row=0, column=0, columnspan=3)
+        button_1.grid(row=1, column=0)
+        button_2.grid(row=1, column=1)
+        button_3.grid(row=1, column=2)
+
+class StartTutorial4(ttk.Frame):
+    """Page for checking the normalised values for all indicators for Maschine 3. Also includes colour feedback on the values"""
+    def __init__(self, parent, controller):
+        ttk.Frame.__init__(self, parent)
+        self.controller = controller
+
+        button_1 = ttk.Button(self, text="Zurück",
+                              command=lambda: controller.show_frame(StartTutorial3, "Tutorial (3/14)"))
+        button_2 = ttk.Button(self, text="Nächste Seite",
+                              command=lambda: controller.show_frame(StartTutorial5, "Tutorial (5/14)"))
+        button_3 = ttk.Button(self, text="Abbrechen", command=lambda: controller.show_frame(StartPage, "Maschinenauswahl"))
+
+        load3 = Image.open(resource_path('/IMAGES/Capture5.png'))
+        load3 = load3.resize((1355, 675), Image.ANTIALIAS)
+        render3 = ImageTk.PhotoImage(load3)
+        img3 = Label(self, image=render3)
+        img3.image = render3
+
+
+
+
+        img3.grid(row=0, column=0, columnspan=3)
+        button_1.grid(row=1, column=0)
+        button_2.grid(row=1, column=1)
+        button_3.grid(row=1, column=2)
+
+class StartTutorial5(ttk.Frame):
+    """Page for checking the normalised values for all indicators for Maschine 3. Also includes colour feedback on the values"""
+    def __init__(self, parent, controller):
+        ttk.Frame.__init__(self, parent)
+        self.controller = controller
+
+        button_1 = ttk.Button(self, text="Zurück",
+                              command=lambda: controller.show_frame(StartTutorial4, "Tutorial (4/14)"))
+        button_2 = ttk.Button(self, text="Nächste Seite",
+                              command=lambda: controller.show_frame(StartTutorial6, "Tutorial (6/14)"))
+        button_3 = ttk.Button(self, text="Abbrechen", command=lambda: controller.show_frame(StartPage, "Maschinenauswahl"))
+
+        load3 = Image.open(resource_path('/IMAGES/Capture6.png'))
+        load3 = load3.resize((1355, 673), Image.ANTIALIAS)
+        render3 = ImageTk.PhotoImage(load3)
+        img3 = Label(self, image=render3)
+        img3.image = render3
+
+
+
+
+        img3.grid(row=0, column=0, columnspan=3)
+        button_1.grid(row=1, column=0)
+        button_2.grid(row=1, column=1)
+        button_3.grid(row=1, column=2)
+
+class StartTutorial6(ttk.Frame):
+    """Page for checking the normalised values for all indicators for Maschine 3. Also includes colour feedback on the values"""
+    def __init__(self, parent, controller):
+        ttk.Frame.__init__(self, parent)
+        self.controller = controller
+
+        button_1 = ttk.Button(self, text="Zurück",
+                              command=lambda: controller.show_frame(StartTutorial5, "Tutorial (5/14)"))
+        button_2 = ttk.Button(self, text="Nächste Seite",
+                              command=lambda: controller.show_frame(StartTutorial7, "Tutorial (7/14)"))
+        button_3 = ttk.Button(self, text="Abbrechen", command=lambda: controller.show_frame(StartPage, "Maschinenauswahl"))
+
+        load3 = Image.open(resource_path('/IMAGES/Capture7.png'))
+        load3 = load3.resize((1355, 739), Image.ANTIALIAS)
+        render3 = ImageTk.PhotoImage(load3)
+        img3 = Label(self, image=render3)
+        img3.image = render3
+
+
+
+
+        img3.grid(row=0, column=0, columnspan=3)
+        button_1.grid(row=1, column=0)
+        button_2.grid(row=1, column=1)
+        button_3.grid(row=1, column=2)
+
+class StartTutorial7(ttk.Frame):
+    """Page for checking the normalised values for all indicators for Maschine 3. Also includes colour feedback on the values"""
+    def __init__(self, parent, controller):
+        ttk.Frame.__init__(self, parent)
+        self.controller = controller
+
+        button_1 = ttk.Button(self, text="Zurück",
+                              command=lambda: controller.show_frame(StartTutorial6, "Tutorial (6/14)"))
+        button_2 = ttk.Button(self, text="Nächste Seite",
+                              command=lambda: controller.show_frame(StartTutorial8, "Tutorial (8/14)"))
+        button_3 = ttk.Button(self, text="Abbrechen", command=lambda: controller.show_frame(StartPage, "Maschinenauswahl"))
+
+        load3 = Image.open(resource_path('/IMAGES/Capture8.png'))
+        load3 = load3.resize((1355, 717), Image.ANTIALIAS)
+        render3 = ImageTk.PhotoImage(load3)
+        img3 = Label(self, image=render3)
+        img3.image = render3
+
+
+
+
+        img3.grid(row=0, column=0, columnspan=3)
+        button_1.grid(row=1, column=0)
+        button_2.grid(row=1, column=1)
+        button_3.grid(row=1, column=2)
+
+class StartTutorial8(ttk.Frame):
+    """Page for checking the normalised values for all indicators for Maschine 3. Also includes colour feedback on the values"""
+    def __init__(self, parent, controller):
+        ttk.Frame.__init__(self, parent)
+        self.controller = controller
+
+        button_1 = ttk.Button(self, text="Zurück",
+                              command=lambda: controller.show_frame(StartTutorial7, "Tutorial (7/14)"))
+        button_2 = ttk.Button(self, text="Nächste Seite",
+                              command=lambda: controller.show_frame(StartTutorial9, "Tutorial (9/14)"))
+        button_3 = ttk.Button(self, text="Abbrechen", command=lambda: controller.show_frame(StartPage, "Maschinenauswahl"))
+
+        load3 = Image.open(resource_path('/IMAGES/Capture9.png'))
+        load3 = load3.resize((1355, 578), Image.ANTIALIAS)
+        render3 = ImageTk.PhotoImage(load3)
+        img3 = Label(self, image=render3)
+        img3.image = render3
+
+
+
+
+        img3.grid(row=0, column=0, columnspan=3)
+        button_1.grid(row=1, column=0)
+        button_2.grid(row=1, column=1)
+        button_3.grid(row=1, column=2)
+
+class StartTutorial9(ttk.Frame):
+    """Page for checking the normalised values for all indicators for Maschine 3. Also includes colour feedback on the values"""
+    def __init__(self, parent, controller):
+        ttk.Frame.__init__(self, parent)
+        self.controller = controller
+
+        button_1 = ttk.Button(self, text="Zurück",
+                              command=lambda: controller.show_frame(StartTutorial8, "Tutorial (8/14)"))
+        button_2 = ttk.Button(self, text="Nächste Seite",
+                              command=lambda: controller.show_frame(StartTutorial10, "Tutorial (10/14)"))
+        button_3 = ttk.Button(self, text="Abbrechen", command=lambda: controller.show_frame(StartPage, "Maschinenauswahl"))
+
+        load3 = Image.open(resource_path('/IMAGES/Capture10.png'))
+        load3 = load3.resize((1355, 504), Image.ANTIALIAS)
+        render3 = ImageTk.PhotoImage(load3)
+        img3 = Label(self, image=render3)
+        img3.image = render3
+
+
+
+
+        img3.grid(row=0, column=0, columnspan=3)
+        button_1.grid(row=1, column=0)
+        button_2.grid(row=1, column=1)
+        button_3.grid(row=1, column=2)
+
+class StartTutorial10(ttk.Frame):
+    """Page for checking the normalised values for all indicators for Maschine 3. Also includes colour feedback on the values"""
+    def __init__(self, parent, controller):
+        ttk.Frame.__init__(self, parent)
+        self.controller = controller
+
+        button_1 = ttk.Button(self, text="Zurück",
+                              command=lambda: controller.show_frame(StartTutorial9, "Tutorial (9/14)"))
+        button_2 = ttk.Button(self, text="Nächste Seite",
+                              command=lambda: controller.show_frame(StartTutorial11, "Tutorial (11/14)"))
+        button_3 = ttk.Button(self, text="Abbrechen", command=lambda: controller.show_frame(StartPage, "Maschinenauswahl"))
+
+        load3 = Image.open(resource_path('/IMAGES/Capture11.png'))
+        load3 = load3.resize((1355, 284), Image.ANTIALIAS)
+        render3 = ImageTk.PhotoImage(load3)
+        img3 = Label(self, image=render3)
+        img3.image = render3
+
+
+
+
+        img3.grid(row=0, column=0, columnspan=3)
+        button_1.grid(row=1, column=0)
+        button_2.grid(row=1, column=1)
+        button_3.grid(row=1, column=2)
+
+class StartTutorial11(ttk.Frame):
+    """Page for checking the normalised values for all indicators for Maschine 3. Also includes colour feedback on the values"""
+    def __init__(self, parent, controller):
+        ttk.Frame.__init__(self, parent)
+        self.controller = controller
+
+        button_1 = ttk.Button(self, text="Zurück",
+                              command=lambda: controller.show_frame(StartTutorial10, "Tutorial (10/14)"))
+        button_2 = ttk.Button(self, text="Nächste Seite",
+                              command=lambda: controller.show_frame(StartTutorial12, "Tutorial (12/14)"))
+        button_3 = ttk.Button(self, text="Abbrechen", command=lambda: controller.show_frame(StartPage, "Maschinenauswahl"))
+
+        load3 = Image.open(resource_path('/IMAGES/Capture12.png'))
+        load3 = load3.resize((1355, 431), Image.ANTIALIAS)
+        render3 = ImageTk.PhotoImage(load3)
+        img3 = Label(self, image=render3)
+        img3.image = render3
+
+
+
+
+        img3.grid(row=0, column=0, columnspan=3)
+        button_1.grid(row=1, column=0)
+        button_2.grid(row=1, column=1)
+        button_3.grid(row=1, column=2)
+
+class StartTutorial12(ttk.Frame):
+    """Page for checking the normalised values for all indicators for Maschine 3. Also includes colour feedback on the values"""
+    def __init__(self, parent, controller):
+        ttk.Frame.__init__(self, parent)
+        self.controller = controller
+
+        button_1 = ttk.Button(self, text="Zurück",
+                              command=lambda: controller.show_frame(StartTutorial11, "Tutorial (11/14)"))
+        button_2 = ttk.Button(self, text="Nächste Seite",
+                              command=lambda: controller.show_frame(StartTutorial13, "Tutorial (13/14)"))
+        button_3 = ttk.Button(self, text="Abbrechen", command=lambda: controller.show_frame(StartPage, "Maschinenauswahl"))
+
+        load3 = Image.open(resource_path('/IMAGES/Capture13.png'))
+        load3 = load3.resize((1355, 537), Image.ANTIALIAS)
+        render3 = ImageTk.PhotoImage(load3)
+        img3 = Label(self, image=render3)
+        img3.image = render3
+
+
+
+
+        img3.grid(row=0, column=0, columnspan=3)
+        button_1.grid(row=1, column=0)
+        button_2.grid(row=1, column=1)
+        button_3.grid(row=1, column=2)
+
+class StartTutorial13(ttk.Frame):
+    """Page for checking the normalised values for all indicators for Maschine 3. Also includes colour feedback on the values"""
+    def __init__(self, parent, controller):
+        ttk.Frame.__init__(self, parent)
+        self.controller = controller
+
+        button_1 = ttk.Button(self, text="Zurück",
+                              command=lambda: controller.show_frame(StartTutorial12, "Tutorial (12/14)"))
+        button_2 = ttk.Button(self, text="Nächste Seite",
+                              command=lambda: controller.show_frame(StartTutorial14, "Tutorial (14/14)"))
+        button_3 = ttk.Button(self, text="Abbrechen", command=lambda: controller.show_frame(StartPage, "Maschinenauswahl"))
+
+        load3 = Image.open(resource_path('/IMAGES/Capture14.png'))
+        load3 = load3.resize((1355, 435), Image.ANTIALIAS)
+        render3 = ImageTk.PhotoImage(load3)
+        img3 = Label(self, image=render3)
+        img3.image = render3
+
+
+
+
+        img3.grid(row=0, column=0, columnspan=3)
+        button_1.grid(row=1, column=0)
+        button_2.grid(row=1, column=1)
+        button_3.grid(row=1, column=2)
+
+class StartTutorial14(ttk.Frame):
+    """Page for checking the normalised values for all indicators for Maschine 3. Also includes colour feedback on the values"""
+    def __init__(self, parent, controller):
+        ttk.Frame.__init__(self, parent)
+        self.controller = controller
+
+        button_1 = ttk.Button(self, text="Zurück",
+                              command=lambda: controller.show_frame(StartTutorial13, "Tutorial (13/14)"))
+
+        button_3 = ttk.Button(self, text="Abbrechen", command=lambda: controller.show_frame(StartPage, "Maschinenauswahl"))
+
+        load3 = Image.open(resource_path('/IMAGES/Capture15.png'))
+        load3 = load3.resize((1355, 509), Image.ANTIALIAS)
+        render3 = ImageTk.PhotoImage(load3)
+        img3 = Label(self, image=render3)
+        img3.image = render3
+
+
+
+
+        img3.grid(row=0, column=0, columnspan=3)
+        button_1.grid(row=1, column=0)
+
+        button_3.grid(row=1, column=2)
 
 
 
 app = H2MW()
+Pmw.initialise(app)
 app.set_theme("aquativo") #sets ThemedTK Theme
 app.iconbitmap(resource_path('/IMAGES/H2MW_ICON.ico')) #Sets Application Icon
 app.resizable(0,0) #Disables resizing
